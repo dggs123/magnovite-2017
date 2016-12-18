@@ -110,7 +110,7 @@
         </div>
     </div>
 
-    <div class="full-body">
+    <div class="full-body loading">
 
         {% block page_banner %}
        <header id="navigation" class="navbar-fixed-top navbar">
@@ -359,6 +359,7 @@
         // preloader
         $("#preloader").fadeOut(1200);
         $("#preloader-status").delay(200).fadeOut("slow");
+        $(".full-body").removeClass("loading");
     });
 
 
