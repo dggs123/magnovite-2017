@@ -1,0 +1,88 @@
+.home-footer {
+
+    .contact {
+        background: rgb(0, 6, 15);
+        background-image: url('/static/img/bg_dark_blue.png');
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+        width: 100%;
+        padding: 50px;
+
+        .title {
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-row {
+            padding: 40px 0 20px 0;
+        }
+
+        .contact-box {
+            width: 250px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 10px;
+            display: inline-block;
+            vertical-align: bottom;
+            margin-right: 10px;
+
+            .name {
+                font-weight: bold;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            a {
+                display: block;
+
+                &.email {
+                    text-decoration: none;
+                }
+            }
+
+            h4 {
+                font-size: 22px;
+                margin: 10px 0 15px 0;
+            }
+        }
+    }
+
+    .footer-last {
+        background: #0A1A2B;
+        padding: 50px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.5);
+
+        .copy {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .dev {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 5px;
+
+            a {
+                color: #ddd;
+                text-decoration: none;
+                border-bottom: 1px solid @banner_color;
+
+                &:hover {
+                    color: @banner_color;
+                }
+            }
+        }
+    }
+}
+
+.mobile .home-footer {
+    .contact {
+        padding: 50px 15px;
+
+        .contact-box {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+    }
+}
