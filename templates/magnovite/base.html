@@ -74,15 +74,6 @@
 <body class="page-loading {% block "body_css_class" %}{% endblock %}">
     {% csrf_token %}
 
-     <!-- preloader start -->
-        <div id="preloader">
-            <div id="preloader-status">
-                <div class="logo">
-                    <a class="logo" href="#"><img alt="Logo" src="/static/home/img/magnovite-logo.png"></a>
-                </div><!-- logo end -->
-            </div>
-        </div><!-- preloader end -->
-
     <!-- login modal -->
     <div class="login-modal modal" id="login-modal">
         <div class="modal-inner">
@@ -355,14 +346,6 @@
     app.modal.show('#login-modal');
  });
      
-     $(window).load(function() {
-        
-        // preloader
-        $("#preloader").fadeOut(50);
-        $("#preloader-status").delay(50).fadeOut("slow");
-
-    });
-
 
     $(document).ready(function(){
 
@@ -410,6 +393,7 @@
              if(!$(this).hasClass("dropdown-toggle") && !$(this).hasClass("login-register"))
                  window.location.href = $(this).attr('href');
  });
+           $("img.lazy").lazyload();
 
 
 
