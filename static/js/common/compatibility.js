@@ -44,11 +44,11 @@ $(function() {
         }
 
         if (notify) {
-            app.notification.notify({
-                text: 'For the best experience on this website, please use Google Chrome',
-                type: 'warn',
-                persistant: true
-            });
+            // app.notification.notify({
+            //     text: 'For the best experience on this website, please use Google Chrome',
+            //     type: 'warn',
+            //     persistant: true
+            // });
         }
     }
 });
