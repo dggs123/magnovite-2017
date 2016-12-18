@@ -1,0 +1,140 @@
+{% extends "magnovite/base.html" %}
+{% load humanize %}
+
+{% block "extra_meta" %}
+<meta name="description" content="Christ University presents its annual techno-cultural fest Magnovite V6, on 2nd and 3rd and 4th of March 2017." />
+<meta name="keywords" content="Magnovite,Tech Fest" />
+<meta name="author" content="CUFE" />
+
+<meta property="og:title" content="Campus Ambassador | Magnovite V6" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/static/img/campus/cap-magnovite.jpg" />
+<meta property="og:url" content="https://magnovite.net/campus/" />
+<meta property="og:description" content="The Campus Ambassador program undertaken by Magnovite Fest at Christ University.." />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Campus Ambassador | Magnovite V6" />
+<meta name="twitter:description" content="The Campus Ambassador program undertaken by Magnovite Fest.." />
+<meta name="twitter:image" content="/static/img/campus/cap-magnovite.jpg" />
+{% endblock "extra_meta" %}
+
+{% block "body_css_class" %}
+camus-ambester {% if is_registered %}registered{% endif %}
+{% endblock %}
+
+ {% block "css_extra" %}
+ <style type="text/css">
+ 	
+ 	.page .container
+ 	{
+ 		width: 1300px;
+ 	}
+ 	.page .right
+ 	{
+ 		width: 30%;
+ 	}
+ 	.register-button
+ 	{
+ 		width: 100%;
+ 	}
+ 	.page .left
+ 	{
+ 		width: 70%;
+ 	}
+
+ 	.register-button .check
+ 	{
+ 		left: 80px;
+ 	}
+ 	.page .right .heads .left-head
+ 	{
+ 		width: 45%;
+ 	}
+ 	.page .right .heads .right-head
+ 	{
+ 		width: 80%;
+ 	}
+ </style>
+
+ {% endblock "css_extra" %}
+
+{% block "post_js" %}
+<script>
+app.campusAmbester.init();
+</script>
+{% endblock "post_js" %}
+
+{% block "content" %}
+<div class="page-container">
+
+<div class="event-cover">
+	<img class="image" src="/static/img/campus/cap-magnovite.jpg" style="height:600px;" />
+
+	<div class="content">
+		<div class="inner-content">
+			<h1>Campus Ambassador</h1>
+		</div>
+	</div>
+</div>
+
+<div class="page-outer">
+<div class="page">
+	<div class="container">
+
+		<div class="pane right">
+			<div class="register-container">
+				
+				<div class="register-button
+				{% if is_registered %}registered{% endif %}">
+					<div class="inner">
+
+
+						<div class="text-container">
+							<div class="check"></div>
+							{% if is_registered %}
+								<p class="text js-text">Unregister</p>
+							{% else %}
+								<p class="text js-text">Register</p>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="heads">
+				
+				<div class="head">
+					<div class="left-head">
+						<img src="/static/img/events/head_default.jpg" alt="">
+					</div>
+					<div class="right-head">
+						<p class="name">Divyendu Mishra</p>
+						<p class="details">09839350748</p>
+						<p class="details">divyendu.mishra@btech.christuniversity.in</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+		<div class="pane left">
+			<div class="markdown">
+				The Campus Ambassador program undertaken by Magnovite Fest, Christ University primarily aims to incorporate participation from students spread across the nation in various colleges.
+				<br> <br>
+				A Campus Ambassador is an official representative of Magnovite Fest in his/her college and is the essential link between the two. As a Campus Ambassador you shall be coordinating with Magnovite Fest to ensure maximum participation at Christ University from your college. This can be achieved through:
+				<ul style="font-size:16px;">
+				<li>Word of Mouth</li>
+				<li>Posters</li>
+				<li>Online publicity of Magnovite Fest through social media in your city and especially in your college </li>
+				<li>Helping out Magnovite Fest to reach out to your college in any manner you deem fit. </li>			
+				</ul>
+				<br>
+				This is a good opportunity for students looking to undertake a position of responsibility and gain an exposure to the much needed communication and managerial skills. Campus Ambassadors are an important part of the extended family of Magnovite Fest which is acknowledged with a certificate from the Christ University, along with other benefits as enlisted. 
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+</div>
+{% endblock %}

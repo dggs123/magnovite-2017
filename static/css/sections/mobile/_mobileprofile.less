@@ -1,0 +1,110 @@
+.mobile.page-profile {
+    .s-right {
+        width: 100%;
+    }
+
+    .s-scene {
+        margin: 10px;
+    }
+
+    .s-left {
+        width: 100%;
+
+        .s-item-box {
+            margin: 0;
+        }
+
+        .s-section-list {
+            overflow: hidden;
+
+            li {
+                float: left;
+                width: 33.33333333%;
+                text-align: center;
+                margin: 0;
+
+                .s-item-inner {
+                    display: block;
+                    width: 100%;
+                }
+
+                &:hover, &.selected {
+                    background: transparent;
+                    color: rgba(255, 255, 255, 0.95);
+                    border-bottom: 3px solid @banner_color;
+
+                    .s-item-inner {
+                        transform: translateX(0px);
+                    }
+                }
+            }
+        }
+    }
+
+    .profile-scene input {
+        width: 100%;
+    }
+
+    .help-scene {
+        .messages {
+            width: 100%;
+        }
+
+        .message {
+            width: 100%;
+
+            &.me {
+                margin-left: 15px;
+
+                .timestamp {
+                    right: 25px;
+                }
+
+                .message-inner {
+                    padding-right: 30px;
+                }
+            }
+
+            &.them {
+                margin-right: 15px;
+
+                .message-inner {
+                    padding-left: 30px;
+                }
+            }
+        }
+    }
+
+    .schedule-scene {
+        .strip {
+            width: 100%;
+            height: @schedule_strip_height * 2;
+            overflow: hidden;
+        }
+
+        .sq-time {
+            width: 30%;
+        }
+
+        .sq-event {
+            width: 70%;
+            font-size: 24px;
+        }
+
+        .sq-contact {
+            width: 80%;
+
+            .profile-pic {
+                display: none;
+            }
+
+            a {
+                text-decoration: underline;
+            }
+        }
+
+        .sq-more {
+            width: 20%;
+        }
+    }
+}

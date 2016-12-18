@@ -1,0 +1,16 @@
+{% load l10n %}
+
+Hello {{profile.first_name}},
+
+We have successfully received your payment of {{invoice.amount}}/- towards "{{invoice.description}}".
+
+You can keep this email as a receipt if required, When you attend the event/workshop please make sure you carry with you the college ID card. Also if you can show the receipt (link below) either on your phone or as a printout the process will be faster and easier.
+
+Your personal Receipt:
+https://magnovite.net/receipt/{{profile.receipt_id}}/
+
+User ID: {{profile.user.get_id|unlocalize}}
+Transaction ID: {{invoice.get_id}}
+
+Thanks!
+Magnovite Team

@@ -1,0 +1,406 @@
+{% load socialaccount %}
+{% load static %}
+
+<!--
+ *
+ * Hello there!
+ *
+ * We find your interest flattering :) Please don't bother reading this
+ * pile of minified and compiled code. If you're curious
+ * head out to https://github.com/dggs123/magnovite-v6
+ * and check out the whole code (including backend) in all its
+ * unminified glory.
+ *
+ * If you find a flaw, or a bug please do report it (pretty please :D)
+ * or if you're feeling especially generous send us a pull request.
+ *
+ * Thank you,
+ * Magnovite Web Development Team
+ *
+ * Code Contributors
+ *      - Gaurav Sehgal
+ *      -Abhishek
+ *
+ * (https://github.com/AeonAxan/magnovite-v6/graphs/contributors)
+ *
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Magnovite V6 || Beyond Infinity</title>
+    <link rel="shortcut icon" href="/static/img/msprite.png">
+
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta charset="utf-8">
+
+    <link rel="apple-touch-icon" href="/static/img/logo_square.png">
+    <meta name="apple-mobile-web-app-title" content="Magnovite V6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#091A27">
+
+    {% block "extra_meta" %}
+    <meta name="description" content="Christ University presents its annual techno-cultural fest Magnovite V6, on 2nd and 3rd and 4th of March 2017." />
+    <meta name="keywords" content="Magnovite,Tech Fest" />
+    <meta name="author" content="CUFE" />
+
+    <meta property="og:title" content="Magnovite V6" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://magnovite.net/static/img/logo_square_share.png" />
+    <meta property="og:url" content="https://magnovite.net/" />
+    <meta property="og:description" content="Christ University presents its annual techno-cultural fest Magnovite V6, on 2nd and 3rd and 4th of March 2017." />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Magnovite V6" />
+    <meta name="twitter:description" content="Christ University presents its annual techno-cultural fest Magnovite V6, on 2nd and 3rd and 4th of March 2017." />
+    <meta name="twitter:image" content="https://magnovite.net/static/img/logo_square_share.png" />
+    {% endblock "extra_meta" %}
+    <!-- Fontawesome Icon font -->
+        <link rel="stylesheet" href="/static/new/css/font-awesome.min.css">
+    <!-- build:css(./app/) /static/dist/style.css -->
+    <link rel="stylesheet" href="/static/css/app.css" />
+    <!-- endbuild -->
+    <!-- Twitter Bootstrap css -->
+        <link rel="stylesheet" href="/static/new/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/nav.css">
+    <!-- build:js(./app/) /static/dist/js-head.js -->
+        <script src="/static/js/lib/modernizer.js"></script>
+    <!-- endbuild -->
+
+    {% block "css_extra" %}{% endblock "css_extra" %}
+</head>
+<body class="page-loading {% block "body_css_class" %}{% endblock %}">
+    {% csrf_token %}
+
+    <!-- login modal -->
+    <div class="login-modal modal" id="login-modal">
+        <div class="modal-inner">
+            <div class="close">&times;</div>
+
+            <h2 class="title">Login or Register</h2>
+
+            <div class="body">
+                <div class="buttons">
+                    <div class="social-button">
+                        <img src="/static/img/google.png" alt="Google">
+                        <a href="{% provider_login_url "google" %}?next={{request.path}}" class="social-a-go"></a>
+                    </div>
+                    <div class="social-button">
+                        <img src="/static/img/github.png" alt="Github">
+                        <a href='{% provider_login_url "github" %}?next={{request.path}}' class="social-a-gi"></a>
+                    </div>
+                </div>
+                <p class="help-text">
+                    Why only Social Login? Because we dont want
+                    you to have to remember another set of username/password.
+                    We request only basic details and will <strong>not</strong> post anything on your behalf.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="full-body">
+
+        {% block page_banner %}
+       <header id="navigation" class="navbar-fixed-top navbar">
+            <div class="container" style="overflow:visible;">
+                <div class="navbar-header">
+                    <!-- responsive nav button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-bars fa-2x"></i>
+                    </button>
+                    <!-- /responsive nav button -->
+
+                    <!-- logo -->
+                    <a class="navbar-brand" href="{% url 'home' %}">
+                        <h1 id="logo">
+                            <img src="/static/img/logo.png" alt="Magnovite">
+                        </h1>
+
+                    </a>
+                    <!-- /logo -->
+                </div>
+
+                <!-- main nav -->
+                <nav class="collapse navbar-collapse navbar-right" role="navigation">
+                    <ul id="nav" class="nav navbar-nav">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'events' %}">Events</a></li>
+                        <li><a href="{% url 'campus' %}">Campus Ambassador</a></li>
+                        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                        
+                        
+                        {% if user.is_authenticated %}
+                            <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Hi, {{ profile.name }}
+                                <span class="small">▼</span>
+                            </a>
+                            <ul class="dropdown-menu drop">
+                              <li><a href="/profile/">Profile</a></li>
+                              <li><a href="/profile/#schedule">Schedule</a></li>
+                              <li><a href="/profile/#help">Help</a></li>
+                              <li><a href="/logout/?next={{request.path}}">Logout</a></li>
+                            </ul>
+                            </li>
+                        {% else %}
+                        <li class="login-register">
+                        <a href="#">Login/Register</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                <!-- /main nav -->
+            </div>
+        </header>
+        {% endblock page_banner %}
+
+        <div class="notifications">
+            <script type="text/template" id="notification-template">
+                <div data-id="[[id]]" class="notification [[type]] [[actionClass]]">
+                    <p class="close js-notif-close">x</p>
+
+                    <p class="text">[[text]]</p>
+                    <a href="#" class="action js-notif-action">[[action]]</a>
+                </div>
+            </script>
+        </div>
+
+        {% block "content" %}{% endblock %}
+
+    </div>
+
+    <div class="slide-menu-cover"></div>
+
+    <div class="slide-menu">
+        <ul>
+            <li class="header">
+                <a href="#">Menu</a>
+                <span class="close js-slide-close">X</span>
+            </li>
+           
+
+        </ul>
+    </div>
+     {% block "footer" %}
+     <!--
+        End Contact Us
+        ==================================== -->
+        <footer id="footer" class="footer">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms">
+                            <div class="footer-single">
+                                <img src="/static/img/logo.png" alt="">
+                                <p>Magnovite is a Techno Cultural Fest organised by  Christ University Faculty of Engineering, Bengaluru, Karnataka</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
+                            <div class="footer-single">
+                                <h6>Subscribe </h6>
+                                <form action="#" class="subscribe">
+                                    <input type="text" name="subscribe" placeholder="Email" id="subscribe">
+                                    <input type="submit" value="&#8594;" id="subs">
+                                </form>
+                                <p> </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="600ms">
+                            <div class="footer-single">
+                                <h6>Explore</h6>
+                  <ul class="social-links">
+                    <li><a href="https://twitter.com"><i class="fa fa-twitter fa-lg"></i></a></li>
+                    <li><a href="https://www.facebook.com"><i class="fa fa-facebook fa-lg"></i></a></li>
+                    <li><a href="https://plus.google.com"><i class="fa fa-google-plus fa-lg"></i></a></li>
+                  </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="copyright text-center">
+                                Copyright © 2016 <a href="http://christuniversity.in">Christ University</a>. All rights reserved. Designed & developed by <a href="them"></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            {% endblock %}
+
+
+    {% block "pre_js" %}{% endblock %}
+
+    <script>
+    var app = {};
+
+    if (window.innerWidth < 767 ||
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        document.body.classList.add('mobile');
+        app.mobile = true;
+
+        // hide addressbar
+        setTimeout(function(){
+            window.scrollTo(0, 1);
+        }, 0);
+    } else {
+        document.body.classList.add('desktop');
+        app.desktop = true;
+    }
+
+    app.DEBUG = true;
+    </script>
+
+    <!-- build:js(./app/) /static/dist/app.js -->
+
+    <!-- Lib -->
+        <script src="/static/js/lib/jquery-2.1.1.min.js"></script>
+        <!-- Single Page Nav -->
+        <script src="/static/new/js/jquery.singlePageNav.min.js"></script>
+        <!-- Twitter Bootstrap -->
+        <script src="/static/new/js/bootstrap.min.js"></script>
+        <script src="/static/js/lib/nprogress.js"></script>
+        <script src="/static/js/lib/countdown.js"></script>
+        <script src="/static/js/lib/microajax.js"></script>
+    <!-- /Lib -->
+
+    <!-- common -->
+        <script src="/static/js/common/layout.js"></script>
+        <script src="/static/js/common/onload.js"></script>
+        <script src="/static/js/common/modal.js"></script>
+        <script src="/static/js/common/notification.js"></script>
+        <script src="/static/js/common/settingsDropdown.js"></script>
+        <script src="/static/js/common/csrfJquerySetup.js"></script>
+        <script src="/static/js/common/compatibility.js"></script>
+        <script src="/static/js/common/utils.js"></script>
+        <script src="/static/js/common/stage.js"></script>
+        <script src="/static/js/common/drawer.js"></script>
+        <script src="/static/js/common/payment.js"></script>
+    <!-- /Common -->
+
+    <!-- HomePage -->
+        <!-- takes care of scrolljacking as well as kicking off bulb anim -->
+        <script src="/static/js/home/choreographer.js"></script>
+        <script src="/static/js/home/bulb.js"></script>
+
+        <script src="/static/js/home/timer.js"></script>
+
+        <script src="/static/js/home/anim/data.js"></script>
+        <script src="/static/js/home/anim/helpers/utils.js"></script>
+        <script src="/static/js/home/anim/helpers/common.js"></script>
+        <script src="/static/js/home/anim/objects/line.js"></script>
+        <script src="/static/js/home/anim/objects/triangle.js"></script>
+        <script src="/static/js/home/anim/objects/letter.js"></script>
+        <script src="/static/js/home/anim/objects/atom.js"></script>
+
+        <script src="/static/js/home/anim/game.js"></script>
+        <script src="/static/js/home/anim/logo.js"></script>
+        <script src="/static/js/home/anim/main.js"></script>
+
+        <!-- handle subscribe form -->
+        <script src="/static/js/home/subscribe.js"></script>
+    <!-- /HomePage-->
+
+    <!-- EventPage -->
+        <script src="/static/js/event/events.js"></script>
+    <!-- /EventPage -->
+
+    <!-- Profile Page -->
+        <script src="/static/js/profile/profile.js"></script>
+        <script src="/static/js/profile/message.js"></script>
+    <!-- /Profile Page -->
+
+    <!-- Event Details page -->
+        <script src="/static/js/eventDetails/eventDetails.js"></script>
+    <!-- /EventDetails -->
+
+    <!-- Campus Ambester page -->
+         <script src="/static/js/campusAmbester.js"></script>
+    <!-- /CampusAmbesters -->
+
+    <!-- Quest Page -->
+        <script src="/static/js/quest/quest.js"></script>
+    <!-- /QuestPage -->
+
+    <!-- endbuild -->
+
+    {% block "post_js" %}{% endblock %}
+
+    {# Show all the messages #}
+    <script>
+    {% for message in messages %}
+        app.notification.notify({
+            text: '{{message}}',
+            type: '{{message.tags}}',
+            persistant: true
+        });
+    {% endfor %}
+     $(".login-register").click(function () {
+    app.modal.show('#login-modal');
+ });
+     
+
+
+    $(document).ready(function(){
+
+    /* ========================================================================= */
+    /*  Menu item highlighting
+    /* ========================================================================= */
+
+    jQuery('#nav').singlePageNav({
+        offset: jQuery('#nav').outerHeight(),
+        filter: ':not(.external)',
+        speed: 1200,
+        currentClass: 'current',
+        easing: 'easeInOutExpo',
+        updateHash: true,
+        beforeStart: function() {
+            console.log('begin scrolling');
+        },
+        onComplete: function() {
+            console.log('done scrolling');
+        }
+    });
+    
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 400) {
+            $("#navigation").css("background-color","#0EB493");
+        } else {
+            $("#navigation").css("background-color","rgba(16, 22, 54, 0.2)");
+        }
+    });
+ //     var mywindow;
+ //      $(".social-a-go").click(function () {
+ //    mywindow=window.open('{% provider_login_url "google" %}?next={{request.path}}','', "width=600,height=600")
+ // });
+ //        $(".social-a-gi").click(function () {
+ //    mywindow=window.open('{% provider_login_url "github" %}?next={{request.path}}','', "width=600,height=600")
+ // });
+ //        alert(mywindow.location.href);
+ //        if (mywindow.location.href === "http://127.0.0.1:8000/{{request.path}}")
+ //        {
+ //            mywindow.close();
+ //            location.reload(true);
+ //        }
+
+          $('.navbar a').click(function () {
+             if(!$(this).hasClass("dropdown-toggle") && !$(this).hasClass("login-register"))
+                 window.location.href = $(this).attr('href');
+ });
+
+
+
+});
+
+
+
+
+    </script>
+</body>
+</html>

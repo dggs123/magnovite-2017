@@ -1,0 +1,17 @@
+Hello {{profile.first_name}},
+
+Thank you for registering to Magnovite 2015 and we cant wait to see you there.
+
+Follow the link below to view your receipt, and make sure everything is in order. If something is not right, please reach out to us by either replying to this email or via one of the methods listed at the bottom.
+
+https://magnovite.net/receipt/{{profile.receipt_id}}/
+
+Please do visit our website https://magnovite.net/ and browse through our events. You can register to more events if interested or even change the events you have registered to.
+
+Do note, if your social login (facebook/twitter/github) email id is different from this email ({{profile.active_email}}), tell us about your social account, and we will connect the accounts for you.
+
+Thanks again, and see you on the 20th!
+
+For any technical queries or help:
+Email: hello@magnovite.net
+Mobile: +91 8904308580

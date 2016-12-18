@@ -1,0 +1,13 @@
+Hello,
+
+Someone has applied for accomodation, details follow.
+
+Name: {{profile.name}}
+Email: {{profile.active_email}}
+College: {{profile.college}}
+mobile: {{profile.mobile}}
+
+Days: {{profile.hospitality_days}}
+
+Thanks
+Magnovite 2015

@@ -1,0 +1,12 @@
+Hello {{user.first_name}},
+
+One of our staff has responded to your help request.
+
+Response:
+{{message.content}}
+
+I hope it was helpful, You can view the whole thread or respond at the help page
+https://magnovite.net/profile/#help
+
+Thank you,
+Magnovite Gatekeeper

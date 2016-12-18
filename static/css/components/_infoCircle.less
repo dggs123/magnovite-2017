@@ -1,0 +1,28 @@
+@info_circle_size: 50px;
+
+.info-circle {
+    width: @info_circle_size;
+    height: @info_circle_size;
+    border-radius: @info_circle_size;
+
+    a {
+        display: block;
+        height: @info_circle_size;
+        border-radius: @info_circle_size;
+        line-height: @info_circle_size;
+        text-decoration: none;
+        font-size: 20px;
+
+        color: rgba(255, 255, 255, 0.3);
+        background: rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.4);
+
+        &:hover {
+            cursor: pointer;
+
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0;
+        }
+    }
+}

@@ -1,0 +1,216 @@
+{% extends "magnovite/base.html" %}
+
+{% load account %}
+{% load humanize %}
+
+{% block "body_css_class" %}
+page-profile browser-height stage-view
+{% endblock "body_css_class" %}
+
+{% block "post_js" %}
+<script>
+app.profile.init();
+</script>
+{% endblock "post_js" %}
+ {% block "css_extra" %}
+<style>
+#navigation {
+  background-color:#0eb493 ;
+  display: block;
+  position: absolute;
+}
+</style>
+{% endblock "css_extra" %}
+{% block "content" %}
+<div class="profile-page page-container stage" style="margin-top:50px;">
+
+    <div class="s-left">
+        <div class="s-inner">
+
+            <div class="s-main-title desktop-only">
+                <h1 class="s-item">My Account</h1>
+            </div>
+
+            <div class="s-item-box">
+                <ul class="s-section-list js-scene-menu">
+                    <li data-scene="profile-scene" class="selected">
+                        <div class="s-item-inner">Profile</div>
+                    </li>
+                   <!--  <li data-scene="pack-scene">
+                        <div class="s-item-inner">My Pack</div>
+                    </li> -->
+                    <!-- <li data-scene="hospitality-scene">
+                        <div class="s-item-inner">Hospitality</div>
+                    </li> -->
+                    <li data-scene="schedule-scene">
+                        <div class="s-item-inner">Schedule</div>
+                    </li>
+                    <li data-scene="help-scene">
+                        <div class="s-item-inner">Help</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="s-right profile-scene-on">
+        <div class="s-inner">
+
+            <div class="s-scene glass profile-scene
+            {% if not profile_form.instance.is_complete %}show-warn{% endif %}">
+                <form id="profile-form" action="{% url "profile_update" pk=profile_form.instance.pk %}" method="POST">
+                    <div>
+                        <div class="s-title">
+                            <h1>Profile</h1>
+                        </div>
+
+                        <span class="warn">You cannot register to events till you fill all the details</span>
+
+                        <div>
+                            <label>Name</label>
+                            {{ profile_form.name }}
+                            <ul class="errorlist">
+                            </ul>
+                        </div>
+                        <div>
+                            <label>Email</label>
+                            {{ profile_form.active_email }}
+                            <ul class="errorlist">
+                            </ul>
+                        </div>
+                        <div>
+                            <label>Mobile (without +91 or 0)</label>
+                            {{ profile_form.mobile }}
+                            <ul class="errorlist">
+                            </ul>
+                        </div>
+                        <div>
+                            <label>College/University</label>
+                            {{ profile_form.college }}
+                            <ul class="errorlist">
+                            </ul>
+                        </div>
+                        <div>
+                            <label>Referral: How did you find out about us? (optional)</label>
+                            {{ profile_form.referral }}
+                            <ul class="errorlist">
+                            </ul>
+                        </div>
+                        <div>
+                            <button class="button">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- hospitality scene -->
+            <!-- Mypack -->
+
+            <div class="s-scene glass help-scene">
+                <div class="s-title">
+                    <h1>Help</h1>
+                </div>
+
+                <div class="messages">
+                    <div class="message input me">
+                        <form id="message-form" class="message-inner" action="/profile/message/" method="POST">
+                            <textarea placeholder="What can we help you with?" name="text" id="text"></textarea>
+                            <input type="submit" value="Send">
+                        </form>
+                    </div>
+
+                    {% for message in help_messages %}
+                    <div class="message {{message.who_class}}">
+                        <div class="tri"></div>
+                        <div class="message-inner">
+                            <p>{{message.content}}</p>
+                            <div class="timestamp">{{message.timestamp|naturaltime}}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <div class="message them">
+                        <div class="tri"></div>
+                        <div class="message-inner">
+                            <p>
+                                Hello! Welcome to Manovite V6. Please feel free to
+                                message us if you have any queries. We are more than happy
+                                to help :)
+                            </p>
+                            <div class="timestamp">Beginning of Time</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="s-scene schedule-scene glass">
+                <div class="s-title">
+                    <h1>My Schedule</h1>
+                </div>
+
+                {% for day in days %}
+                <div class="day-{{forloop.counter}} {% if day|length == 0 %}empty-day{% endif %}">
+                    <h3>March 2th or 3th or 4th</h3>
+
+                    <div class="strip empty-strip">
+                        <p>You have no activities on these day.</p>
+                    </div>
+                    <div class="row">
+                    {% for event in day %}
+                    <div class="col-sm-6">
+                        <div class="strip {{event.type}}">
+                            <div class="sq-time">
+                                <div class="time t-start">
+                                    {{event.time}}
+                                </div>
+                                <div class="time t-end">
+                                    {{event.end_time}}
+                                </div>
+                            </div>
+                            <div class="sq-event">
+                                <p class="title">{{event.title}}</p>
+
+                                {% if event.is_multiple %}
+                                <p class="small">Team Event</p>
+                                {% else %}
+                                <p class="small">Individual Event</p>
+                                {% endif %}
+                            </div>
+                            <div class="sq-contact">
+                                <div class="profile-pic">
+                                    <img src="http://placehold.it/80x80" />
+                                </div>
+                                <ul>
+                                    {% with head=event.get_first_head %}
+                                    <li class="name">{{head.name}}</li>
+                                    <li class="mobile">{{head.mobile}}</li>
+                                    <li class="email"><a href="{{head.active_email}}">{{head.active_email}}</a></li>
+                                    {% endwith %}
+                                </ul>
+                            </div>
+                            <div class="sq-more">
+                                <a href="{{event.get_absolute_url}}">❯</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/template" id="message-me-template">
+<div class="message me">
+    <div class="tri"></div>
+    <div class="message-inner">
+        <p>[[text]]</p>
+        <div class="timestamp">[[timestamp]]</div>
+    </div>
+</div>
+</script>
+{% endblock "content" %}
