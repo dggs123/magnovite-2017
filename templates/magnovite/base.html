@@ -110,7 +110,7 @@
         </div>
     </div>
 
-    <div class="full-body loading">
+    <div class="full-body">
 
         {% block page_banner %}
        <header id="navigation" class="navbar-fixed-top navbar">
@@ -273,6 +273,7 @@
         <!-- Single Page Nav -->
         <script src="/static/new/js/jquery.singlePageNav.min.js"></script>
         <!-- Twitter Bootstrap -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
         <script src="/static/new/js/bootstrap.min.js"></script>
         <script src="/static/js/lib/nprogress.js"></script>
         <script src="/static/js/lib/countdown.js"></script>
@@ -357,9 +358,9 @@
      $(window).load(function() {
         
         // preloader
-        $("#preloader").fadeOut(1200);
-        $("#preloader-status").delay(200).fadeOut("slow");
-        $(".full-body").removeClass("loading");
+        $("#preloader").fadeOut(50);
+        $("#preloader-status").delay(50).fadeOut("slow");
+
     });
 
 
