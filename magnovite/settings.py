@@ -117,8 +117,6 @@ TEMPLATES = [
     },
 ]
 
-
-
 AUTHENTICATION_BACKENDS = (
     
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -154,8 +152,8 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-# if not DEBUG:
-#     ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
+if not DEBUG:
+    ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 # SOCIALACCOUNT_ADAPTER = 'main.allauth.MSocialAccountAdapter'
 
 
@@ -235,6 +233,10 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+# https settings
+# CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
+
 
 # Update database configuration with $DATABASE_URL.
 # db_from_env = dj_database_url.config(conn_max_age=500)
@@ -242,6 +244,7 @@ STATICFILES_DIRS = (
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 
 # Simplified static file serving.

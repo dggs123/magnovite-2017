@@ -31,6 +31,15 @@ app.EVENT_TYPE = "{{event.team_type}}";
 app.eventDetails.init();
 </script>
 {% endblock "post_js" %}
+{% block "css_extra" %}
+<style type="text/css">
+	.mobile .register-button .check 
+		{
+		left: 10px;
+		top: 20px;
+		}
+</style>
+{% endblock %}
 
 {% block "content" %}
 <div class="page-container">
@@ -212,8 +221,6 @@ app.eventDetails.init();
 			{% endif %}
 		</div>
 		<br>
-		<br><br>
-		<br><br>
 		<br><br>
 		<br>
 

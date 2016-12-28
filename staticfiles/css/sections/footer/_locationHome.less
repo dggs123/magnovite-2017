@@ -1,0 +1,96 @@
+.location {
+    text-align: center;
+    padding: 50px 0;
+
+    .section {
+        width: 500px;
+        height: 500px;
+        display: inline-block;
+        vertical-align: bottom;
+    }
+
+
+    .address-section {
+        margin-right: 20px;
+        padding: 30px;
+        background: rgb(0, 6, 15);
+        color: rgba(255, 255, 250, 0.65);
+        text-align: left;
+
+        h3 {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+        }
+
+        .block {
+            margin-bottom: 40px;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        p {
+            display: block;
+        }
+
+        .person {
+            background: rgba(245, 245, 245, 0.03);
+            padding: 15px;
+            display: inline-block;
+            text-align: center;
+            margin-right: 10px;
+
+            a {
+                display: block;
+            }
+
+            .email {
+                text-decoration: none;
+            }
+
+            .name {
+                color: rgba(255, 255, 255, 0.7);
+                font-weight: bold;
+            }
+        }
+
+        .em {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+    }
+
+    .map-section {
+        background: #eee;
+        padding: 0;
+
+        iframe {
+            width: 500px;
+            height: 500px;
+        }
+    }
+}
+
+.mobile .location {
+    padding: 0;
+
+    .section {
+        width: 100%;
+        display: block;
+        height: auto;
+    }
+
+    .person-container {
+        text-align: center;
+
+        .person {
+            margin: 10px 0;
+        }
+    }
+
+    .map-section iframe {
+        width: 100%;
+        height: 300px;
+    }
+}

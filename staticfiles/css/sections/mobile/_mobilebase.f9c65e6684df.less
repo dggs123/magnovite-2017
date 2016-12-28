@@ -1,0 +1,93 @@
+@mobile_banner_height: 60px;
+
+.logo-mobile {
+	display: none;
+}
+
+.mobile {
+	.access {
+		display: none;
+	}
+
+	.banner {
+		z-index: 999;
+	}
+
+	.modal-active.modal {
+		z-index: 10000;
+	}
+
+	.page-container {
+		padding-top: @mobile_banner_height;
+	}
+
+	.banner {
+		position: fixed;
+		height: @mobile_banner_height;
+
+		.banner-inner {
+			height: @mobile_banner_height;
+		}
+	}
+
+	.logo {
+		width: auto;
+		height: @mobile_banner_height;
+		padding: 5px 0;
+
+		a {
+			display: block;
+		}
+
+		.logo-desktop {
+			display: none;
+		}
+
+		.logo-mobile {
+			display: block;
+			height: @mobile_banner_height - 10px;
+		}
+	}
+
+	.user-settings {
+		height: @mobile_banner_height;
+		line-height: @mobile_banner_height;
+
+		a {
+			line-height: @mobile_banner_height;
+		}
+	}
+
+	p.help-text {
+		color: rgba(0, 0, 0, 0.8);
+		padding: 2px;
+	}
+}
+
+.mobile.home-page {
+	.top-banner {
+		position: fixed;
+		background: @banner_color;
+		z-index: 2000;
+		height: @mobile_banner_height;
+		padding: 0;
+	}
+
+	.page-container {
+		padding-top: 0;
+	}
+
+	#canvas {
+	}
+}
+
+.mobile.event-details {
+	.page-container {
+		padding-top: 0;
+	}
+}
+
+.mobile.modal-view {
+	overflow: hidden;
+	position: fixed;
+}

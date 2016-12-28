@@ -1,0 +1,89 @@
+.right-pane {
+    color: rgba(255, 255, 255, 0.5);
+
+    padding: 80px 10px 0 10px;
+    text-align: center;
+    font-weight: 300;
+    position: relative;
+
+    .title {
+        color: rgba(255, 255,255, 0.7);
+        font-size: 64px;
+        padding: 50px 0;
+        text-shadow: 0px 0px 7px rgba(95, 236, 255, 0.26);
+    }
+
+    p {
+        font-size: 18px;
+        margin: 0 auto;
+        width: 500px;
+        padding: 10px;
+    }
+}
+
+.event-section {
+    position: absolute;
+    width: @bulb_pane_width;
+    left: 0;
+    top: 0;
+    height: @bulb_height;
+    padding-top: 80px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-80px);
+
+    transition: all 250ms ease-in;
+}
+
+.default.event-section {
+    transform: translateY(0);
+}
+
+.bulb-section.default .default {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bulb-section.c1 .event-section.c1,
+.bulb-section.c2 .event-section.c2,
+.bulb-section.c3 .event-section.c3,
+.bulb-section.c4 .event-section.c4,
+.bulb-section.c5 .event-section.c5,
+.bulb-section.c6 .event-section.c6 {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.bulb-section.c1-out .event-section.c1,
+.bulb-section.c2-out .event-section.c2,
+.bulb-section.c3-out .event-section.c3,
+.bulb-section.c4-out .event-section.c4,
+.bulb-section.c5-out .event-section.c5,
+.bulb-section.c6-out .event-section.c6 {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(80px);
+}
+
+.subscribe {
+    margin-top: 50px;
+
+    p {
+        font-size: 16px;
+    }
+
+    input {
+        margin-right: 10px;
+    }
+}
+
+.subscribe.subscribed p,
+.subscribe.subscribed input {
+    display: none;
+}
+
+.subscribe.subscribed button {
+
+}

@@ -1,0 +1,53 @@
+.mobile.page-events {
+
+	&.stage-view .user-settings {
+		min-width: 0px;
+		.text {
+			width: 200px;
+			overflow: hidden;
+		}
+		.dropdown {
+			li {
+				font-size: 15px;
+				border-bottom: 1px solid white;
+				width: 100%;
+			}
+		}
+	}
+
+	.s-left {
+		display: none;
+	}
+
+	.s-right {
+		width: 100%;
+		.card {
+			margin: 15px auto;
+			width: 90%;
+			.tags {
+				display: none;
+			}
+		}
+		.s-scene {
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	.card {
+		display: none;
+	}
+
+	.filter-cultural .card.cultural,
+	.filter-cse .card.cse,
+	.filter-ec .card.ec,
+	.filter-civil .card.civil,
+	.filter-mech .card.mech {
+	    display: block;
+	}
+
+}
+
+.mobile.browser-height {
+	overflow: auto;
+}

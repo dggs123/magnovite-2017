@@ -2058,11 +2058,12 @@ body.mobile .notifications .notification {
 .event-cover {
   position: relative;
   overflow: hidden;
+  height: 500px;
 }
 .event-cover .image {
   width: 100%;
   min-height: 300px;
-  height: 500px;
+  /*height: 500px;*/
 }
 .event-cover .content {
   height: 150px;

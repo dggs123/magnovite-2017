@@ -76,13 +76,28 @@
             opacity: 0.5;
 
         }
+         .pre-img
+        {
+            display: none;
+        }
+        
+        .page-loading .pre-img
+        {
+            display: block;
+            position: fixed;
+            top: 40%;
+            left: 40%;
+        }
+       
 
     </style>
     {% block "css_extra" %}{% endblock "css_extra" %}
 </head>
 <body class="page-loading {% block "body_css_class" %}{% endblock %}">
     {% csrf_token %}
-
+    <div class="pre-img">
+    <img class="lazy" data-original="/static/home/img/magnovite-logo.png" alt="Magnovite">
+    </div>
     <!-- login modal -->
     <div class="login-modal modal" id="login-modal">
         <div class="modal-inner">

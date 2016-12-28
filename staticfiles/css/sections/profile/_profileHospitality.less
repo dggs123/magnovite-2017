@@ -1,0 +1,92 @@
+.hospitality-scene {
+    .section {
+        margin: 20px 0 20px 0;
+        overflow: hidden;
+        clear: both;
+    }
+
+    .inner-pane {
+        max-width: 450px;
+        float: left;
+    }
+
+    ul {
+        list-style: disc;
+        margin: 40px 0 0 40px;
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        b {
+            font-weight: bold;
+        }
+    }
+
+    .my-pack {
+        font-size: 18px;
+
+        .name {
+            font-weight: bold;
+        }
+    }
+
+    .payu img {
+        width: 120px;
+        margin: 10px 0 0 40px;
+    }
+
+    .apply {
+        width: 250px;
+        padding: 20px 20px;
+
+        .row {
+            padding: 5px 0;
+            text-align: center;
+
+            .btn {
+                display: inline-block;
+                background: rgba(255, 255, 255, 0.3);
+                width: 80px;
+                height: 40px;
+                line-height: 40px;
+                cursor: pointer;
+
+                &.deactive {
+                    background: rgba(255, 255, 255, 0.1);
+                    cursor: default;
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+                }
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.5);
+                }
+            }
+
+            p {
+                font-size: 18px;
+                padding: 10px 0;
+            }
+        }
+
+        .pay-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            background: #0C8EC0;
+            margin: 10px 0 0 0;
+            border: 1px solid #00859E;
+            display: inline-block;
+            outline: 0;
+
+            &:hover {
+                background: darken(@atoms_highlight, 10%);
+            }
+        }
+    }
+}

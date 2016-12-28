@@ -272,6 +272,7 @@
         <script src="/static/new/js/jquery-1.11.1.min.js"></script>
         <!-- Single Page Nav -->
         <script src="/static/new/js/jquery.singlePageNav.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
         <!-- Twitter Bootstrap -->
         <script src="/static/new/js/bootstrap.min.js"></script>
         <!-- jquery.fancybox.pack -->
@@ -288,7 +289,7 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
         <!-- Google Map -->
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
         <!-- jquery easing -->
         <script src="/static/new/js/jquery.easing.min.js"></script>
         <!-- jquery easing -->
@@ -365,6 +366,7 @@
             persistant: true
         });
     {% endfor %}
+     $("img.lazy").lazyload();
 
 
     </script>
