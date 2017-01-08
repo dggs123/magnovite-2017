@@ -2180,7 +2180,7 @@ body.mobile .notifications .notification {
   display: block;
   margin: 40px 0 20px 0;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.9);
+  color: black
   line-height: 1.5em;
 }
 .page .left .markdown h1,
@@ -2202,7 +2202,7 @@ body.mobile .notifications .notification {
 }
 .page .left .markdown ul {
   list-style: disc;
-  margin-left: 20px;
+  margin-left: 50px;
 }
 .page .left .markdown ol {
   list-style: decimal;
