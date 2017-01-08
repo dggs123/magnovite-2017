@@ -152,8 +152,8 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-if not DEBUG:
-    ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
+# if not DEBUG:
+#     ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 # SOCIALACCOUNT_ADAPTER = 'main.allauth.MSocialAccountAdapter'
 
 
