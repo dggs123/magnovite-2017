@@ -1,0 +1,129 @@
+.stage-view .page-container {
+    overflow-y: hidden;
+}
+
+.stage {
+    color: @text_white;
+
+    .s-left {
+        background: @stage_left_color;
+        width: 20%;
+        height: 100%;
+        float: left;
+
+        box-shadow: inset 0px 5px 15px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .s-right {
+        background: url('/static/img/bg_blue.png');
+        width: 80%;
+        height: 100%;
+        float: left;
+
+        box-shadow: inset 5px 5px 15px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .s-inner {
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
+.s-left {
+    color: @text_white;
+    @stage_left_right_padding: 40px;
+
+    .s-item-box {
+        overflow: hidden;
+        clear: both;
+        margin: 20px 0;
+        width: 100%;
+    }
+
+    .s-main-title {
+        background: @bulb_gray;
+        padding: 40px 0;
+        overflow: hidden;
+        cursor: default;
+
+        box-shadow: inset 0px 15px 15px -5px rgba(0, 0, 0, 0.2);
+
+        h1 {
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+    }
+
+    .s-main-title + * {
+        margin-top: 40px;
+    }
+
+    .s-item {
+        float: right;
+        width: 220px;
+    }
+
+    .s-section-list {
+        width: 100%;
+
+        li {
+            height: 50px;
+            text-align: left;
+            line-height: 50px;
+            margin: 5px 0;
+
+            .s-item-inner {
+                float: right;
+                width: 220px;
+
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 20px;
+            }
+
+            &:hover, &.selected {
+                cursor: pointer;
+                background: rgba(0, 0, 0, 0.2);
+                color: rgba(255, 255, 255, 0.95);
+
+                .s-item-inner {
+                    color: rgba(255, 255, 255, 0.95);
+                    transform: translateX(5px);
+                }
+            }
+        }
+
+        li.seperator {
+            height: 1px;
+            margin: 25px 0;
+
+            .s-item-inner {
+                width: 200px;
+                margin-right: 40px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+        }
+    }
+}
+
+.s-right {
+    .s-scene {
+        padding: 20px;
+        margin: 20px;
+        width: auto;
+    }
+
+    .s-scene.glass {
+        background: rgba(96, 116, 131, 0.15);
+    }
+
+    .s-title {
+        padding: 0 0 40px 0;
+
+        h1 {
+            font-weight: 300;
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+    }
+}

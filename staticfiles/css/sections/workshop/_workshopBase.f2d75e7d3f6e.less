@@ -1,0 +1,213 @@
+.workshop-page {
+    .page-container {
+        padding-top: 100px;
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .title {
+        width: 100%;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.9);
+        padding: 40px 0;
+
+        h1 {
+            font-size: 42px;
+        }
+    }
+
+    .nav {
+        text-align: center;
+        margin: 20px auto 40px auto;
+
+        .nav-item {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 40px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .workshop {
+        padding: 40px 0;
+        background: rgb(4, 13, 24);
+
+        &:nth-child(2n) {
+            background: rgb(5, 31, 49);
+        }
+
+        .left {
+            float: left;
+            width: 40%;
+            height: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+
+            img {
+                display: inline-block;
+                margin-top: 20px;
+            }
+        }
+
+        .right {
+            float: left;
+            width: 60%;
+            padding: 20px;
+        }
+
+        .workshop-title {
+            margin-bottom: 20px;
+            font-size: 34px;
+        }
+
+        .info {
+            padding: 5px 0;
+
+            p {
+                margin-bottom: 5px;
+            }
+        }
+
+        .incharge {
+            margin-bottom: 20px;
+
+            .part {
+                display: inline-block;
+                vertical-align: top;
+
+                &:first-child {
+                    margin-right: 10px;
+                }
+            }
+
+            h3 {
+                font-size: 22px;
+                padding: 10px 0;
+            }
+
+            .person {
+                padding: 10px;
+                display: inline-block;
+                text-align: center;
+                margin-right: 10px;
+                background: rgba(52, 120, 173, 0.15);
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                .name {
+                    font-weight: bold;
+                }
+
+                a {
+                    display: block;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+        .register {
+            margin-top: 25px;
+
+            .part {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 15px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+
+            .price {
+                padding: 10px 20px;
+                font-size: 20px;
+                background: rgba(52, 120, 173, 0.15);
+            }
+
+            .register-btn-box button {
+                height: auto;
+                padding: 2px 30px;
+                background: #008FEE;
+                border: 1px solid #00B5EE;
+
+                &.registered {
+                    cursor: default;
+                    pointer-events: none;
+                    border: 1px solid #00EE0A;
+                    background: #1AB905;
+                }
+
+                &:hover {
+                    border: 1px solid white;
+                }
+            }
+
+            .payu img {
+                margin-top: 5px;
+                width: 70px;
+            }
+        }
+    }
+}
+
+.mobile.workshop-page {
+    .page-container {
+        padding-top: 60px;
+    }
+
+    .nav-item {
+        margin-right: 10px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .left {
+        width: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .right {
+        width: 100%;
+
+        .incharge {
+            text-align: center;
+        }
+
+        .incharge .part {
+            margin: 0;
+            margin-bottom: 20px;
+
+            .person {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+
+        .register {
+            .part {
+                text-align: center;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
