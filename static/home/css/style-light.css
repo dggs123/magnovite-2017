@@ -2604,6 +2604,11 @@ width: 100%;
      -o-animation: design 2s ease-out;
         animation: design 2s ease-out;
 }
+.copyrght
+{
+  font-weight:bold;position:absolute;left:-20px;bottom:-10px;
+}
+
 
 @-moz-keyframes identity        { 0%  { width: 0; } 100% { width: 60%; }  }
 @-moz-keyframes development       { 0%  { width: 0; } 100% { width: 80%; }  }
@@ -3823,6 +3828,11 @@ width: 400%;
      -o-transform: scale(0.5,0.5) translate3d(0,0,0);
         transform: scale(0.5,0.5) translate3d(0,0,0);
 }
+.copyrght
+{
+  font-size:12px;bottom:-50px;left:0px;
+}
+
 
 }
 
