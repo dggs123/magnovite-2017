@@ -10,5 +10,6 @@ urlpatterns = [
 			url('^profile/update/(?P<pk>\d+)/$', profile_update_view, name='profile_update'),
 			url(r'^profile/message/$', add_message, name='add_message'),
 			url('^gallery/$',gallery,name="gallery"),
+			# url('^about/$',about,name="about"),
 
 ]

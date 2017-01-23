@@ -32,6 +32,8 @@ urlpatterns = [
 
    url(r'^campus/',include('campusambester.urls')),
 
+   url(r'^rightclick/',include('rightclick.urls')),
+
 	# 3rd party
 	url(r'^accounts/', include('allauth.urls')),
 ]

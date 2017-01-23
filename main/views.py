@@ -38,11 +38,26 @@ def index(req):
     return resp
 
 
+
 def gallery(req):
     if settings.DEBUG:
         template = 'magnovite/home/gallary.html'
     else:
         template = 'magnovite/home/gallary.html'
+
+    timer_zero = 'false'
+    if settings.TIMER_ZERO:
+        timer_zero = 'true'
+
+    resp = render(req, template, {'timer_zero': timer_zero})
+
+    return resp
+
+def about(req):
+    if settings.DEBUG:
+        template = 'magnovite/home_new/about.html'
+    else:
+        template = 'magnovite/home_new/about.html'
 
     timer_zero = 'false'
     if settings.TIMER_ZERO:

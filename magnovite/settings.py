@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'subscribe',
     'event',
     'campusambester',
+    'rightclick',
 ]
 
 MIDDLEWARE = [
