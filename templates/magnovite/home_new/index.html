@@ -68,7 +68,7 @@
 	<header id="header">
 		<div id="header-small-logo">
 			<div class="header-small-logo-line"></div>
-			<a href="/" class="home-link">
+			<a href="/" onclick="window.location='http://127.0.0.1:8000'" class="home-link">
 				<img src="/static/home_new/img/logos/logo150.png" style="width:70px;margin-left: -16px;
 margin-top: -20px;" alt="Giant Steps" />
 			</a>
@@ -82,21 +82,27 @@ margin-top: -20px;" alt="Giant Steps" />
 					</a>
 				</li>
 				<li>
-					<a href="projets.html" class="menu-link">
+					<a href="/events" onclick="window.location='http://127.0.0.1:8000/events'" class="menu-link">
 						<span class="nb">02</span>
 						<span class="text">Events</span>
 					</a>
 				</li>
 				<li>
-					<a href="clients.html" class="menu-link">
+					<a href="/campus" onclick="window.location='http://127.0.0.1:8000/campus'" class="menu-link">
 						<span class="nb">03</span>
-						<span class="text">Sponsors</span>
+						<span class="text">Campus Ambassador</span>
 					</a>
 				</li>
 				<li>
-					<a href="contact.html" class="menu-link">
+					<a href="/rightclick" onclick="window.location='http://127.0.0.1:8000/rightclick'" class="menu-link">
 						<span class="nb">04</span>
-						<span class="text">Contact</span>
+						<span class="text">Right Click</span>
+					</a>
+				</li>
+				<li>
+					<a href="/login" class="menu-link">
+						<span class="nb">05</span>
+						<span class="text">Login/Register</span>
 					</a>
 				</li>
 			</ul>
@@ -119,7 +125,7 @@ margin-top: -20px;" alt="Giant Steps" />
 <section id="page-content" class="home" data-page="home">
 	
 	<h1 class="page-title">
-		<span class="page-title-l1">2, 3 and 4 March</span>
+		<span class="page-title-l1" style="color:#00a87e;">2, 3 and 4 March</span>
 		<span class="page-title-l2">Magnovite 6.0</span>
 	</h1>
 	
@@ -140,10 +146,10 @@ margin-top: -20px;" alt="Giant Steps" />
 			</a>
 		</div>
 		-->
-		<a href="mentions-legales.html" class="footer-link legals-link">
+		<a class="footer-link legals-link">
 			<span>&copy; Magnovite 6.0</span>
 		</a>
-		<a href="http://www.akaru.fr/" target="_blank" class="footer-link footer-akaru">
+		<a href="http://dev" target="_blank" class="footer-link footer-akaru">
 			<span>Developers</span>
 		</a>
 		<div class="footer-link footer-sound">
@@ -155,7 +161,7 @@ margin-top: -20px;" alt="Giant Steps" />
 	<noscript>
 	<div id="no-js">
 	<div class="center">
-		<div class="alt-title">JavaScript est désactivé.</div>
+		<div class="alt-title">JavaScript Is Deactivate</div>
 		<p>Pour visionner ce site, veuillez activer JavaScript dans les préférences de votre navigateur. <br/>Une fois JavaScript activé veuillez recharger la page.</p>
 	</div>
 </div>

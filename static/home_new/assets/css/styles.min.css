@@ -615,7 +615,6 @@ a {
 .menu-link {
     position: relative;
     display: block;
-    float: left;
     padding-bottom: 5px;
     margin-bottom: 23px;
     font: normal 16px/16px 'HC';
@@ -652,7 +651,7 @@ a {
 }
 .menu-link .text {
     margin-left: 11px;
-    opacity: 0;
+    opacity: 0.7;
     -webkit-transform: translateX(-11px);
     -moz-transform: translateX(-11px);
     -ms-transform: translateX(-11px);
@@ -661,7 +660,8 @@ a {
     -webkit-transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
     -moz-transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
     -o-transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    font-size: 14px;
 }
 .menu-link:hover:after {
     width: 20px
@@ -835,7 +835,7 @@ a {
     position: absolute;
     left: 0;
     top: 137px;
-    width: 310px
+    width: 500px
 }
 .agency .main-content .page-title {
     z-index: 1

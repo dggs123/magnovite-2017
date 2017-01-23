@@ -11,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
 
 from event.models import Registration
 # from message.models import Thread, Message
@@ -22,9 +23,9 @@ from .utils import AjaxableResponseMixin, template_email
 
 def index(req):
     if settings.DEBUG:
-        template = 'magnovite/home/index.html'
+        template = 'magnovite/home_new/index.html'
     else:
-        template = 'magnovite/home/index.html'
+        template = 'magnovite/home_new/index.html'
 
     timer_zero = 'false'
     if settings.TIMER_ZERO:
@@ -37,6 +38,26 @@ def index(req):
 
     return resp
 
+@csrf_exempt
+def homeajax(req):
+    if settings.DEBUG:
+        template = 'content-desktop/home.html'
+    else:
+        template = 'content-desktop/home.html'
+    resp = render(req, template, {})
+
+    return resp
+
+
+@csrf_exempt
+def aboutajax(req):
+    if settings.DEBUG:
+        template = 'content-desktop/about.html'
+    else:
+        template = 'content-desktop/about.html'
+    resp = render(req, template, {})
+
+    return resp
 
 
 def gallery(req):
