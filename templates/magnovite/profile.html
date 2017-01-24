@@ -36,12 +36,12 @@ app.profile.init();
                     <li data-scene="profile-scene" class="selected">
                         <div class="s-item-inner">Profile</div>
                     </li>
-                   <!--  <li data-scene="pack-scene">
+                    <li data-scene="pack-scene">
                         <div class="s-item-inner">My Pack</div>
-                    </li> -->
-                    <!-- <li data-scene="hospitality-scene">
+                    </li> 
+                    <li data-scene="hospitality-scene">
                         <div class="s-item-inner">Hospitality</div>
-                    </li> -->
+                    </li>
                     <li data-scene="schedule-scene">
                         <div class="s-item-inner">Schedule</div>
                     </li>
@@ -106,6 +106,161 @@ app.profile.init();
 
             <!-- hospitality scene -->
             <!-- Mypack -->
+            
+            <div class="s-scene glass hospitality-scene">
+                <div class="s-title">
+                    <h1>Hospitality</h1>
+                </div>
+
+                <div class="section base-pack">
+                    <div class="inner-pane">
+                        <div class="my-pack">
+                            <p>Paid for <span class="name">{{profile.hospitality_days}}</span> days</p>
+                        </div>
+
+                        <div class="apply">
+                            <div class="row">
+                                <div data-type="plus" class="btn js-hosp-btn deactive">+1</div>
+                            </div>
+                            <div class="row">
+                                {% if profile.hospitality_days == 6 %}
+                                <p>Apply for <span data-paiddays="6" class="js-hosp-numdays">6</span> <span class="js-hosp-daystext">days</span> <span class="js-hosp-daysextra"></span></p>
+                                {% else %}
+                                <p>Apply for <span data-paiddays="{{profile.hospitality_days}}" class="js-hosp-numdays">{{profile.hospitality_days_plus_one}}</span> <span class="js-hosp-daystext">days</span> <span class="js-hosp-daysextra"></span></p>
+                                {% endif %}
+                            </div>
+                            <div class="row">
+                                <div data-type="minus" class="btn deactive js-hosp-btn">-1</div>
+                            </div>
+
+                            <div class="pay-btn">
+                                <button data-type="hospitality" data-params="days={{profile.hospitality_days_plus_one}}" class="button js-pay js-hosp-pay">Pay ₹ <span class="js-hosp-amount">500</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-pane help-list">
+                        <ul>
+                            <li>All payments are binding and will not be refunded.</li>
+                            <li><b>₹ 150</b> per person per day will be charged for staying</li>
+                            <li>Maximum available days is 6, this is only for participants of Microsoft Workshop</li>
+                            <li>The earliest day for accomodation is 15th Evening, and the latest by 22nd Morning</li>
+                            <li>Once you pay, one of our representatives will get in touch with you.</li>
+                            <li>We use <a target="_blank" href="http://payumoney.com/">PayuMoney</a> as the payment gateway, It is extremely secure and established</li>
+                        </ul>
+
+                        <div class="payu">
+                            <img src="/static/img/payu.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="s-scene glass pack-scene">
+                <div class="s-title">
+                    <h1>My Pack</h1>
+                </div>
+
+                <div class="section base-pack">
+                    <div class="inner-pane">
+                        <div class="my-pack">
+                            <p>Activated Pack: <span class="name">{{profile.get_pack_display}}</span></p>
+                        </div>
+
+                        <div class="pack-outer">
+                            <div class="pack-box pack-none">
+                                <p>No Pack</p>
+                            </div>
+
+                            {% if profile.pack == "none" %}
+                            <div class="pack-bottom yours"><span class="check"></span></div>
+                            {% endif %}
+                        </div>
+
+                        <div class="pack-outer">
+                            <div class="pack-box pack-single">
+                                <div class="top">Single</div>
+                                <div class="bottom">
+                                    <p class="price">₹ 100</p>
+                                    <p class="text">1 Event</p>
+                                </div>
+                            </div>
+
+                            {% if profile.pack == "single" %}
+                            <div class="pack-bottom yours"><span class="check"></span></div>
+                            {% elif profile.pack == "none" %}
+                            <div data-type="single" class="pack-bottom choose js-pay">Activate</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="pack-outer">
+                             <div class="pack-box pack-multiple">
+                                <div class="top">Multiple</div>
+                                <div class="bottom">
+                                    {% if profile.pack == "single" %}
+                                    <p class="price">
+                                        <span class="price-new">₹ 100</span>
+                                        <span class="price-old">₹ 200</span>
+                                    </p>
+                                    {% else %}
+                                    <p class="price">₹ 200</p>
+                                    {% endif %}
+                                    <p class="text">1+ Events</p>
+                                </div>
+                            </div>
+
+                            {% if profile.pack == "multiple" %}
+                            <div class="pack-bottom yours"><span class="check"></span></div>
+                            {% elif profile.pack == "single" %}
+                            <div data-type="upgrade" class="pack-bottom choose js-pay">Upgrade</div>
+                            {% else %}
+                            <div data-type="multiple" class="pack-bottom choose js-pay">Activate</div>
+                            {% endif %}
+                        </div>
+
+                        {% if is_staff and test_payment %}
+                        <div class="pack-outer">
+                            <div class="pack-box pack-multiple">
+                                <div class="top">Test</div>
+                                <div class="bottom">
+                                    <p class="price">₹ 20</p>
+                                    <p class="text">Test</p>
+                                </div>
+                            </div>
+                            <div data-type="test" class="pack-bottom choose js-pay">Pay</div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="inner-pane help-list">
+                        <ul>
+                            <li>All payments are binding and will not be refunded.</li>
+                            <li>These packs are applicable for only <b>Individual and Team Events</b></li>
+                            <li>Group Events are charged 500/- per team</li>
+                            <li><b>Single Pack</b> allows you to register to <b>one</b> Individual/Team event.</li>
+                            <li><b>Multiple Pack</b> allows you to register to <b>Any Number</b> of Individual/Team event.</li>
+                            <li>We use <a target="_blank" href="http://payumoney.com/">PayuMoney</a> as the payment gateway, It is extremely secure and established</li>
+                        </ul>
+
+                        <div class="payu">
+                            <img src="/static/img/payu.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                {% if owned_teams %}
+                <div class="section team-pack">
+                    <h3>Teams you paid for</h3>
+
+                    <div class="event-box-container inner-pane">
+                        {% for event, num_members in owned_teams %}
+                        <a class="event-box {{event.type}}" href="{{event.get_absolute_url}}#view-team">
+                            <p class="title">{{event.title|truncatechars:20}}</p>
+                            <p class="members">{{num_members}}/{{event.team_max}} Members</p>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
 
             <div class="s-scene glass help-scene">
                 <div class="s-title">

@@ -74,6 +74,8 @@ INSTALLED_APPS = [
     'event',
     'campusambester',
     'rightclick',
+    'payment',
+    'workshop',
 ]
 
 MIDDLEWARE = [
@@ -156,7 +158,25 @@ SOCIALACCOUNT_PROVIDERS = {
 # if not DEBUG:
 #     ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 # SOCIALACCOUNT_ADAPTER = 'main.allauth.MSocialAccountAdapter'
+# payment settings
+# PAYU_MERCHANT_ID = os.environ.get('PAYU_MERCHANT_ID', '')
+# PAYU_MERCHANT_KEY = os.environ.get('PAYU_MERCHANT_KEY', '')
+# PAYU_MERCHANT_SALT = os.environ.get('PAYU_MERCHANT_SALT', '')
 
+# PAYU_URL = 'https://secure.payu.in/_payment'
+# PAYU_SUCCESS_URL = 'https://magnovite.net/payment/success/'
+# PAYU_FAILURE_URL = 'https://magnovite.net/payment/failure/'
+# PAYU_NOTIFY_URL = 'https://magnovite.net/payment/notify/'
+
+if DEBUG:
+    PAYU_MERCHANT_ID = 4944221
+    PAYU_MERCHANT_KEY = 'Oj20qapU'
+    PAYU_MERCHANT_SALT = 'auaSx01zGF'
+
+    PAYU_URL = 'https://test.payu.in/_payment'
+    PAYU_SUCCESS_URL = 'http://localhost:8000/payment/success/'
+    PAYU_FAILURE_URL = 'https://localhost:8000/payment/failure/'
+    PAYU_NOTIFY_URL = 'https://localhost:8000/payment/notify/'
 
 LOGIN_REDIRECT_URL = '/profile/'
 LOGIN_URL = '/#login'

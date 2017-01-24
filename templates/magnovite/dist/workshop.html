@@ -1,0 +1,99 @@
+{% extends "magnovite/base.html" %}
+{% load humanize %}
+{% load tags %}
+
+{% block "extra_meta" %}
+<meta name="description" content="Christ University presents its annual techno-cultural fest Magnovite 2015, on 20th and 21st of February 2015." />
+<meta name="keywords" content="Magnovite,Tech Fest" />
+<meta name="author" content="CUFE" />
+
+<meta property="og:title" content="Workshop | Magnovite 2015" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://magnovite.net/static/img/logo_square_share.png" />
+<meta property="og:url" content="https://magnovite.net/" />
+<meta property="og:description" content="Christ University presents its annual techno-cultural fest Magnovite 2015, on 20th and 21st of February 2015." />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Workshop | Magnovite 2015" />
+<meta name="twitter:description" content="Christ University presents its annual techno-cultural fest Magnovite 2015, on 20th and 21st of February 2015." />
+<meta name="twitter:image" content="https://magnovite.net/static/img/logo_square_share.png" />
+{% endblock "extra_meta" %}
+
+{% block "body_css_class" %}
+workshop-page transparent-banner
+{% endblock "body_css_class" %}
+
+{% block "content" %}
+<div class="page-container">
+    <div class="title">
+        <h1>Workshops</h1>
+    </div>
+
+    <div class="nav container">
+        {% for workshop in workshops %}
+        <a href="#{{workshop.id}}" class="nav-item">
+            <img src="{{workshop.img_small}}" alt="{{workshop.title}}">
+        </a>
+        {% endfor %}
+    </div>
+
+    {% for workshop in workshops %}
+    <div class="workshop" id="{{workshop.id}}">
+        <div class="container">
+            <div class="left">
+                <img src="{{workshop.img_big}}" alt="{{workshop.title}}">
+            </div>
+            <div class="right">
+                <h2 class="workshop-title">{{workshop.title}}</h2>
+                <div class="info">
+                    <p>{{workshop.desc_1}}</p>
+                    <p>{{workshop.desc_2}}</p>
+                </div>
+                <div class="incharge">
+                    <div class="student part">
+                        <h3>Student Incharge</h3>
+                        <div class="person">
+                            <p class="name">{{workshop.std_1_name}}</p>
+                            <a href="tel:{{workshop.std_1_mobile}}" class="tele">{{workshop.std_1_mobile|mobile}}</a>
+                        </div>
+                        <div class="person">
+                            <p class="name">{{workshop.std_2_name}}</p>
+                            <a href="tel:{{workshop.std_2_mobile}}" class="tele">{{workshop.std_2_mobile|mobile}}</a>
+                        </div>
+                    </div>
+                    <div class="faculty part">
+                        <h3>Faculty Incharge</h3>
+                        <div class="person">
+                            <p class="name">{{workshop.faculty_name}}</p>
+                            <a href="tel:{{workshop.faculty_mobile}}" class="tele">{{workshop.faculty_mobile|mobile}}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="register">
+                    <div class="price part">
+                        <p>Fee ₹ {{workshop.price|intcomma}}</p>
+                    </div>
+
+                    {% if workshop in registered %}
+                    <div class="register-btn-box part registered">
+                        <button class="button gray registered">Registered</button>
+                    </div>
+                    {% elif workshop.registrations_open %}
+                    <div class="register-btn-box part">
+                        <button data-type="workshop" data-params="id={{workshop.id}}" class="button gray js-pay">Register Now</button>
+                    </div>
+                    {% else %}
+                    <p>Registrations are closed!</p>
+                    {% endif %}
+
+                    <div class="payu part">
+                        <img src="/static/img/payu.jpg" alt="PayuMoney">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock "content" %}

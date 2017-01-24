@@ -1,0 +1,128 @@
+{% extends "magnovite/base_internal.html" %}
+{% load l10n %}
+{% load tags %}
+
+{% block "body_css_class" %}
+page-tableview
+{% endblock "body_css_class" %}
+
+{% block "content" %}
+<div class="container-wide">
+    {% if type == 'workshop' %}
+    <h1>{{workshop.title}}</h1>
+    {% elif type == 'event' %}
+    <h1>{{event.title}}</h1>
+    {% elif type == 'hospitality' %}
+    <h1>Hospitality</h1>
+    {% elif type == 'on-spot' %}
+    <h1>On Spot Registrations | Day: {{days}}</h1>
+    {% elif type == 'checked-in' %}
+    <h1>Checked In | Day: {{days}}</h1>
+    {% elif type == 'colleges' %}
+    <h1>Colleges</h1>
+    {% endif %}
+
+    <p class="timestamp">Generated on {{now|date:"M-j, f a"}}, Total: <strong>{{profiles.count}}</strong></p>
+
+    {% if type == 'event' or type == 'workshop' %}
+    <table class="pure-table pure-table-horizontal">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>College</th>
+                <th>Mobile</th>
+                <th>CheckedIn</th>
+                <th>AuthProvider</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for profile in profiles %}
+            <tr class="{% if forloop.counter|divisibleby:2 %}pure-table-odd{% endif %}">
+                <td>{{forloop.counter}}</td>
+                <td>{{profile.user.get_id|unlocalize}}</td>
+                <td>{{profile.name|title}}</td>
+                <td>{{profile.college_neat}}</td>
+                <td>{{profile.mobile|mobile}}</td>
+                <td>{{profile.checked_in}}</td>
+                <td>{{profile.auth_provider}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% elif type == 'hospitality' %}
+    <table class="pure-table pure-table-horizontal">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>College</th>
+                <th>Mobile</th>
+                <th>Num Days</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for profile in profiles %}
+            <tr class="{% if forloop.counter|divisibleby:2 %}pure-table-odd{% endif %}">
+                <td>{{forloop.counter}}</td>
+                <td>{{profile.user.get_id|unlocalize}}</td>
+                <td>{{profile.name|title}}</td>
+                <td>{{profile.college_neat}}</td>
+                <td>{{profile.mobile|mobile}}</td>
+                <td>{{profile.hospitality_days}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% elif type == 'on-spot' or type == 'checked-in' %}
+    <table class="pure-table pure-table-horizontal">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>College</th>
+                <th>Mobile</th>
+                <th>Provider</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for profile in profiles %}
+            <tr class="{% if forloop.counter|divisibleby:2 %}pure-table-odd{% endif %}">
+                <td>{{forloop.counter}}</td>
+                <td>{{profile.user.get_id|unlocalize}}</td>
+                <td>{{profile.name|title}}</td>
+                <td>{{profile.college_neat}}</td>
+                <td>{{profile.mobile|mobile}}</td>
+                <td>{{profile.auth_provider}}</td>
+                <td>{{profile.summary_str|truncatechars:25}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% elif type == 'colleges' %}
+    <table class="pure-table pure-table-horizontal">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>College</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for profile in profiles %}
+            <tr class="{% if forloop.counter|divisibleby:2 %}pure-table-odd{% endif %}">
+                <td>{{forloop.counter}}</td>
+                <td>{{profile.college}}</td>
+                <td>{{profile.total}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+</div>
+{% endblock "content" %}

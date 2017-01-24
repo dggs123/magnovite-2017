@@ -1,0 +1,254 @@
+{% extends "magnovite/base.html" %}
+{% load humanize %}
+{% load tags %}
+
+{% block "extra_meta" %}
+<meta name="description" content="Christ University presents its annual techno-cultural fest Magnovite 2015, on 20th and 21st of February 2015." />
+<meta name="keywords" content="Magnovite,Tech Fest" />
+<meta name="author" content="CUFE" />
+
+<meta property="og:title" content="{{event.title}} | Magnovite 2015" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="{{event.cover}}" />
+<meta property="og:url" content="{{event.get_absolute_url}}" />
+<meta property="og:description" content="{{event.quote}}" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{event.title}} | Magnovite 2015" />
+<meta name="twitter:description" content="{{event.quote}}" />
+<meta name="twitter:image" content="{{event.cover}}" />
+{% endblock "extra_meta" %}
+
+{% block "body_css_class" %}
+event-details {{event.type}}-event
+{% if not event.is_multiple %}individual{% endif %}
+{% if is_registered %}registered{% endif %}
+transparent-banner
+{% endblock %}
+
+{% block "post_js" %}
+<script>
+app.CURRENT_EVENT_ID = {{event.id}};
+app.EVENT_TYPE = "{{event.team_type}}";
+app.eventDetails.init();
+</script>
+{% endblock "post_js" %}
+
+{% block "content" %}
+<div class="page-container">
+<div class="modal detail-modals team-register-modal {{event.type}}" id="team-register">
+	<div class="modal-inner">
+		<div class="close">x</div>
+
+		<h2 class="title">Team Registrations</h2>
+		<div class="body">
+			<div class="panel">
+				<div class="button gray new-team js-new-team">
+					Start a Team
+				</div>
+
+				<p class="text">
+					{% if event.is_group %}
+					Pay 500/- to create your own team! Upto {{event.team_max}} of
+					your friends can join for free with your Team ID
+					{% else %}
+					Start your own team! You will be given a unique
+					Team ID which your friends can use to join your
+					team
+					{% endif %}
+				</p>
+			</div>
+			<div class="panel">
+				<input class="gray" type="text" maxlength="10" placeholder="Team ID" autocomplete="off" name="teamId">
+				<p class="error">Invalid Team ID, Make sure the Team ID matches with the event</p>
+				<div class="button gray join-team js-join-team">
+					Join Team
+				</div>
+
+				<p class="text">
+					Enter a Team ID to join a team
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal detail-modals team-create-modal {{event.type}}" id="team-create-modal">
+	<div class="modal-inner">
+		<div class="close">x</div>
+		<h2 class="title">Create Team</h2>
+
+		<div class="body">
+			<ul class="list">
+				<li>A one time payment of Rs.500 is charged to create a Group Team</li>
+				<li>Once a team has been created, your team members can join with the team-id; They do not need to pay</li>
+				<li>All members of the team must register on Magnovite.net to join the team</li>
+				<li>Payments are final and refunds will not be entertained</li>
+			</ul>
+			<div class="payu">
+				<img src="/static/img/payu.jpg" alt="PayuMoney">
+			</div>
+
+			<div data-type="team" data-params="id={{event.id}}" class="button gray btn-invoice js-pay">Create Team</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal detail-modals team-detail-modal {{event.type}}" id="team-detail">
+	<div class="modal-inner">
+		<div class="close">x</div>
+		<h2 class="title">Team Details</h2>
+
+		<div class="body">
+			<div class="panel">
+				<h3>Your Team</h3>
+				<ol class="members">
+					{% for teammate in team_profiles %}
+					<li class="{% if teammate == profile %}me{% endif %}">
+					{{teammate.name}}
+					</li>
+					{% endfor %}
+				</ol>
+			</div>
+			<div class="panel">
+				<h3>Team ID</h3>
+				<p class="team-id">{{team_id}}</p>
+				<p class="text">
+					Have your friends register with this ID to join
+					your team
+				</p>
+
+				{% if event.is_group and team_owner %}
+				{% else %}
+				<div class="button gray leave-team js-leave">
+					Leave Team
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="event-cover">
+	<img class="image" src="{{event.cover}}" />
+
+	<div class="content">
+		<div class="inner-content">
+			<h1>{{event.title}}</h1>
+
+			{% if event.technical %}
+			<div class="tags">
+				{% for tag_obj in event.tag_assoc %}
+					<div class="tag-container">
+						<p>{{tag_obj.name}}</p>
+						<div class="tag {{tag_obj.tag}}"></div>
+					</div>
+				{% endfor %}
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+<div class="page-outer">
+<div class="page">
+	<div class="container">
+		<div class="pane left">
+			<div class="markdown">
+				{{event.info_as_html|safe}}
+			</div>
+		</div>
+
+		<div class="pane right">
+			<div class="register-container">
+				<div class="register-button
+				{% if is_registered %}registered{% endif %}
+				{% if event.is_multiple %}team-event{% endif %}">
+					<div class="inner">
+						<div class="check"></div>
+
+						<div class="text-container">
+							{% if is_registered %}
+								{% if event.is_multiple %}
+								<p class="text js-text">View Team</p>
+								{% else %}
+								<p class="text js-text">Unregister</p>
+								{% endif %}
+							{% else %}
+								<p class="text js-text">Register</p>
+							{% endif %}
+
+							{% if team_owner %}
+							<p class="extra">(Team Leader)</p>
+							{% else %}
+							<p class="extra">(or Unregister)</p>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+
+				<div class="team-details">
+					<span class="label">{{event.get_team_type_display}} Event</span>
+					{% if event.is_multiple %}
+						<p>Team {{event.team_min}}-{{event.team_max}}</p>
+					{% else %}
+						<p>Individual</p>
+					{% endif %}
+				</div>
+			</div>
+
+			<div class="info">
+				<div class="cash">
+					<span>Total Cash Prize</span>
+					<p>₹ {{event.cash_prize|intcomma}}</p>
+				</div>
+				<ul class="points">
+					<li>
+						<span class="label">Date</span>
+						<span>{{event.date|ordinal}} February</span>
+					</li>
+					<li>
+						<span class="label">Time</span>
+						<span>{{event.time}}</span>
+					</li>
+					<li>
+						<span class="label">Venue</span>
+						<span>{{event.venue}}</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="heads">
+				{% if head_one %}
+				<div class="head">
+					<div class="left-head">
+						<img src="{{event.event_head_p1}}" alt="">
+					</div>
+					<div class="right-head">
+						<p class="name">{{head_one.name.title}}</p>
+						<p class="details">{{head_one.mobile|mobile}}</p>
+						<p class="details">{{head_one.active_email}}</p>
+					</div>
+				</div>
+				{% endif %}
+
+				{% if head_two %}
+				<div class="head">
+					<div class="left-head">
+						<img src="{{event.event_head_p2}}" alt="">
+					</div>
+					<div class="right-head">
+						<p class="name">{{head_two.name.title}}</p>
+						<p class="details">{{head_two.mobile|mobile}}</p>
+						<p class="details">{{head_two.active_email}}</p>
+					</div>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+</div>
+{% endblock %}

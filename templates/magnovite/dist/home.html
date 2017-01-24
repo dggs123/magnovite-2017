@@ -1,0 +1,637 @@
+{% extends "magnovite/base.html" %}
+{% load tags %}
+
+{% block "extra_meta" %}
+<meta name="description" content="Christ University presents its annual techno-cultural fest Magnovite 2015, on 20th and 21st of February 2015." />
+<meta name="keywords" content="Magnovite,Tech Fest" />
+<meta name="author" content="CUFE" />
+
+<meta property="og:title" content="Magnovite 2015" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://magnovite.net/static/img/logo_square_share.png" />
+<meta property="og:url" content="https://magnovite.net/" />
+<meta property="og:description" content="Christ University presents its annual techno-cultural fest Magnovite 2015, on 20th and 21st of February 2015." />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Magnovite 2015" />
+<meta name="twitter:description" content="Christ University presents its annual techno-cultural fest Magnovite 2015, on 20th and 21st of February 2015." />
+<meta name="twitter:image" content="https://magnovite.net/static/img/logo_square_share.png" />
+{% endblock "extra_meta" %}
+
+{% block "body_css_class" %}home-page{% endblock %}
+
+{% block page_banner %}{% endblock page_banner %}
+
+{% block "content" %}
+<div class="page-container">
+<div class="landing">
+    <div class="top-banner">
+        <div class="inner-banner">
+            <div class="logo">
+                <a href="/">
+                    <img src="/static/img/mlogo.png" class="logo-mobile js-drawer" alt="Magnovite">
+                </a>
+            </div>
+
+            <img class="christ desktop-only" src="/static/img/christ.png" />
+
+            <div class="banner-box-list">
+
+                {% if is_staff %}
+                <div class="access banner-box">
+                    <div class="top">
+                        <p>Access: <span>{{access_level}}</span></p>
+                    </div>
+                    <div class="bottom {% if has_admin and has_dashboard %}both{% endif %}">
+                        {% if has_admin %}
+                        <div class="part">
+                            <a href="/admin/">Admin Panel</a>
+                        </div>
+                        {% endif %}
+                        {% if access_level == 'Event Head' %}
+                        <div class="part">
+                            <a href="/internal/event/{{profile.get_event_incharge_of.slug}}/">Registrations</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <div class="{% selected "/events/" %} banner-page-link banner-box">
+                    <a href="/events/">Events</a>
+                </div>
+
+                <div class="{% selected "/workshops/" %} banner-page-link banner-box">
+                    <a href="/workshops/">Workshops</a>
+                </div>
+
+                <div class="user-settings banner-box
+                    {% if user.is_authenticated %}logged-in{% endif %}">
+
+                    {% if user.is_authenticated %}
+                        <a class="text" href="#">
+                            Hi, <em>{{ profile.name }}</em>
+                            <span class="small">▼</span>
+                        </a>
+                    {% else %}
+                        <a class="text" href="#">Login/Register</a>
+                    {% endif %}
+
+                    <ul class="dropdown user-dropdown">
+                        <li><a href="/profile/">My Account</a></li>
+                        <li><a href="/profile/#pack">My Pack</a></li>
+                        <li><a href="/profile/#schedule">My Schedule</a></li>
+                        <li><a href="/profile/#help">Help</a></li>
+                        <li><a href="/logout/?next={{request.path}}">Logout</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <div class="landing-bar">
+        <div class="game-bar">
+            <div class="progress top">
+                <div class="progress-inner max js-prog-max">
+                    <div class="progress-inner curr js-prog-curr"></div>
+                </div>
+            </div>
+
+            <div class="game-bar-inner clearfix">
+                <div class="col left-col">
+                    <h3>How to Play</h3>
+                    <p>Collect all the atoms without touching the letters!</p>
+                    <p>
+                        Your score is the maximum number of of atoms you collect
+                        together under the pointer
+                    </p>
+
+                    <a href="#" class="button js-countdown">Back</a>
+                    <a href="#" class="button js-reset">Reset</a>
+                </div>
+                <div class="col score-col">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                    <div class="score js-timer">-:--:--</div>
+                </div>
+                <div class="col right-col">
+                    <div class="score-block curr">
+                        <h4>Score</h4>
+                        <p class="score js-score-curr">2</p>
+                    </div>
+                    <div class="score-block best">
+                        <h4>Best</h4>
+                        <p class="score js-score-best">19</p>
+                    </div>
+                </div>
+            </div>
+            <div class="progress bottom">
+                <div class="progress-inner max js-prog-max">
+                    <div class="progress-inner curr js-prog-curr"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timer">
+            <div class="timers">
+                <div class="timers-container">
+                    <div class="timer-info info-circle">
+                        <a href="http://en.wikipedia.org/wiki/Binary_number" target="_blank">?</a>
+                    </div>
+
+                    <div class="timer-block" style="display:none">
+                        <div class="binary">
+                            <div class="bin-col">
+                                <div class="dot"></div>
+                                <div class="dot on"></div>
+                                <div class="dot"></div>
+                                <div class="dot on"></div>
+                            </div>
+                        </div>
+                        <p class="description">months</p>
+                        <p class="numeric">24</p>
+                    </div>
+                    <div class="timer-block">
+                        <div class="binary">
+                            <div class="bin-col">
+                                <div class="dot"></div>
+                                <div class="dot on"></div>
+                            </div>
+                            <div class="bin-col">
+                                <div class="dot"></div>
+                                <div class="dot on"></div>
+                                <div class="dot"></div>
+                                <div class="dot on"></div>
+                            </div>
+                        </div>
+                        <p class="description">days</p>
+                        <p class="numeric">13</p>
+                    </div>
+                    <div class="timer-block">
+                        <div class="binary">
+                            <div class="bin-col">
+                                <div class="dot"></div>
+                                <div class="dot on"></div>
+                            </div>
+                            <div class="bin-col">
+                                <div class="dot on"></div>
+                                <div class="dot"></div>
+                                <div class="dot on"></div>
+                                <div class="dot on"></div>
+                            </div>
+                        </div>
+                        <p class="description">hours</p>
+                        <p class="numeric">8</p>
+                    </div>
+                    <div class="date-block desktop-only">
+                        <p class="top">To be held on</p>
+                        <p class="big">20<sup>th</sup> <span class="light">&amp;</span> 21<sup>st</sup></p>
+                        <p class="bottom">February</p>
+                    </div>
+                    <div class="timer-block">
+                        <div class="binary">
+                            <div class="bin-col">
+                                <div class="dot on"></div>
+                                <div class="dot"></div>
+                                <div class="dot on"></div>
+                            </div>
+                            <div class="bin-col">
+                                <div class="dot"></div>
+                                <div class="dot on"></div>
+                                <div class="dot"></div>
+                                <div class="dot on"></div>
+                            </div>
+                        </div>
+                        <p class="description">minutes</p>
+                        <p class="numeric">15</p>
+                    </div>
+                    <div class="timer-block desktop-only">
+                        <div class="binary">
+                            <div class="bin-col">
+                                <div class="dot on"></div>
+                                <div class="dot"></div>
+                                <div class="dot on"></div>
+                            </div>
+                            <div class="bin-col">
+                                <div class="dot"></div>
+                                <div class="dot on"></div>
+                                <div class="dot"></div>
+                                <div class="dot on"></div>
+                            </div>
+                        </div>
+                        <p class="description">seconds</p>
+                        <p class="numeric">19</p>
+                    </div>
+
+                    <div class="down-arrow info-circle">
+                        <a href="#" class="js-down-arrow">
+                            <img src="/static/img/down-arrow.png">
+                        </a>
+                    </div>
+                </div>
+            </div> <!-- /.timers -->
+        </div> <!-- /.timer -->
+    </div> <!-- /.landing-bar -->
+
+    <div class="timer-banner">
+        <p class="button green js-start-game">Enter Game Arena</p>
+    </div>
+</div> <!-- /.landing -->
+
+<!-- Mobile View -->
+<div class="mobile-bulb">
+    <div class="mobile-description">
+        <h2 class="title">Magnovite 2015</h2>
+        <p class="content">
+            Christ University Faculty of Engineering presents
+            its annual Techno-Cultural Fest "Magnovite 2015" to be held on the 20th and 21th of February
+            2015.
+        </p>
+    </div>
+
+    <div class="mobile-events">
+        <a href="/events" class="button mobile-button">View Events</a>
+    </div>
+</div>
+<!-- Mobile View ends -->
+
+<div class="bulb-section default preload">
+    <div class="backdrop"></div>
+
+    <div class="container">
+
+        <div class="pane bulb-pane">
+            <div class="bulb">
+                <img class="background" src="/static/img/bulb.png" alt="">
+
+                <div class="hexagon">
+
+                    <!-- centre.M.svg start -->
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 340 333" enable-background="new 0 0 340 333" xml:space="preserve">
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+
+                        <path class="path"  style="filter: url(#glow);" stroke-miterlimit="10" d="m 125.13336,135.53188 c 0,0 20.93668,24.37023 39.53358,19.2305 18.59692,-5.13976 31.20557,-47.09167 54.54404,-35.7757 8.06895,3.91234 12.36646,18.35529 6.43336,13.87732 -28.72014,-21.67638 -24.68558,8.6978 -21.78672,17.70046 1.84701,5.73604 6.28865,17.69903 7.36821,20.06579 3.85529,8.45207 -6.8071,34.52123 -17.29766,34.00726 -10.49057,-0.51397 5.71061,-68.65415 -20.31435,-33.60654 -17.21274,23.18026 -16.3845,3.16654 -36.88668,-17.39237 -20.50336,-20.56008 -16.95828,67.2784 -27.44882,57.51289 -10.490574,-9.76552 -8.73878,-45.661 -4.44719,-63.13612 0,0 8.72059,-28.10746 20.30223,-12.48349 z"/>
+                    </svg><!-- centre.M.svg end -->
+
+                    <div class="line l1"><div class="inner-line"></div></div>
+                    <div class="line l2"><div class="inner-line"></div></div>
+                    <div class="line l3"><div class="inner-line"></div></div>
+                    <div class="line l4"><div class="inner-line"></div></div>
+                    <div class="line l5"><div class="inner-line"></div></div>
+                    <div class="line l6"><div class="inner-line"></div></div>
+
+                    <a href="/events/#technical" class="circle c1" data-type="c1">
+                        <img src="/static/img/technical.png" alt="">
+                        <div class="cover"></div>
+                    </a>
+                    <div class="circle c2 deactive" data-type="c2">
+                        <img src="/static/img/exhibition.png" alt="">
+                        <div class="cover"></div>
+                    </div>
+                    <div class="circle c3 deactive" data-type="c3">
+                        <img src="/static/img/pronight.png" alt="">
+                        <div class="cover"></div>
+                    </div>
+                    <a href="/workshops/" class="circle c4" data-type="c4">
+                        <img src="/static/img/workshop.png" alt="">
+                        <div class="cover"></div>
+                    </a>
+                    <a href="/events/#cultural" class="circle c5" data-type="c5">
+                        <img src="/static/img/cultural.png" alt="">
+                        <div class="cover"></div>
+                    </a>
+                    <div class="circle c6 deactive" data-type="c6">
+                        <img src="/static/img/talk.png" alt="">
+                        <div class="cover"></div>
+                    </div>
+                </div> <!-- /.bulb -->
+            </div>
+        </div>
+
+        <div class="pane right-pane">
+            <div class="event-section default">
+                <h2 class="title">
+                    Magnovite 2015
+                </h2>
+
+                <p class="content">
+                    Christ University Faculty of Engineering presents
+                    its annual Techno-Cultural Fest Magnovite 2015 to be held on the <em>20th and 21th of February</em>
+                    2015.
+                </p>
+            </div>
+        <div class="event-section c1">
+                <h2 class="title">
+                    Technical Events
+                </h2>
+
+                <p class="content">
+                    Take a look at our diverse set
+                    of technical events each designed to test the engineering
+                    prowess and creativity of students from all technical
+                    disciplines.
+                </p>
+
+                <div class="subscribe">
+                    <div class="group">
+                        <a href="/events/#technical" class="button">See Technical Events</a>
+                    </div>
+                </div>
+            </div>
+            <div class="event-section c2">
+                <h2 class="title">
+                        Exhibition
+                </h2>
+
+                <p class="content">
+                    Get a sneak peak at what brilliant attractions the Magnovite 2015 Exhibition will be offering up.
+                </p>
+
+                <div class="subscribe">
+                    <p>
+                        Our registrations are not open yet. Drop us your email and we'll be sure
+                        to ping you when they are.
+                    </p>
+
+                    <div class="group">
+                        <input class="js-email" name="email" placeholder="email" />
+                        <button class="js-subscribe button progress-button">
+                            <span class="text">Subscribe</span>
+                            <span class="progress">...</span>
+                            <span class="done">Subscribed!</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="event-section c3">
+                <h2 class="title">
+                    Cultural Night
+                </h2>
+
+                <p class="content">
+                    Let your hair down, and check out our fun-filled cultural night. Keep checking this space for updates!
+                </p>
+
+                <div class="subscribe">
+                    <p>
+                        Our registrations are not open yet. Drop us your email and we'll be sure
+                        to ping you when they are.
+                    </p>
+
+                    <div class="group">
+                        <input class="js-email" name="email" placeholder="email" />
+                        <button class="js-subscribe button progress-button">
+                            <span class="text">Subscribe</span>
+                            <span class="progress">...</span>
+                            <span class="done">Subscribed!</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="event-section c4">
+                <h2 class="title">
+                    Workshops
+                </h2>
+
+                <p class="content">
+                    Get your hands dirty and challenge your innovative abilities with one of our intuitive workshops.
+                </p>
+
+                <div class="subscribe">
+                    <div class="group">
+                        <a href="/workshops/" class="button">See Workshops</a>
+                    </div>
+                </div>
+            </div>
+            <div class="event-section c5">
+                <h2 class="title">
+                    Cultural Events
+                </h2>
+
+                <p class="content">
+                    Some people sing, some dance, some talk some draw and some just like to Rock n' Roll! Whatever it is you like doing, weve got the stage for you!
+                </p>
+
+                <div class="subscribe">
+                    <div class="group">
+                        <a href="/events/#cultural" class="button">See Cultural Events</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="event-section c6">
+                <h2 class="title">
+                    Guest Talk
+                </h2>
+
+                <p class="content">
+                    Enlighten yourself at one of our many keynote addresses by emminent members of the Technical and Non-Technical community.
+                </p>
+
+                <div class="subscribe">
+                    <p>
+                        Our registrations are not open yet. Drop us your email and we'll be sure
+                        to ping you when they are.
+                    </p>
+
+                    <div class="group">
+                        <input class="js-email" name="email" placeholder="email" />
+                        <button class="js-subscribe button progress-button">
+                            <span class="text">Subscribe</span>
+                            <span class="progress">...</span>
+                            <span class="done">Subscribed!</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div> <!-- /.right-pane -->
+    </div>
+</div> <!-- /.bulb-section -->
+
+<div class="footer-home">
+    <div class="share">
+        <h2>Do spread the word!</h2>
+        <div class="share-buttons">
+            <a class="fb share-link" onClick="FB.ui({method: 'share',href: 'https://magnovite.net/',}, function(response){});return false;" href="https://www.facebook.com/dialog/share?app_id=328741147313406&display=popup&href=https%3A%2F%2Fmagnovite.net%2F&redirect_uri=https%3A%2F%2Fmagnovite.net%2F">
+                <img src="/static/img/fb_circle.png" alt="Facebook">
+
+                <div class="share-back fb-back"></div>
+            </a>
+            <a class="share-link" target="_blank" href="http://twitter.com/share?text=Magnovite%202015&url=https://magnovite.net/">
+                <img src="/static/img/twitter_circle.png" alt="Twitter">
+            </a>
+        </div>
+        <div>
+            <h2>Key Sponsor</h2>
+            <a href="https://geckolife.com">
+                <img src="/static/img/gecko_logo.png" target="_blank" alt="">
+            </a>
+        </div>
+    </div>
+
+    <div class="links">
+        <div class="container">
+            <div class="section">
+                <h3 class="title">Hospitality</h3>
+                <p class="desc">We provide hospitality arrangment for students who want to opt for it. Follow the link for more information</p>
+                {% if request.user.is_authenticated %}
+                <a href="/profile/#hospitality" class="link button">See Hospitality</a>
+                {% else %}
+                <a href="#" onclick="app.modal.show('#login-modal');" class="link button">See Hospitality</a>
+                {% endif %}
+            </div>
+            <div class="section">
+                <h3 class="title">Help</h3>
+                <p class="desc">If you have any queries we are more than happy to assist</p>
+                <a href="/profile/#help" class="link button">Get Help</a>
+            </div>
+            <div class="section">
+                <h3 class="title">Android App</h3>
+                <p class="desc">Download Navigation Helper to get around the campus!</p>
+                <a target="_blank" href="https://www.dropbox.com/s/iiku5b64542f5a3/magnovite.apk" class="link button">Download App</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="location">
+        <div class="container">
+            <div class="section address-section">
+                <div class="block">
+                    <h3>Where are you?</h3>
+                    <p>
+                        Christ University Faculty of Engineering, <br />
+                        Kamanike, Mysore Road, Bangalore - 560074
+                    </p>
+                </div>
+
+                <div class="block">
+                    <h3>How do I get there?</h3>
+                    <ul>
+                        <li><span class="em">From Majestic</span> - Take the 226-N bus to Kamanike Bus Stop</li>
+                        <li><span class="em">From KR Market</span> - Take the 226-M bus to Kamanike Bus Stop</li>
+                    </ul>
+                </div>
+                <div class="block">
+                    <h3>Who do I call if I'm lost?</h3>
+                    <div class="person-container">
+                        <div class="person">
+                            <p class="name">Nikhil Mathew</p>
+                            <a href="mailto:nikhil@magnovite.net" class="email">nikhil@magnovite.net</a>
+                            <a href="tel:+919620019825" class="tele">+91 962 001 9825</a>
+                        </div>
+                        <div class="person">
+                            <p class="name">Lalith Madhav</p>
+                            <a class="email" href="mailto:lalith@magnovite.net">lalith@magnovite.net</a>
+                            <a class="tele" href="tel:+919900559896">+91 990 055 9896</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section map-section">
+                <div class="map">
+                    <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Christ%20University%20Faculty%20of%20Engineering%2C%20Mysore%20Road%2C%20Kanmanike%2C%20Bengaluru%2C%20Karnataka%2C%20India&key=AIzaSyBAo7FiVdZMcVjj30PUesIyASi1T8aMXQU"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="home-footer">
+        <div class="contact">
+            <h2 class="title">Important Contacts</h2>
+            <div class="contact-row container">
+                <div class="contact-box">
+                    <h4>Technical</h4>
+                    <p class="name">Arjun Jariwala</p>
+                    <a href="mailto:arjun@magnovite.net" class="email">arjun@magnovite.net</a>
+                    <a href="tel:+919980394084" class="tele">+91 998 039 4084</a>
+                </div>
+                <div class="contact-box">
+                    <h4>Cultural</h4>
+                    <p class="name">Cyril Siby</p>
+                    <a href="mailto:cyril@magnovite.net" class="email">cyril@magnovite.net</a>
+                    <a href="tel:+918105143252" class="tele">+91 810 514 3252</a>
+                </div>
+                <div class="contact-box">
+                    <h4>Hospitality</h4>
+                    <p class="name">Roshen Anil</p>
+                    <a href="mailto:roshen@magnovite.net" class="email">roshen@magnovite.net</a>
+                    <a href="tel:+919495206255" class="tele">+91 949 520 6255</a>
+                </div>
+                <div class="contact-box">
+                    <h4>General</h4>
+                    <p class="name">Vikram Krishna</p>
+                    <a href="mailto:vikram@magnovite.net" class="email">vikram@magnovite.net</a>
+                    <a href="tel:+919901874831" class="tele">+91 990 187 4831</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-last">
+            <div class="container">
+                <p class="dev">
+                    Designed and Developed in CUFE by
+                    <a target="_blank" href="https://github.com/AeonAxan/magnovite-2015/graphs/contributors">these guys</a>
+                </p>
+                <p class="copy">&copy; Magnovite 2015</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block "pre_js" %}
+<script>
+    // scale down logo
+    var anim = {scale: 0.67};
+
+    var MAG_TIMER_ZERO = {{timer_zero}};
+</script>
+{% endblock %}
+
+{% block "post_js" %}
+<script>
+    // get things rolling
+    anim.init();
+    anim.setMode('logo');
+    new app.Timer();
+
+    document.body.classList.add('loaded');
+    setTimeout(function() {
+        'use strict';
+
+        document.body.classList.add('logo-done');
+    }, 2500);
+
+    // start the choreographer
+    app.choreographer.init();
+    app.subscribe.init();
+
+    window.fbAsyncInit = function() {
+    FB.init({
+          appId      : '328741147313406',
+          xfbml      : true,
+          version    : 'v2.1'
+        });
+    };
+
+    (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+{% endblock %}

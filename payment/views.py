@@ -7,11 +7,11 @@ from django.core.mail import mail_admins
 from django.contrib import messages
 from django.conf import settings
 
-from app.event.models import Event, Registration
-from app.event.utils import generate_team_id
-from app.workshop.models import Workshop
+from event.models import Event, Registration
+from event.utils import generate_team_id
+from workshop.models import Workshop
 
-from app.main.utils import template_email
+from main.utils import template_email
 from .utils import get_payu_form, test_checksum
 from .models import create_invoice, Invoice
 

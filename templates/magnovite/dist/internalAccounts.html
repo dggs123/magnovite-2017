@@ -1,0 +1,43 @@
+{% extends "magnovite/base_internal.html" %}
+{% load l10n %}
+{% load tags %}
+
+{% block "body_css_class" %}
+page-tableview
+{% endblock "body_css_class" %}
+
+{% block "content" %}
+<div class="container-wide">
+    <h1>Transactions</h1>
+
+    <p class="timestamp">Generated on {{now|date:"M-j, f a"}}, Total: <strong>{{total}}</strong></p>
+
+    {% for type in transactions %}
+    <h3>{{type.title}}</h3>
+    <table class="pure-table pure-table-horizontal">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for invoice in type.invoices %}
+            <tr class="{% if forloop.counter|divisibleby:2 %}pure-table-odd{% endif %}">
+                <td>{{forloop.counter}}</td>
+                <td>{{invoice.get_id}}</td>
+                <td>{{invoice.profile.name}}</td>
+                <td>{{invoice.description}}</td>
+                <td>{{invoice.amount}}</td>
+                <td>{{invoice.created|date:"m-d H:m"}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endfor %}
+</div>
+{% endblock %}

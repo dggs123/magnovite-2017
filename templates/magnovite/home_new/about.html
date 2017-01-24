@@ -19,7 +19,7 @@
 	<meta property="og:title" content="Magnovite 6.0" />
 	<meta property="og:site_name" content="Magnovite 6.0" />
 	<meta property="og:description" content="Technocultural Fest" />
-	<meta property="og:url" content="http://www.magnovite.net/test" />
+	<meta property="og:url" content="http://127.0.0.1:8000/test" />
 	<meta property="og:image" content="/static/home_new/img/logos/facebook_share.jpg" />
 	<meta property="og:type" content="website" />
 	
@@ -28,7 +28,12 @@
 	<link media="screen" rel="stylesheet" type="text/css" href="/static/home_new/assets/css/styles.min.css" />
 	
 	<!--[if lt IE 9]><script src="http://www.giantstepsmedias.com/js/lib/html5shiv.min.js"></script><![endif]-->
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<!--[if lt IE 9]><script src="http://www.giantstepsmedias.com/js/lib/html5shiv.min.js"></script><![endif]--><script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 		<script src="/static/home_new/assets/js/lib/modern-detect-izr.min.js"></script>
+		<script type="text/javascript" src="http://cdn.rawgit.com/hilios/jQuery.countdown/2.2.0/dist/jquery.countdown.min.js"></script>
+		
 		
 		<!-- Google Analytics -->
 	<script>
@@ -67,12 +72,14 @@
 	<!-- Header -->
 	<header id="header">
 		<div id="header-small-logo">
-			<div class="header-small-logo-line"></div>
-			<a href="/" onclick="window.location='http://www.magnovite.net'" class="home-link">
+			<!-- <div class="header-small-logo-line"></div> -->
+			<a href="/" onclick="window.location='http://127.0.0.1:8000'" class="home-link">
 				<img src="/static/home_new/img/logos/logo150.png" style="width:70px;margin-left: -16px;
 margin-top: -20px;" alt="Giant Steps" />
 			</a>
 		</div>
+		
+		<!-- timer end			 -->
 		<nav id="menu">
 			<ul>
 				<li>
@@ -82,19 +89,19 @@ margin-top: -20px;" alt="Giant Steps" />
 					</a>
 				</li>
 				<li>
-					<a href="/events" onclick="window.location='http://www.magnovite.net/events'" class="menu-link">
+					<a href="/events" onclick="window.location='http://127.0.0.1:8000/events'" class="menu-link">
 						<span class="nb">02</span>
 						<span class="text">Events</span>
 					</a>
 				</li>
 				<li>
-					<a href="/campus" onclick="window.location='http://www.magnovite.net/campus'" class="menu-link">
+					<a href="/campus" onclick="window.location='http://127.0.0.1:8000/campus'" class="menu-link">
 						<span class="nb">03</span>
 						<span class="text">Campus Ambassador</span>
 					</a>
 				</li>
 				<li>
-					<a href="/rightclick" onclick="window.location='http://www.magnovite.net/rightclick'" class="menu-link">
+					<a href="/rightclick" onclick="window.location='http://127.0.0.1:8000/rightclick'" class="menu-link">
 						<span class="nb">04</span>
 						<span class="text">Right Click</span>
 					</a>
@@ -109,7 +116,11 @@ margin-top: -20px;" alt="Giant Steps" />
 		</nav>
 		<div class="header-big-logo">
 			<div class="header-big-logo-border"></div>
-			<img src="/static/home_new/img/logos/christ_LOGO-black.png" style="margin-top:32px;" alt="Giant Steps" />
+			<!-- <img src="/static/home_new/img/logos/christ_LOGO-black.png" style="margin-top:32px;" alt="Giant Steps" /> -->
+			<h1 class="page-title">
+		<span class="page-title-l1" style="color:#00a87e;">2, 3 and 4 March</span>
+		<span class="page-title-l2">Magnovite 6.0</span>
+	</h1>
 		</div>
 	</header>
 	
@@ -126,7 +137,7 @@ margin-top: -20px;" alt="Giant Steps" />
 	
 	<!-- Main content -->
 	<article class="main-content">
-		<div class="line-1 line-title"></div>
+		<div class="line-1 line-title" style="top:100px;"></div>
 		<div class="close-part">
 			<div class="close-part-arrow"></div>
 		</div>
@@ -271,13 +282,47 @@ margin-top: -20px;" alt="Giant Steps" />
 		<!--
 		<div class="footer-social">
 			<a href="#" target="_blank" class="footer-link facebook">
-				<img src="http://www.giantstepsmedias.com/static/home_new/img/logos/facebook.png" alt="Facebook Giant Steps" />
+				<img src="http://www.giantstepsmedias.com//static/home_new/img/logos/facebook.png" alt="Facebook Giant Steps" />
 			</a>
 			<a href="#" target="_blank" class="footer-link twitter">
-				<img src="http://www.giantstepsmedias.com/static/home_new/img/logos/twitter.png" alt="Twitter Giant Steps" />
+				<img src="http://www.giantstepsmedias.com//static/home_new/img/logos/twitter.png" alt="Twitter Giant Steps" />
 			</a>
 		</div>
 		-->
+		<nav class="footer-link new-menu">
+			<ul>
+				<li>
+					<a href="/about" class="menu-link"  style="display:none;">
+						<span class="nb"><i class="fa fa-facebook"></i>
+</span>
+					</a>
+				</li>
+				<li>
+					<a href="/events" onclick="window.location='http://127.0.0.1:8000/events'" class="menu-link">
+						<span class="nb"><i class="fa fa-facebook"></i></span>
+					</a>
+				</li>
+				<li>
+					<a href="/campus" onclick="window.location='http://127.0.0.1:8000/campus'" class="menu-link">
+						<span class="nb">03</span>
+					</a>
+				</li>
+				<li>
+					<a href="/rightclick" onclick="window.location='http://127.0.0.1:8000/rightclick'" class="menu-link">
+						<span class="nb">04</span>
+						
+					</a>
+				</li>
+				<li>
+					<a href="/login" class="menu-link">
+						<span class="nb">05</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- Timer -->
+		<span id="clock"></span>
 		<a class="footer-link legals-link">
 			<span>&copy; Magnovite 6.0</span>
 		</a>
@@ -287,7 +332,6 @@ margin-top: -20px;" alt="Giant Steps" />
 		<div class="footer-link footer-sound">
 			<img src="/static/home_new/img/others/sound.png" alt="Sound"/>
 		</div>
-
 	</footer>
 	
 	<!-- No JS -->
@@ -308,8 +352,11 @@ margin-top: -20px;" alt="Giant Steps" />
 <script>
 	var LOCALHOST = '';
 	var PROD  = '1';
-	var WEB_ROOT = 'http://www.magnovite.net/';
+	var WEB_ROOT = 'http://127.0.0.1:8000/';
 	var LG = 'fr';
+	$('#clock').countdown('2017/3/2', function(event) {
+  $(this).html(event.strftime('%D days'));
+});
 </script>
 <!--[if lt IE 9]><script src="http://www.giantstepsmedias.com//static/home_new/assets/js/scripts-oldie.min.js"></script><![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><script src="/static/home_new/assets/js/scripts.min.js"></script><!--<![endif]-->

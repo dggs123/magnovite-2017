@@ -39,7 +39,6 @@ tt,
 var,
 b,
 u,
-i,
 center,
 dl,
 dt,
@@ -438,7 +437,7 @@ body {
     min-height: 600px;
     font: normal 12px 'HC';
     -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke: 0.25px;
+    -webkit-text-stroke: 0.5px;
     -moz-osx-font-smoothing: grayscale;
     color: #00e6ad;
     background-color: #000
@@ -454,8 +453,8 @@ a {
 }
 .page-title {
     position: absolute;
-    left: 0;
-    top: 73px;
+    left: 20px;
+    top: 37px;
     font-family: 'HC';
     letter-spacing: 0.1em
 }
@@ -579,7 +578,7 @@ a {
 #page-container {
     position: absolute;
     left: 0;
-    top: 0;
+    top: -50px;
     width: 100%;
     height: 100%
 }
@@ -601,8 +600,8 @@ a {
 }
 #menu {
     position: absolute;
-    left: 40px;
-    top: 25%
+    left: 20px;
+    top: 30%;
 }
 #menu li {
     opacity: 0;
@@ -610,7 +609,7 @@ a {
     -moz-transform: translateX(-30px);
     -ms-transform: translateX(-30px);
     -o-transform: translateX(-30px);
-    transform: translateX(-30px)
+    transform: translateX(-30px);
 }
 .menu-link {
     position: relative;
@@ -676,8 +675,8 @@ a {
 }
 #header-small-logo {
     position: fixed;
-    left: 50%;
-    top: 5%;
+    left: 5%;
+    top: 0%;
     width: 38px;
     height: 44px;
     margin: 50px 0 0 -19px
@@ -708,7 +707,7 @@ a {
     position: absolute;
     left: 0;
     bottom: 5%;
-    width: 210px;
+    width: 310px;
     height: 140px
 }
 .header-big-logo img {
@@ -740,7 +739,8 @@ a {
     bottom: 20px;
     font-size: 10px;
     line-height: 16px;
-    text-transform: uppercase
+    text-transform: uppercase;
+    -webkit-text-stroke: 0.25px;
 }
 .footer-social {
     float: left;
@@ -816,7 +816,7 @@ a {
     display: none;
     position: absolute;
     left: 0px;
-    top: 83px;
+    top: 50px;
     width: 60px;
     height: 60px;
     opacity: 0;
@@ -834,12 +834,18 @@ a {
 .agency .agency-subpage .text {
     position: absolute;
     left: 0;
-    top: 137px;
+    top: 110px;
     width: 500px
 }
 .agency .main-content .page-title {
     z-index: 1
 }
+.agency .main-content .page-title,
+.agency .agency-subpage .page-title
+{
+    left: 0px;
+}
+
 .agency .main-content .text {
     z-index: 1;
     opacity: 0;
@@ -858,7 +864,7 @@ a {
 #agency-links {
     position: absolute;
     right: 0;
-    bottom: -1px;
+    bottom: -50px;
     width: 250px
 }
 #agency-links .link {
@@ -2341,4 +2347,25 @@ a {
 }
 .legals .arrow-right {
     background: url(img/btns/arrow_white_right.png) center center no-repeat
+}
+#clock
+{
+    position: fixed;
+    right: 20px;
+    top:5%;
+    font-size: 25px;
+    opacity: 0.65;
+    transition: all 0.5s ease-in-out;
+    font-style: italic;
+    font-weight: bold;
+}
+#clock:hover{
+    opacity: 1;
+}
+.new-menu
+{
+    position: fixed;
+    right: 20px;
+    top:200px;
+
 }

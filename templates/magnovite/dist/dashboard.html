@@ -1,0 +1,93 @@
+{% extends "magnovite/base.html" %}
+
+{% block "body_css_class" %}
+page-dashboard browser-height stage-view
+{% endblock "body_css_class" %}
+
+{% block "css_extra" %}
+<link rel="stylesheet" href="/static/css/lib/c3.min.css" />
+{% endblock "css_extra" %}
+
+{% block "content" %}
+<div class="dashboard page-container stage">
+    <div class="s-left">
+        <div class="s-inner">
+            <div class="s-main-title">
+                <h1 class="s-item">Dashboard</h1>
+            </div>
+
+            <div class="s-item-box">
+                <ul class="s-section-list js-scene-menu">
+                    {% if show_summary %}
+                    <li data-scene="summary-scene" data-view="summary">
+                        <div class="s-item-inner">
+                            Summary
+                        </div>
+                    </li>
+
+                    <li class="seperator">
+                        <div class="s-item-inner"></div>
+                    </li>
+                    {% endif %}
+
+                    {% for event in events %}
+                    <li data-scene="event-scene" data-view="{{event.title}}">
+                        <div class="s-item-inner">
+                            {{event.title}}
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="s-right">
+        <div class="s-inner">
+            <div class="s-scene summary-scene">
+                <div class="dash-card summary-card">
+                    <h1>Total Statistics</h1>
+                    <div id="chart-summary"></div>
+                </div>
+            </div>
+            <div class="s-scene event-scene">
+                <div class="dash-card">
+                    <h1>Event Summary</h1>
+                    <div id="chart-event"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock "content" %}
+
+{% block "post_js" %}
+<script>
+var DASH = {
+    {% if req.user.is_superuser %}
+    admin: true,
+    {% else %}
+    admin: false,
+    {% endif %}
+
+    events: [
+        {% for event in events %}
+        {
+            id: {{event.id}},
+            title: '{{event.title}}'
+        },
+        {% endfor %}
+    ]
+}
+</script>
+
+<!-- build:js(./app/) /static/dist/dashboard.js -->
+<script src="/static/js/lib/d3.v3.min.js"></script>
+<script src="/static/js/lib/c3.min.js"></script>
+
+<script src="/static/js/dashboard/api.js"></script>
+<script src="/static/js/dashboard/store.js"></script>
+<script src="/static/js/dashboard/dashboard.js"></script>
+<!-- endbuild -->
+
+{% endblock "post_js" %}

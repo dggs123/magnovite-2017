@@ -1,9 +1,9 @@
 from django.conf import settings
 from django.db import models
 
-from app.main.models import Profile
-from app.event.models import Event
-from app.workshop.models import Workshop
+from main.models import Profile
+from event.models import Event
+from workshop.models import Workshop
 
 
 def create_invoice(invoice_type, profile, event=None, workshop=None, days=None):

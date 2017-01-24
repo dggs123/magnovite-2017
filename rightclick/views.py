@@ -25,6 +25,23 @@ def index(req):
         'is_registered': is_registered
     })
 
+def index1(req):
+
+    if settings.DEBUG:
+        template = 'magnovite/rightclick1.html'
+    else:
+        template = 'magnovite/rightclick1.html'
+
+
+    is_registered = False
+    if req.user.is_authenticated():
+        if req.user.profile.registrationrc_set.count()>=1:
+            is_registered = True
+
+    return render(req, template, {
+        'is_registered': is_registered
+    })
+
 
 @require_POST
 def register(req):

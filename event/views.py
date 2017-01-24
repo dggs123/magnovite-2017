@@ -96,15 +96,15 @@ def register(req, id, team_id=None):
 
     event = get_object_or_404(Event, id=id)
 
-    # # you cannot register if you are on the blank pack
-    # if not event.is_group() and req.user.profile.pack == 'none':
-    #     return JsonResponse({
-    #         'errorCode': 'no_pack',
-    #         'actionType': 'redirect',
-    #         'actionText': 'View Pack',
-    #         'redirectLocation': '/profile/#pack',
-    #         'errorMessage': 'You need to opt-in for a pack before registering. Follow the link below'
-    #     }, status=400)
+    # you cannot register if you are on the blank pack
+    if not event.is_group() and req.user.profile.pack == 'none':
+        return JsonResponse({
+            'errorCode': 'no_pack',
+            'actionType': 'redirect',
+            'actionText': 'View Pack',
+            'redirectLocation': '/profile/#pack',
+            'errorMessage': 'You need to opt-in for a pack before registering. Follow the link below'
+        }, status=400)
 
     if (not event.is_group() and
         req.user.profile.pack == 'single' and

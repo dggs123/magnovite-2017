@@ -1,0 +1,149 @@
+{% extends "magnovite/base.html" %}
+{% load humanize %}
+
+{% block "extra_meta" %}
+<meta name="description" content="Christ University presents its annual techno-cultural fest Magnovite V6, on 2nd and 3rd and 4th of March 2017." />
+<meta name="keywords" content="Magnovite,Tech Fest" />
+<meta name="author" content="CUFE" />
+
+<meta property="og:title" content="Campus Ambassador | Magnovite V6" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/static/img/campus/cap-magnovite.jpg" />
+<meta property="og:url" content="https://magnovite.net/campus/" />
+<meta property="og:description" content="The Campus Ambassador program undertaken by Magnovite Fest at Christ University.." />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Campus Ambassador | Magnovite V6" />
+<meta name="twitter:description" content="The Campus Ambassador program undertaken by Magnovite Fest.." />
+<meta name="twitter:image" content="/static/img/campus/cap-magnovite.jpg" />
+{% endblock "extra_meta" %}
+
+{% block "body_css_class" %}
+right-click {% if is_registered %}registered{% endif %}
+{% endblock %}
+
+ {% block "css_extra" %}
+ <style type="text/css">
+ 	
+ 	.page .container
+ 	{
+ 		width: 1300px;
+ 	}
+ 	.page .right
+ 	{
+ 		width: 30%;
+ 	}
+ 	.register-button
+ 	{
+ 		width: 100%;
+ 	}
+ 	.page .left
+ 	{
+ 		width: 70%;
+ 	}
+
+ 	.register-button .check
+ 	{
+ 		left: 80px;
+ 	}
+ 	.page .right .heads .head
+ 	{
+ 		width: 100%;
+ 	}
+ 	.page .right .heads .left-head
+ 	{
+ 		width: 35%;
+ 	}
+ 	.page .right .heads .right-head
+ 	{
+ 		width: 80%;
+ 	}
+ 	.mobile .container {
+    width: 100%;
+    }
+    .mobile .register-button .check
+    {
+    	top: 20px;
+    }
+ </style>
+
+ {% endblock "css_extra" %}
+
+{% block "post_js" %}
+<script>
+window.open("http://www.magnovite.net",'_blank');
+app.rightclick.init();
+
+</script>
+{% endblock "post_js" %}
+
+{% block "content" %}
+<div class="page-container">
+
+<div class="event-cover">
+	<img class="image lazy" data-original="https://assets.entrepreneur.com/content/16x9/822/20151125052533-shutterstock-199610807.jpeg" style="height:600px;" />
+
+	<div class="content">
+		<div class="inner-content">
+			<h1>Right Click</h1>
+		</div>
+	</div>
+</div>
+
+<div class="page-outer">
+<div class="page">
+	<div class="container">
+
+		<div class="pane right">
+			<div class="register-container">
+				
+				<div class="register-button
+				{% if is_registered %}registered{% endif %}">
+					<div class="inner">
+
+
+						<div class="text-container">
+							<div class="check"></div>
+							{% if is_registered %}
+								<p class="text js-text">Unregister</p>
+							{% else %}
+								<p class="text js-text">Register</p>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="heads">
+				
+				<div class="head">
+					<div class="left-head">
+						<img src="/static/img/events/head_default.jpg" alt="">
+					</div>
+					<div class="right-head">
+						<p class="name">Meghna Kurup </p>
+						<p class="details">+91-8105477491</p>
+						<p class="details">meghna.kurup@btech.christuniversity.in</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+		<div class="pane left">
+			<div class="markdown">
+				 An exclusive event planned and organised by INSPIRE for the potential entrepreneurs to showcase this skills and get along with the incubation to bring their ideas into reality.
+				<br> <br>
+				A company that is the outcome of a mutual collaboration between FECU and ONECROWD is “INSPIRE”.A company that gives the young minds a chance to bring their ideas into reality.<br>
+				<br>Registrations are closing by February 15. Register before it gets late.
+				
+				<br><br>
+				Witness the live exclusive event at FECU on 04-03-2017.
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+</div>
+{% endblock %}

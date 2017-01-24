@@ -1,0 +1,125 @@
+{% extends "magnovite/base_internal.html" %}
+{% load l10n %}
+{% load humanize %}
+
+{% block "title_prefix" %}Internal Registration | {% endblock "title_prefix" %}
+
+{% block "body_css_class" %}
+recipt-page
+{% endblock "body_css_class" %}
+
+{% block "content" %}
+<div class="main-wrap container">
+    <div class="page-header">
+        <h1>Recipt | {{profile.name}}</h1>
+    </div>
+
+    <div class="section">
+        <h3>Profile</h3>
+        <div class="row">
+            <p class="label">User ID</p>
+            <p class="value">{{user.get_id|unlocalize}}</p>
+        </div>
+        <div class="row">
+            <p class="label">Name</p>
+            <p class="value">{{profile.name}}</p>
+        </div>
+        <div class="row">
+            <p class="label">Registered Email</p>
+            <p class="value">{{user.email}}</p>
+        </div>
+        <div class="row">
+            <p class="label">Mobile</p>
+            <p class="value">{{profile.mobile}}</p>
+        </div>
+        <div class="row">
+            <p class="label">College</p>
+            <p class="value">{{profile.college}}</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Registered Events</h3>
+        <ul class="list">
+            {% for registration in registrations %}
+            <li>
+                <p class="title">{{registration.event.title}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Registered Workshops</h3>
+        <ul class="list">
+            {% for workshop in workshops %}
+            <li>
+                <p class="title">{{workshop.title}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Other</h3>
+
+        <div class="row">
+            <p class="label">Pack</p>
+            <p class="value">{{profile.pack}}</p>
+        </div>
+
+        {% if profile.hospitality_days != 0 %}
+        <div class="row">
+            <p class="label">Hospitality Days</p>
+            <p class="value">{{profile.hospitality_days}}</p>
+        </div>
+        {% endif %}
+
+        {% if profile.on_spot %}
+        <div class="row">
+            <p class="label">Registered Using</p>
+            <p class="value">On-Spot</p>
+        </div>
+        {% else %}
+        <div class="row">
+            <p class="label">Registered Using</p>
+            <p class="value">Auth provider - {{profile.auth_provider}}</p>
+        </div>
+        {% endif %}
+
+        <div class="row">
+            <p class="label">Total Payment</p>
+            <p class="value">₹ {{profile.total_payment|intcomma}}</p>
+        </div>
+   </div>
+
+   <div class="section">
+       <h3>Internal Use Only</h3>
+
+       <div class="row">
+           <p class="label">Checked In</p>
+           <p class="value">{{profile.checked_in}}</p>
+       </div>
+
+       <div class="row">
+           <p class="label">ID Printed</p>
+           <p class="value">{{profile.id_printed}}</p>
+       </div>
+
+       <div class="row">
+           <p class="label">Remarks</p>
+           <p class="value">{{profile.remarks}}</p>
+       </div>
+
+       <div class="row">
+           <p class="label">Auth Provider</p>
+           <p class="value">{{profile.auth_provider}}</p>
+       </div>
+   </div>
+
+   <div class="footer">
+       <p>If you have any queries email us at <a href="mailto:hello@magnovite.net">hello@magnovite.net</a></p>
+   </div>
+
+</div>
+{% endblock "content" %}

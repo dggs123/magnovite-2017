@@ -1,0 +1,38 @@
+{% extends "magnovite/base_internal.html" %}
+{% load l10n %}
+{% load tags %}
+
+{% block "body_css_class" %}
+page-tableview
+{% endblock "body_css_class" %}
+
+{% block "content" %}
+<div class="container-wide">
+    <h1>{{query_param}}: {{query}}</h1>
+
+    <p class="timestamp">Generated on {{now|date:"M-j, f a"}}, Total: <strong>{{profiles.count}}</strong></p>
+
+    <table class="pure-table pure-table-horizontal">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>College</th>
+                <th>Mobile</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for profile in profiles %}
+            <tr class="{% if forloop.counter|divisibleby:2 %}pure-table-odd{% endif %}">
+                <td>{{forloop.counter}}</td>
+                <td>{{profile.user.get_id|unlocalize}}</td>
+                <td>{{profile.name|title}}</td>
+                <td>{{profile.college_neat}}</td>
+                <td>{{profile.mobile|mobile}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock "content" %}
