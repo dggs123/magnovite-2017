@@ -13,4 +13,4 @@ Query:
 -----------------------------------------
 Make sure you reply using the admin interface.
 Thread ID: {{message.thread.id}}
-Link: https://magnovite.net/admin/message/thread/{{message.thread.id}}//
+Link: http://magnovite.net/admin/message/thread/{{message.thread.id}}//
