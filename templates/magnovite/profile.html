@@ -36,9 +36,6 @@ app.profile.init();
                     <li data-scene="profile-scene" class="selected">
                         <div class="s-item-inner">Profile</div>
                     </li>
-                    <li data-scene="hospitality-scene">
-                        <div class="s-item-inner">Hospitality</div>
-                    </li>
                     <li data-scene="schedule-scene">
                         <div class="s-item-inner">Schedule</div>
                     </li>
@@ -104,53 +101,7 @@ app.profile.init();
             <!-- hospitality scene -->
             <!-- Mypack -->
             
-            <div class="s-scene glass hospitality-scene">
-                <div class="s-title">
-                    <h1>Hospitality</h1>
-                </div>
-
-                <div class="section base-pack">
-                    <div class="inner-pane">
-                        <div class="my-pack">
-                            <p>Paid for <span class="name">{{profile.hospitality_days}}</span> days</p>
-                        </div>
-
-                        <div class="apply">
-                            <div class="row">
-                                <div data-type="plus" class="btn js-hosp-btn deactive">+1</div>
-                            </div>
-                            <div class="row">
-                                {% if profile.hospitality_days == 6 %}
-                                <p>Apply for <span data-paiddays="6" class="js-hosp-numdays">6</span> <span class="js-hosp-daystext">days</span> <span class="js-hosp-daysextra"></span></p>
-                                {% else %}
-                                <p>Apply for <span data-paiddays="{{profile.hospitality_days}}" class="js-hosp-numdays">{{profile.hospitality_days_plus_one}}</span> <span class="js-hosp-daystext">days</span> <span class="js-hosp-daysextra"></span></p>
-                                {% endif %}
-                            </div>
-                            <div class="row">
-                                <div data-type="minus" class="btn deactive js-hosp-btn">-1</div>
-                            </div>
-
-                            <div class="pay-btn">
-                                <button data-type="hospitality" data-params="days={{profile.hospitality_days_plus_one}}" class="button js-pay js-hosp-pay">Pay ₹ <span class="js-hosp-amount">500</span></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inner-pane help-list">
-                        <ul>
-                            <li>All payments are binding and will not be refunded.</li>
-                            <li><b>₹ 150</b> per person per day will be charged for staying</li>
-                            <li>Maximum available days is 6, this is only for participants of Microsoft Workshop</li>
-                            <li>The earliest day for accomodation is 15th Evening, and the latest by 22nd Morning</li>
-                            <li>Once you pay, one of our representatives will get in touch with you.</li>
-                            <li>We use <a target="_blank" href="http://payumoney.com/">PayuMoney</a> as the payment gateway, It is extremely secure and established</li>
-                        </ul>
-
-                        <div class="payu">
-                            <img src="/static/img/payu.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
 
 
