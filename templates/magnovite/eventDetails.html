@@ -91,20 +91,18 @@ app.eventDetails.init();
 <div class="modal detail-modals single-create-modal {{event.type}}" id="single-create-modal">
 	<div class="modal-inner">
 		<div class="close">x</div>
-		<h2 class="title">Payment</h2>
+		<h2 class="title">Make Payment</h2>
 
 		<div class="body">
 			<ul class="list">
-				<li>A one time payment of {{ event.price }} is charged to create a Group Team</li>
-				<li>Once a team has been created, your team members can join with the team-id; They do not need to pay</li>
-				<li>All members of the team must register on Magnovite.net to join the team</li>
+				<li>A one time payment of {{ event.price }}/- is charged to registered in this event</li>
 				<li>Payments are final and refunds will not be entertained</li>
 			</ul>
 			<div class="payu">
 				<img src="/static/img/payu.jpg" alt="PayuMoney">
 			</div>
 
-			<div data-type="single" data-params="id={{event.id}}" class="button gray btn-invoice js-pay">Make Payment</div>
+			<div data-type="single" data-params="id={{event.id}}" class="button gray btn-invoice js-pay">Pay</div>
 		</div>
 	</div>
 </div>

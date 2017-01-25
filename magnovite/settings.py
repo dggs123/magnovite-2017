@@ -33,7 +33,7 @@ ACCOMODATION_INCHARGE = (
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -191,9 +191,9 @@ WSGI_APPLICATION = 'magnovite.wsgi.application'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-DEFAULT_FROM_EMAIL = ''
+EMAIL_HOST_USER = 'dggs222@gmail.com'
+EMAIL_HOST_PASSWORD = 'simranarora'
+DEFAULT_FROM_EMAIL = 'dggs222@gmail.com'
 DEFAULT_TO_EMAIL = 'gaurav.sehgal@btech.christuniversity.in'
 
 # Database
