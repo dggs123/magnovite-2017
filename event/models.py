@@ -65,6 +65,8 @@ class Event(models.Model):
         default=1
     )
 
+    price = models.IntegerField(max_length=5, default=100)
+
     TEAM_TYPES = (
         ('individual', 'Individual'),
         ('team', 'Team'),

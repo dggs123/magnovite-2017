@@ -88,6 +88,27 @@ app.eventDetails.init();
 	</div>
 </div>
 
+<div class="modal detail-modals single-create-modal {{event.type}}" id="single-create-modal">
+	<div class="modal-inner">
+		<div class="close">x</div>
+		<h2 class="title">Payment</h2>
+
+		<div class="body">
+			<ul class="list">
+				<li>A one time payment of {{ event.price }} is charged to create a Group Team</li>
+				<li>Once a team has been created, your team members can join with the team-id; They do not need to pay</li>
+				<li>All members of the team must register on Magnovite.net to join the team</li>
+				<li>Payments are final and refunds will not be entertained</li>
+			</ul>
+			<div class="payu">
+				<img src="/static/img/payu.jpg" alt="PayuMoney">
+			</div>
+
+			<div data-type="single" data-params="id={{event.id}}" class="button gray btn-invoice js-pay">Make Payment</div>
+		</div>
+	</div>
+</div>
+
 <div class="modal detail-modals team-create-modal {{event.type}}" id="team-create-modal">
 	<div class="modal-inner">
 		<div class="close">x</div>
@@ -95,7 +116,7 @@ app.eventDetails.init();
 
 		<div class="body">
 			<ul class="list">
-				<li>A one time payment of Rs.500 is charged to create a Group Team</li>
+				<li>A one time payment of {{ event.price }} is charged to create a Group Team</li>
 				<li>Once a team has been created, your team members can join with the team-id; They do not need to pay</li>
 				<li>All members of the team must register on Magnovite.net to join the team</li>
 				<li>Payments are final and refunds will not be entertained</li>
@@ -133,12 +154,6 @@ app.eventDetails.init();
 					your team
 				</p>
 
-				{% if event.is_group and team_owner %}
-				{% else %}
-				<div class="button gray leave-team js-leave">
-					Leave Team
-				</div>
-				{% endif %}
 			</div>
 		</div>
 	</div>
@@ -173,7 +188,7 @@ app.eventDetails.init();
 								{% if event.is_multiple %}
 								<p class="text js-text">View Team</p>
 								{% else %}
-								<p class="text js-text">Unregister</p>
+								<p class="text js-text">Registered</p>
 								{% endif %}
 							{% else %}
 								<p class="text js-text">Register</p>
@@ -182,7 +197,7 @@ app.eventDetails.init();
 							{% if team_owner %}
 							<p class="extra">(Team Leader)</p>
 							{% else %}
-							<p class="extra">(or Unregister)</p>
+							<p class="extra">(or Registered)</p>
 							{% endif %}
 						</div>
 					</div>

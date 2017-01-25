@@ -23,8 +23,7 @@ def generate(req, invoice_type):
             'errorMessage': 'Please Login/Register first'
         }, status=403)
 
-    if invoice_type not in ('test', 'team', 'single', 'multiple',
-                            'upgrade', 'workshop', 'hospitality'):
+    if invoice_type not in ('test', 'team', 'single', 'workshop', 'hospitality'):
         return JsonResponse({
             'status': 'error',
             'errorMessage': 'Invalid invoice type'
@@ -46,21 +45,11 @@ def generate(req, invoice_type):
         invoice = create_invoice(invoice_type, req.user.profile, event=event)
         return get_payu_form(req, invoice)
 
-    elif invoice_type in ('single', 'multiple'):
-        invoice = create_invoice(invoice_type, req.user.profile)
+    elif invoice_type == 'single':
+        event = get_object_or_404(Event, id=req.GET.get('id', None))
+        invoice = create_invoice(invoice_type, req.user.profile, event=event)
         return get_payu_form(req, invoice)
-
-    elif invoice_type == 'upgrade':
-        # upgrade only valid if user is in single pack
-        if req.user.profile.pack != 'single':
-            return JsonResponse({
-                'status': 'error',
-                'errorMessage': 'Upgrade only valid for single pack'
-            }, status=400)
-
-        invoice = create_invoice(invoice_type, req.user.profile)
-        return get_payu_form(req, invoice)
-
+    
     elif invoice_type == 'test':
         if not req.user.is_staff:
             return HttpResponse(status=403)
@@ -109,7 +98,7 @@ def success(req):
 
     # if already processed skip
     if invoice.pending == False:
-        return redirect('/profile/#pack')
+        return redirect('/profile/#schedule')
 
     return_val = process_invoice(req, invoice)
 
@@ -120,7 +109,7 @@ def success(req):
     else:
         # Success
         template_email(
-            'server@magnovite.net',
+            settings.DEFAULT_FROM_EMAIL,
             (invoice.profile.active_email,),
             'Transaction Receipt',
             'payment_success',
@@ -187,28 +176,10 @@ def process_invoice(req, invoice):
     invoice.post_data = str(req.POST)
     invoice.save()
 
-    if invoice.invoice_type in ('single', 'multiple', 'upgrade'):
-        new_pack = invoice.invoice_type
-
-        payment = 100
-        if new_pack == 'multiple':
-            payment = 200
-
-        elif new_pack == 'upgrade':
-            payment = 100
-            new_pack = 'multiple'
-
-        invoice.profile.pack = new_pack
-        invoice.profile.total_payment += payment
-        invoice.profile.save()
-
-        messages.success(req, invoice.profile.get_pack_display() + ' has successfully been activated!')
-        return redirect('/profile/#pack')
-
-    elif invoice.invoice_type == 'team':
+    if invoice.invoice_type == 'team':
         team_id = generate_team_id(req.user.email, invoice.event)
 
-        invoice.profile.total_payment += 500
+        invoice.profile.total_payment += invoice.event.price
         invoice.profile.save()
 
         r = Registration()
@@ -220,6 +191,18 @@ def process_invoice(req, invoice):
 
         messages.success(req, 'Scucessfully registered for ' + r.event.title)
         return redirect(r.event.get_absolute_url() + '#view-team')
+
+    elif invoice.invoice_type == 'single':
+
+        invoice.profile.total_payment += 100
+        invoice.profile.save()
+
+        r = Registration()
+        r.event = invoice.event
+        r.save()
+
+        messages.success(req, 'Scucessfully registered for ' + r.event.title)
+        return redirect(r.event.get_absolute_url())
 
     elif invoice.invoice_type == 'workshop':
         invoice.profile.registered_workshops.add(invoice.workshop)
@@ -241,7 +224,7 @@ def process_invoice(req, invoice):
 
         # Success
         template_email(
-            'server@magnovite.net',
+            settings.DEFAULT_FROM_EMAIL,
             settings.ACCOMODATION_INCHARGE,
             'New Accomodation Request',
             'accomodation_request',

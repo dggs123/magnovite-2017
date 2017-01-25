@@ -6,7 +6,6 @@ from django.template.loader import get_template
 from django.template import Context, TemplateDoesNotExist
 
 
-
 class AjaxableResponseMixin(object):
     """
     Mixin to add AJAX support to a form.

@@ -29,8 +29,8 @@ urlpatterns = [
     url(r'^events/', include('event.urls')),
     # url(r'^quest/', include('quest.urls')),
    # url(r'^dashboard/', include('dashboard.urls')),
-    # url(r'^payment/', include('payment.urls')),
-    # url(r'^workshops/', include('workshop.urls')),
+    url(r'^payment/', include('payment.urls')),
+    url(r'^workshops/', include('workshop.urls')),
 
     url(r'^campus/',include('campusambester.urls')),
 

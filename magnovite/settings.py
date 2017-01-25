@@ -25,11 +25,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '89k_y!7ezyhbj!g%$)so3o!zbs^axh)7nk+$@228xb=rr&fl8i'
 
 HELP_INCHARGE = (
-    'dggs222@gmail.com',
-    'gaurav.sehgal@btech.christuniversity.in',
-    
+    'gaurav.sehgal@btech.christuniversity.in',   
 )
 
+ACCOMODATION_INCHARGE = (
+    'gaurav.sehgal@btech.christuniversity.in',
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -70,6 +71,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
 
     'main',
+    'message',
     'subscribe',
     'event',
     'campusambester',
@@ -159,14 +161,14 @@ SOCIALACCOUNT_PROVIDERS = {
 #     ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 # SOCIALACCOUNT_ADAPTER = 'main.allauth.MSocialAccountAdapter'
 # payment settings
-# PAYU_MERCHANT_ID = os.environ.get('PAYU_MERCHANT_ID', '')
-# PAYU_MERCHANT_KEY = os.environ.get('PAYU_MERCHANT_KEY', '')
-# PAYU_MERCHANT_SALT = os.environ.get('PAYU_MERCHANT_SALT', '')
+PAYU_MERCHANT_ID = os.environ.get('PAYU_MERCHANT_ID', '')
+PAYU_MERCHANT_KEY = os.environ.get('PAYU_MERCHANT_KEY', '')
+PAYU_MERCHANT_SALT = os.environ.get('PAYU_MERCHANT_SALT', '')
 
-# PAYU_URL = 'https://secure.payu.in/_payment'
-# PAYU_SUCCESS_URL = 'https://magnovite.net/payment/success/'
-# PAYU_FAILURE_URL = 'https://magnovite.net/payment/failure/'
-# PAYU_NOTIFY_URL = 'https://magnovite.net/payment/notify/'
+PAYU_URL = 'https://secure.payu.in/_payment'
+PAYU_SUCCESS_URL = 'https://magnovite.net/payment/success/'
+PAYU_FAILURE_URL = 'https://magnovite.net/payment/failure/'
+PAYU_NOTIFY_URL = 'https://magnovite.net/payment/notify/'
 
 if DEBUG:
     PAYU_MERCHANT_ID = 4944221
@@ -174,9 +176,9 @@ if DEBUG:
     PAYU_MERCHANT_SALT = 'auaSx01zGF'
 
     PAYU_URL = 'https://test.payu.in/_payment'
-    PAYU_SUCCESS_URL = 'http://localhost:8000/payment/success/'
-    PAYU_FAILURE_URL = 'https://localhost:8000/payment/failure/'
-    PAYU_NOTIFY_URL = 'https://localhost:8000/payment/notify/'
+    PAYU_SUCCESS_URL = 'http://127.0.0.1:8000/payment/success/'
+    PAYU_FAILURE_URL = 'http://127.0.0.1:8000/payment/failure/'
+    PAYU_NOTIFY_URL = 'http://127.0.0.1:8000/payment/notify/'
 
 LOGIN_REDIRECT_URL = '/profile/'
 LOGIN_URL = '/#login'
@@ -186,16 +188,13 @@ WSGI_APPLICATION = 'magnovite.wsgi.application'
 
 
 # email settings
-if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-EMAIL_HOST = 'smtp.gmail.net'
-EMAIL_HOST_USER = 'dggs22@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
-DEFAULT_FROM_EMAIL = 'dggs222@gmail.com'
-SERVER_EMAIL = 'dggs222@gmail.com'
-EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+DEFAULT_FROM_EMAIL = ''
+DEFAULT_TO_EMAIL = 'gaurav.sehgal@btech.christuniversity.in'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases

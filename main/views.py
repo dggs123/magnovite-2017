@@ -14,7 +14,7 @@ from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 
 from event.models import Registration
-# from message.models import Thread, Message
+from message.models import Thread, Message
 
 from .forms import ProfileForm
 from .models import Profile
@@ -154,7 +154,7 @@ def add_message(req):
     message = Message(thread=thread, content=content)
     message.save()
 
-    template_email('dggs222@gmail.com', settings.HELP_INCHARGE,
+    template_email(settings.DEFAULT_FROM_EMAIL, settings.HELP_INCHARGE,
                    '[Mag:help] : ' + req.user.email,
                    'admin_help_request',
                    {'user': req.user.profile, 'message': message})

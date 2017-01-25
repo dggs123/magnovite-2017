@@ -321,7 +321,7 @@ input.gray:focus {
   opacity: 0.3;
 }
 .modal .body {
-  overflow: hidden;
+  overflow: scroll;
 }
 .modal .modal-inner {
   max-width: 600px;

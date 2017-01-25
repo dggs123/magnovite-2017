@@ -38,11 +38,9 @@ app.eventDetails = {};
         }
 
         if (isIndividual) {
-            if (isRegistered) {
-                unregisterSingle();
-            } else {
-                registerSingle();
-            }
+            if (!isRegistered) {
+                app.modal.show('#single-create-modal');
+            } 
         } else {
             if (isRegistered) {
                 unregisterTeam();
@@ -56,27 +54,27 @@ app.eventDetails = {};
      * Handle unregistration for a single person event
      */
     function unregisterSingle() {
-        NProgress.start();
-        inProgress = true;
+        // NProgress.start();
+        // inProgress = true;
 
-        $.post('/events/api/unregister/' + eventID + '/')
-            .done(function() {
-                $registerButton.removeClass('registered');
-                $registerButton.find('.js-text').text('Register');
+        // $.post('/events/api/unregister/' + eventID + '/')
+        //     .done(function() {
+        //         $registerButton.removeClass('registered');
+        //         $registerButton.find('.js-text').text('Register');
 
-                isRegistered = false;
-            })
-            .fail(function() {
-                // alert failure TODO: FIXME
-                app.notification.notify({
-                    text: 'Could not unregister at this time. Please try again later',
-                    type: 'error'
-                });
-            })
-            .always(function() {
-                NProgress.done();
-                inProgress = false;
-            });
+        //         isRegistered = false;
+        //     })
+        //     .fail(function() {
+        //         // alert failure TODO: FIXME
+        //         app.notification.notify({
+        //             text: 'Could not unregister at this time. Please try again later',
+        //             type: 'error'
+        //         });
+        //     })
+        //     .always(function() {
+        //         NProgress.done();
+        //         inProgress = false;
+        //     });
     }
 
     /**
@@ -146,31 +144,31 @@ app.eventDetails = {};
             }
         });
 
-        $modal.on('click', '.js-leave', function(e) {
-            NProgress.start();
-            inProgress = true;
+        // $modal.on('click', '.js-leave', function(e) {
+        //     NProgress.start();
+        //     inProgress = true;
 
-            $.post('/events/api/unregister/' + eventID + '/')
-                .done(function() {
-                    $registerButton.removeClass('registered');
-                    $registerButton.find('.js-text').text('Register');
+        //     $.post('/events/api/unregister/' + eventID + '/')
+        //         .done(function() {
+        //             $registerButton.removeClass('registered');
+        //             $registerButton.find('.js-text').text('Register');
 
-                    isRegistered = false;
-                    app.modal.hide();
-                })
-                .fail(function(err) {
-                    var obj = err.responseJSON;
+        //             isRegistered = false;
+        //             app.modal.hide();
+        //         })
+        //         .fail(function(err) {
+        //             var obj = err.responseJSON;
 
-                    app.notification.notify({
-                        text: obj.errorMessage,
-                        type: 'error'
-                    });
-                })
-                .always(function() {
-                    NProgress.done();
-                    inProgress = false;
-                });
-        });
+        //             app.notification.notify({
+        //                 text: obj.errorMessage,
+        //                 type: 'error'
+        //             });
+        //         })
+        //         .always(function() {
+        //             NProgress.done();
+        //             inProgress = false;
+        //         });
+        // });
     }
 
     function registerTeam() {

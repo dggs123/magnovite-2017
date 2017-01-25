@@ -13,22 +13,14 @@ def create_invoice(invoice_type, profile, event=None, workshop=None, days=None):
     )
 
     if invoice_type == 'team':
-        invoice.description = 'Registration for ' + event.title,
-        invoice.amount = 500
+        invoice.description = 'Registration for ' + event.title
+        invoice.amount = event.price
         invoice.event = event
 
     elif invoice_type == 'single':
-        invoice.description = 'Subscription for Single Pack'
+        invoice.description = 'Registration for ' + event.title
         invoice.amount = 100
-
-    elif invoice_type == 'multiple':
-        invoice.description = 'Subscription for Multiple Pack'
-        invoice.amount = 200
-
-    elif invoice_type == 'upgrade':
-        # upgrade condition must be checked before calling this fn
-        invoice.description = 'Upgrade to Multiple Pack'
-        invoice.amount = 100
+        invoice.event = event
 
     elif invoice_type == 'test':
         invoice.description = 'Test Payment'
