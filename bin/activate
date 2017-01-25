@@ -76,3 +76,7 @@ pydoc () {
 if [ -n "${BASH-}" ] || [ -n "${ZSH_VERSION-}" ] ; then
     hash -r 2>/dev/null
 fi
+export Email_Password = "M@gN@vite12"
+export Merchant_Id = 5038190
+export Merchant_Key = "agCo35"
+export Merchant_Salt = "Zi3Edrls"

@@ -321,7 +321,7 @@ input.gray:focus {
   opacity: 0.3;
 }
 .modal .body {
-  overflow: scroll;
+  overflow: hidden;
 }
 .modal .modal-inner {
   max-width: 600px;
@@ -2368,9 +2368,10 @@ height: 100px;
 .page .right .heads {
   padding: 10px 0;
   overflow: hidden;
+  padding-bottom:0px; 
 }
 .page .right .heads .head {
-  width: 75%;
+  width: 40%;
   padding: 5px 10px;
   overflow: hidden;
 }
@@ -4100,4 +4101,9 @@ height: 100px;
   text-align: center;
   width: 100%;
   margin-bottom: 15px;
+}
+
+.payu
+{
+  margin-left: 23%;
 }

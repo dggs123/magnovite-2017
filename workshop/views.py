@@ -8,7 +8,7 @@ def index(req):
     if settings.DEBUG:
         template = 'magnovite/workshop.html'
     else:
-        template = 'magnovite/dist/workshop.html'
+        template = 'magnovite/workshop.html'
 
     registered = []
     if req.user.is_authenticated():

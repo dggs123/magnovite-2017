@@ -114,7 +114,7 @@ app.eventDetails.init();
 
 		<div class="body">
 			<ul class="list">
-				<li>A one time payment of {{ event.price }} is charged to create a Group Team</li>
+				<li>A one time payment of {{ event.price }}/- is charged to create a Group Team</li>
 				<li>Once a team has been created, your team members can join with the team-id; They do not need to pay</li>
 				<li>All members of the team must register on Magnovite.net to join the team</li>
 				<li>Payments are final and refunds will not be entertained</li>
@@ -211,8 +211,25 @@ app.eventDetails.init();
 			</div>
 
 			<!-- info -->
+			<div class="info">
+                <div class="cash">
+                    <span>Total Cash Prize</span>
+                    <p>₹ {{event.cash_prize|intcomma}}</p>
+                </div>
+                <ul class="points">
+                    <li>
+                        <span class="label">Date</span>
+                        <span>2 or 3 March</span>
+                    </li>
+                    <li>
+                        <span class="label">Venue</span>
+                        <span>Christ University</span>
+                    </li>
+                </ul>
+            </div>
 			{% if head_one %}
 			<div class="heads">
+				<p class="name" style="margin-left:15px;">Event Head</p>
 				{% if head_one %}
 				<div class="head" style="{% if head_two %}float: left;width: 50%{% endif %}">
 					<div class="left-head">

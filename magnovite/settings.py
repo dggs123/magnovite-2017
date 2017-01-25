@@ -25,15 +25,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '89k_y!7ezyhbj!g%$)so3o!zbs^axh)7nk+$@228xb=rr&fl8i'
 
 HELP_INCHARGE = (
-    'gaurav.sehgal@btech.christuniversity.in',   
+    'dggs222@gmail.com',   
 )
 
 ACCOMODATION_INCHARGE = (
-    'gaurav.sehgal@btech.christuniversity.in',
+    'dggs222@gmail.com',
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -161,14 +161,14 @@ SOCIALACCOUNT_PROVIDERS = {
 #     ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 # SOCIALACCOUNT_ADAPTER = 'main.allauth.MSocialAccountAdapter'
 # payment settings
-PAYU_MERCHANT_ID = os.environ.get('PAYU_MERCHANT_ID', '')
-PAYU_MERCHANT_KEY = os.environ.get('PAYU_MERCHANT_KEY', '')
-PAYU_MERCHANT_SALT = os.environ.get('PAYU_MERCHANT_SALT', '')
+PAYU_MERCHANT_ID = os.environ.get('Merchant_Id', '')
+PAYU_MERCHANT_KEY = os.environ.get('Merchant_Key', '')
+PAYU_MERCHANT_SALT = os.environ.get('Merchant_Salt', '')
 
 PAYU_URL = 'https://secure.payu.in/_payment'
-PAYU_SUCCESS_URL = 'https://magnovite.net/payment/success/'
-PAYU_FAILURE_URL = 'https://magnovite.net/payment/failure/'
-PAYU_NOTIFY_URL = 'https://magnovite.net/payment/notify/'
+PAYU_SUCCESS_URL = 'http://www.magnovite.net/payment/success/'
+PAYU_FAILURE_URL = 'http://www.magnovite.net/payment/failure/'
+PAYU_NOTIFY_URL = 'http://www.magnovite.net/payment/notify/'
 
 if DEBUG:
     PAYU_MERCHANT_ID = 4944221
@@ -189,12 +189,12 @@ WSGI_APPLICATION = 'magnovite.wsgi.application'
 
 # email settings
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-DEFAULT_FROM_EMAIL = ''
-DEFAULT_TO_EMAIL = 'gaurav.sehgal@btech.christuniversity.in'
+EMAIL_HOST = 'smtp.live.com'
+EMAIL_HOST_USER = 'magnovite@outlook.com'
+EMAIL_HOST_PASSWORD = 'M@gN@vite12'
+DEFAULT_FROM_EMAIL = 'magnovite@outlook.com'
+DEFAULT_TO_EMAIL = 'dggs222@gmail.com'
+EMAIL_PORT = 587
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
