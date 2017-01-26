@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 from main.utils import template_email
 from main.models import Profile
@@ -29,7 +30,7 @@ class Message(models.Model):
             self.thread.save()
 
         if self.should_email:
-            template_email('dggs222@gmail.com', [self.thread.profile.active_email],
+            template_email((settings.DEFAULT_FROM_EMAIL, [self.thread.profile.active_email],
                            'Magnovite: Update on help request',
                            'admin_help_reply',
                            {'user': self.thread.profile, 'message': self})
