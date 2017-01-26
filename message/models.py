@@ -1,5 +1,5 @@
-from django.db import models
 from django.conf import settings
+from django.db import models
 
 from main.utils import template_email
 from main.models import Profile
@@ -31,11 +31,11 @@ class Message(models.Model):
 
         if self.should_email:
             template_email((settings.DEFAULT_FROM_EMAIL, [self.thread.profile.active_email],
-                           'Magnovite: Update on help request',
-                           'admin_help_reply',
-                           {'user': self.thread.profile, 'message': self})
+                            'Magnovite: Update on help request',
+                            'admin_help_reply',
+                            {'user': self.thread.profile, 'message': self}))
 
-        super(Message, self).save(*args, **kwargs)
+        super(essage, self).save(*args, **kwargs)
 
     def who_class(self):
         if self.is_staff:
