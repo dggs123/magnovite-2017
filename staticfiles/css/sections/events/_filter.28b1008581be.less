@@ -1,0 +1,140 @@
+.events-page {
+    .s-left {
+        h2 {
+            color: @text_white;
+            font-size: 18px;
+            text-transform: uppercase;
+
+            transform: translateX(-30px);
+            opacity: 0;
+        }
+    }
+
+    .filter-bottom {
+        opacity: 0;
+        transform: translateX(-5px);
+        transition: all 125ms ease-out;
+    }
+
+    .pluto-item {
+        transform: translateX(-30px);
+        opacity: 0;
+
+        &:hover {
+            color: white;
+        }
+
+        .pluto {
+            width: 16px;
+            height: 16px;
+            border-radius: 16px;
+            display: inline-block;
+
+            &.technical {
+                border: 2px solid @color_tech;
+            }
+
+            &.cultural {
+                border: 2px solid @color_cult;
+            }
+
+            &.cse {
+                border: 2px solid @color_cse;
+            }
+
+            &.ec {
+                border: 2px solid @color_ec;
+            }
+
+            &.mech {
+                border: 2px solid @color_mech;
+            }
+
+            &.civil {
+                border: 2px solid @color_civil;
+            }
+        }
+
+        span {
+            margin-left: 5px;
+        }
+    }
+
+    .s-section-list li {
+        height: 40px;
+        line-height: 40px;
+
+        &:hover {
+            background: 0;
+
+            .s-item-inner {
+                transform: none;
+            }
+        }
+    }
+}
+
+.page-loaded .events-page .s-left {
+    h2 {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    .pluto-item {
+        transform: translateX(0px);
+        opacity: 1;
+
+        &:nth-child(1) {
+            transition-delay: 100ms;
+        }
+
+        &:nth-child(2) {
+            transition-delay: 150ms;
+        }
+    }
+}
+
+.page-finished .events-page .s-left .pluto-item {
+    transition-delay: 0 !important;
+}
+
+.filter-cultural .pluto.cultural {
+    background: @color_cult;
+    border: 0;
+}
+
+.filter-technical .pluto.technical {
+    background: @color_tech;
+    border: 0;
+}
+
+.filter-cse .pluto.cse {
+    background: @color_cse;
+    border: 0;
+}
+
+.filter-ec .pluto.ec {
+    background: @color_ec;
+    border: 0;
+}
+
+.filter-mech .pluto.mech {
+    background: @color_mech;
+    border: 0;
+}
+
+.filter-civil .pluto.civil {
+    background: @color_civil;
+    border: 0;
+}
+
+.filter-technical .s-left .filter-bottom {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.filter-cultural .s-left .filter-bottom {
+    opacity: 0;
+    transform: translateX(-5px);
+}
+

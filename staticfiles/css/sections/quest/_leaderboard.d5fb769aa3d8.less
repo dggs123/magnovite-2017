@@ -1,0 +1,64 @@
+@leaderboard_item_height: 50px;
+
+.quest-page .q-right-pane {
+    ul {
+        li {
+            background: rgba(0, 0, 0, 0.7);
+            margin-top: 5px;
+            overflow: hidden;
+            height: @leaderboard_item_height;
+        }
+
+        li.seperator {
+            background: rgba(0, 0, 0, 0.4);
+            height: @leaderboard_item_height - 20px;
+
+            p {
+                display: block;
+                text-align: center;
+                height: @leaderboard_item_height - 20px;
+                line-height: @leaderboard_item_height - 30px;
+            }
+        }
+
+        li.me {
+            background: @atoms_normal;
+        }
+
+        .number {
+            float: left;
+            width: 15px;
+            height: @leaderboard_item_height;
+            line-height: @leaderboard_item_height;
+            padding: 0 5px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .content {
+            width: 240px;
+            height: @leaderboard_item_height;
+            float: left;
+            padding: 2px 15px;
+            text-align: left;
+
+            p {
+                display: block;
+                width: 100%;
+                font-weight: 400;
+                color: rgba(255, 255, 255, 0.8);
+            }
+
+            span {
+                display: block;
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.7);
+
+                em {
+                    font-weight: 300;
+                    color: rgba(255, 255, 255, 1);
+                }
+            }
+        }
+    }
+}

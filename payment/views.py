@@ -194,11 +194,12 @@ def process_invoice(req, invoice):
 
     elif invoice.invoice_type == 'single':
 
-        invoice.profile.total_payment += 100
+        invoice.profile.total_payment += invoice.event.price
         invoice.profile.save()
 
         r = Registration()
         r.event = invoice.event
+        r.profile = req.user.profile 
         r.save()
 
         messages.success(req, 'Scucessfully registered for ' + r.event.title)

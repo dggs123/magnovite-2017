@@ -1,0 +1,36 @@
+input {
+    height: 38px;
+    line-height: 38px;
+
+    padding: 0px 10px;
+
+    background: #020B18;
+    border: 1px solid #00000E;
+    color: rgba(255, 255, 255, 0.8);
+
+    font-family: inherit;
+    font-size: 16px;
+}
+
+input:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+input:focus {
+    color: rgba(255, 255, 255, 0.9);
+    outline: none;
+
+    border: 1px solid rgba(77, 205, 255, 0.8);
+}
+
+input.gray {
+    background: #807F7F;
+    border: 1px solid #7E7E7E;
+    color: white;
+
+    &:focus {
+        background: #585858;
+        border: 1px solid #7E7E7E;
+        box-shadow: none;
+    }
+}

@@ -19,7 +19,7 @@ def create_invoice(invoice_type, profile, event=None, workshop=None, days=None):
 
     elif invoice_type == 'single':
         invoice.description = 'Registration for ' + event.title
-        invoice.amount = 100
+        invoice.amount = event.price
         invoice.event = event
 
     elif invoice_type == 'test':
