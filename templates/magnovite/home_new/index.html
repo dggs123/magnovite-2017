@@ -226,6 +226,12 @@ margin-top: -20px;" alt="Giant Steps" />
 	$('#clock').countdown('2017/3/2', function(event) {
   $(this).html(event.strftime('%D days'));
 });
+
+	var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {
+  /* your code here */
+  window.open("https://www.1crowd.co/index.php/incubator/registrationForm",'_blank');
+}
 </script>
 
 <!--[if (gte IE 9)|!(IE)]><!--><script src="/static/home_new/assets/js/scripts.min.js"></script><!--<![endif]-->
