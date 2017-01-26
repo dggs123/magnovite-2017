@@ -7,16 +7,16 @@
 <meta name="keywords" content="Magnovite,Tech Fest" />
 <meta name="author" content="CUFE" />
 
-<meta property="og:title" content="Events | Magnovite V6" />
+<meta property="og:title" content="Workshops | Magnovite V6" />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="https://magnovite.net/static/img/logo_square_share.png" />
-<meta property="og:url" content="https://magnovite.net/events/" />
+<meta property="og:image" content="http://magnovite.net/static/img/logo_square_share.png" />
+<meta property="og:url" content="http://magnovite.net/events/" />
 <meta property="og:description" content="Christ University presents its annual techno-cultural fest Magnovite V6, on 2nd and 3rd and 4th of March 2017."" />
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Events | Magnovite V6" />
+<meta name="twitter:title" content="Workshops | Magnovite V6" />
 <meta name="twitter:description" content="Christ University presents its annual techno-cultural fest Magnovite V6, on 2nd and 3rd and 4th of March 2017."" />
-<meta name="twitter:image" content="https://magnovite.net/static/img/logo_square_share.png" />
+<meta name="twitter:image" content="http://magnovite.net/static/img/logo_square_share.png" />
 {% endblock "extra_meta" %}
         <!--
         Home Slider
@@ -37,17 +37,17 @@
 				<div class="carousel-inner" role="listbox">
 
 					<!-- single slide -->
-					<div class="item active s1" style="background-image: url(/static/new/img/banner.jpg);">
+					<div class="item active" style="background-image: url(/static/new/img/banner.jpg);">
 						<div class="carousel-caption" style="top:30%;">
 							<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated"><span>OUR</span></h2>
-							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated"><span class="color">creative</span>Workshops </h3>
+							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated"><span class="color">Infinite</span>Workshops </h3>
 							<p data-wow-duration="1000ms" class="wow slideInRight animated"></p>
 						</div>
 					</div>
 					<!-- end single slide -->
 
           <!-- single slide -->
-          <div class="item s2" style="background-image: url(/static/new/img/banner1.jpg);">
+          <div class="item" style="background-image: url(/static/new/img/banner1.jpg);">
             <div class="carousel-caption" style="top:30%;">
               <h2 data-wow-duration="500ms" data-wow-delay="500ms" class="wow bounceInDown animated"><span>REGISTER</span></h2>
               <h3 data-wow-duration="500ms" class="wow slideInLeft animated"><span class="color">and</span> Explore </h3>
@@ -84,46 +84,61 @@
 					<div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
 						<ul class="text-center">
               <li><a href="javascript:;" data-filter="all" class="active filter">All</a></li>
-							<li><a href="javascript:;" data-filter=".technical" class="active filter">Technical</a></li>
-							<li><a href="javascript:;" data-filter=".cultural" class="filter">Non Technical</a></li>
-							<!-- <li><a href="javascript:;" data-filter=".web" class="filter">Workshops</a></li>
-							<li><a href="javascript:;" data-filter=".logo-design" class="filter">Guest talks</a></li> -->
-						
+							<li><a href="javascript:;" data-filter=".Technical" class="active filter">Technical</a></li>
+							<li><a href="javascript:;" data-filter=".Non-Technical" class="filter">Non Technical</a></li>
 						</ul>
 					</div>
 
 				</div>
 			</div>
+{% for workshop in workshops %}
+       <div class="modal fade" id="{{workshop.id}}" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">{{workshop.title}}</h4>
+        </div>
+        <div class="modal-body">
+           <div class="row">
+          <div class="col-sm-12"><img src="{{workshop.img_big}}" width="100%"></div>
+          </div>
+          <br>
+          <p style="position: fixed;top: 160px;left: 30px;color: white;font-size: 25px;">Fee ₹ {{workshop.price}}</p>
+           <div class="row">
+          <div class="col-sm-6">
+          <a class="Modal-register" style="line-height: 13; margin-left: 10%; color: white;background-color: #009973;padding:15px;">Registeration Starting From 2 Feb 2017</a>
+          </div>
+          <div class="col-sm-6">
+          <div class="payu part">
+              <img src="/static/img/payu.jpg" alt="PayuMoney">
+          </div>
+          </div>
+           </div>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
 
 			<div class="project-wrapper">
-       {% for e in events %}
-				<figure class="mix work-item {{ e.type }} {{ e.class_string }}">
-					<img class="lazy" data-original="{{ e.cover }}" alt="{{ e.title }}">
-					<!-- <h5 style="position:absolute;bottom:16px;left:30%;font-size:20px;color: white;
-font-weight: bold;"></h5> -->
+				{% for workshop in workshops %}
+				<figure class="mix work-item {{ workshop.w_type }}">
+					<img class="lazy" data-original="{{workshop.img_big}}" alt="{{ workshop.title }}">
 					<figcaption class="overlay">
-						<a class="fancybox" rel="works" title="REGISTER" href="{{e.get_absolute_url}}"><i class="fa fa-eye fa-lg"></i></a>
-						<p>{{ e.quote }}</p>
-            <span>
-              {% if e.is_multiple %}
-                  {% if e.team_min == e.team_max %}
-                      <p>{{e.get_team_type_display}} Event, {{e.team_min}} members</p>
-                  {% else %}
-                      <p>{{e.get_team_type_display}} Event, {{e.team_min}}-{{e.team_max}} members
-                      </p>
-                  {% endif %}
-              {% else %}
-                  <p>Individual Event</p>
-              {% endif %}
-            </span>
+						<a data-toggle="modal" data-target="#{{workshop.id}}"><i class="fa fa-eye fa-lg"></i></a>
+						<h4>{{workshop.title}}</h4>
+						<p>Fee ₹ {{workshop.price}}</p>
 					</figcaption>
 				</figure>
-        {% endfor %}
+				{% endfor %}
 			</div>
 
 
 		</section>
-{% endblock %}
+		        {% endblock %}
 
  {% block "post_js" %}
   <script>
@@ -138,7 +153,4 @@ font-weight: bold;"></h5> -->
             wow.init();
         </script>
 
-        {% endblock %}
-
-
-        
+{% endblock %}

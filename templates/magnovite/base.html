@@ -60,6 +60,7 @@
     <!-- Fontawesome Icon font -->
         <link rel="stylesheet" href="/static/new/css/font-awesome.min.css">
     <!-- build:css(./app/) /static/dist/style.css -->
+    <link rel="stylesheet" type="text/css" href="/static/css/lib/jquery.pagepiling.css">
     <link rel="stylesheet" href="/static/css/app.css" />
     <!-- endbuild -->
     <!-- Twitter Bootstrap css -->
@@ -67,6 +68,8 @@
         <link rel="stylesheet" type="text/css" href="/static/css/nav.css">
     <!-- build:js(./app/) /static/dist/js-head.js -->
         <script src="/static/js/lib/modernizer.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/js/lib/jquery.pagepiling.min.js"></script>
     <!-- endbuild -->
     <style type="text/css">
         .page-loading
@@ -159,6 +162,7 @@
                     <ul id="nav" class="nav navbar-nav">
                         <li><a href="{% url 'home' %}">Home</a></li>
                         <li><a href="{% url 'events' %}">Events</a></li>
+                        <li><a href="{% url 'workshop' %}">Workshops</a></li>
                         <li><a href="{% url 'campus' %}">Campus Ambassador</a></li>
                         <li><a href="/rightclick/">Right Click</a></li>
                         

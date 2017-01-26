@@ -601,7 +601,7 @@ a {
 #menu {
     position: absolute;
     left: 20px;
-    top: 30%;
+    top: 25%;
 }
 #menu li {
     opacity: 0;
@@ -2366,6 +2366,6 @@ a {
 {
     position: fixed;
     right: 20px;
-    top:250px;
+    top: 37%;
 
 }

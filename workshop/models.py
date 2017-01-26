@@ -4,6 +4,10 @@ from django.db import models
 from django.conf import settings
 
 class Workshop(models.Model):
+    TEAM_TYPES = (
+        ('Technical', 'Technical'),
+        ('Non-Technical', 'Non-Technical')
+    )
     slug = models.CharField(max_length=50, blank=True, null=True, default='')
     private_slug = models.CharField(max_length=50, blank=True, null=True, default='')
 
@@ -30,6 +34,8 @@ class Workshop(models.Model):
 
     img_big = models.URLField(help_text='400x400')
     img_small = models.URLField(help_text='120x120')
+    w_type = models.CharField(max_length=20, choices=TEAM_TYPES, default='Technical')
+
 
     def save(self, *args, **kwargs):
         if not self.private_slug:

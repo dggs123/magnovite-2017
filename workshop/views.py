@@ -6,9 +6,9 @@ from .models import Workshop
 
 def index(req):
     if settings.DEBUG:
-        template = 'magnovite/workshop.html'
+        template = 'magnovite/new/workshops.html'
     else:
-        template = 'magnovite/workshop.html'
+        template = 'magnovite/new/workshops.html'
 
     registered = []
     if req.user.is_authenticated():

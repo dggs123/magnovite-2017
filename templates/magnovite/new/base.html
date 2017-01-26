@@ -70,7 +70,7 @@
         <!-- Twitter Bootstrap css -->
         <link rel="stylesheet" href="/static/new/css/bootstrap.min.css">
         <!-- jquery.fancybox  -->
-        <!-- <link rel="stylesheet" href="/static/new/css/jquery.fancybox.css"> -->
+        <link rel="stylesheet" href="/static/new/css/jquery.fancybox.css">
         <!-- animate -->
         <link rel="stylesheet" href="/static/new/css/animate.css">
         <!-- Main Stylesheet -->
@@ -80,7 +80,16 @@
         <!-- Modernizer Script for old Browsers -->
         <script src="/static/new/js/modernizr-2.6.2.min.js"></script>
 
-    {% block "css_extra" %}{% endblock "css_extra" %}
+    {% block "css_extra" %}
+    <style type="text/css">
+        a:hover
+        {
+            cursor: pointer;
+        }
+    </style>
+
+
+    {% endblock "css_extra" %}
 </head>
 <body id="body" class="page-loading {% block "body_css_class" %}{% endblock %}">
     {% csrf_token %}
@@ -142,6 +151,7 @@
                     <ul id="nav" class="nav navbar-nav">
                         <li><a href="{% url 'home' %}">Home</a></li>
                         <li><a href="{% url 'events' %}">Events</a></li>
+                        <li><a href="{% url 'workshop' %}">Workshops</a></li>
                         <li><a href="{% url 'campus' %}">Campus Ambassador</a></li>
                         <li><a href="/rightclick/">Right Click</a></li>
 
@@ -277,7 +287,7 @@
         <!-- Twitter Bootstrap -->
         <script src="/static/new/js/bootstrap.min.js"></script>
         <!-- jquery.fancybox.pack -->
-        <!-- <script src="/static/new/js/jquery.fancybox.pack.js"></script> -->
+        <script src="/static/new/js/jquery.fancybox.pack.js"></script>
         <!-- jquery.mixitup.min -->
         <script src="/static/new/js/jquery.mixitup.min.js"></script>
         <!-- jquery.parallax -->
