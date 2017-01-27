@@ -113,8 +113,9 @@ def logout_view(req):
         logout(req)
 
     next_url = req.GET.get('next', '/')
-    if "profile/#login" in next_url:
+    if "profile" in next_url:
         next_url="/"
+    print next_url
 
     resp = HttpResponseRedirect(next_url)
     resp.delete_cookie('mag_uid')
