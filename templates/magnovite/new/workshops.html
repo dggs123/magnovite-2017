@@ -127,6 +127,7 @@
 				{% for workshop in workshops %}
 				<figure class="mix work-item {{ workshop.w_type }}">
 					<img class="lazy" data-original="{{workshop.img_big}}" alt="{{ workshop.title }}">
+					<h5 style="position:absolute;bottom:16px;font-size:20px;color: black; text-align: center; width: 100%;">{{ workshop.title }}</h5>
 					<figcaption class="overlay">
 						<a data-toggle="modal" data-target="#{{workshop.id}}"><i class="fa fa-eye fa-lg"></i></a>
 						<h4>{{workshop.title}}</h4>
