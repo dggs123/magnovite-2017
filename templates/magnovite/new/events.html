@@ -106,9 +106,9 @@
             <span>
               {% if e.is_multiple %}
                   {% if e.team_min == e.team_max %}
-                      <p>{{e.get_team_type_display}} Event, {{e.team_min}} members</p>
+                      <p>Team Event, {{e.team_min}} members</p>
                   {% else %}
-                      <p>{{e.get_team_type_display}} Event, {{e.team_min}}-{{e.team_max}} members
+                      <p>Team Event, {{e.team_min}}-{{e.team_max}} members
                       </p>
                   {% endif %}
               {% else %}
