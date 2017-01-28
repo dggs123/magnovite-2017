@@ -2369,3 +2369,11 @@ a {
     top: 37%;
 
 }
+
+/* 640px */
+@media only screen and (max-width: 640px) {
+
+canvas
+{
+    display: none;
+    }}
