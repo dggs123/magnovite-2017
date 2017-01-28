@@ -10,12 +10,12 @@ from django.core.urlresolvers import reverse
 
 from .models import MUser, Profile
 from event.models import Registration, Event
-# from app.workshop.models import Workshop
-# from app.payment.models import Invoice
+from workshop.models import Workshop
+from payment.models import Invoice
 
-# class WorkshopsInline(admin.TabularInline):
-#     model = Profile.registered_workshops.through
-#     extra = 0
+class WorkshopsInline(admin.TabularInline):
+    model = Profile.registered_workshops.through
+    extra = 0
 
 class RegistrationsInline(admin.TabularInline):
     model = Registration
@@ -27,17 +27,17 @@ class EventsInline(admin.TabularInline):
     verbose_name_plural = 'Events Incharge Of'
     extra = 0
 
-# class InvoiceInline(admin.TabularInline):
-#     model = Invoice
-#     fields = ('description', 'invoice_type', 'success')
-#     extra = 0
+class InvoiceInline(admin.TabularInline):
+    model = Invoice
+    fields = ('description', 'invoice_type', 'success')
+    extra = 0
 
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'user', 'auth_provider', 'college', 'mobile')
     search_fields = ('name', 'mobile', 'college')
     exclude = ('events', 'registered_workshops')
     list_filter = ('auth_provider',)
-    inlines = [RegistrationsInline, EventsInline]
+    inlines = [InvoiceInline, WorkshopsInline, RegistrationsInline, EventsInline]
 
     def get_queryset(self, req):
         print('hi')

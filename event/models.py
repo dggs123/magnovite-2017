@@ -92,6 +92,7 @@ class Event(models.Model):
     class Meta:
         permissions = (
             ('change_own', 'Change events incharge of'),
+            ('see_events', 'See all events'),
         )
         ordering = ['-views']
 

@@ -38,6 +38,9 @@ class EventAdmin(admin.ModelAdmin):
         if req.user.is_superuser:
             return qs
 
+        if req.user.has_perm('event.see_events'):
+            return qs
+
         if req.user.has_perm('event.change_own'):
             qs = qs.filter(heads=req.user.profile)
 
