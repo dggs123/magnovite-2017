@@ -88,6 +88,7 @@ def about(req):
 
     return resp
 
+
 def login_view(req):
     """
     This is not intended to be a user facing feature, and thus no GUI
@@ -119,6 +120,35 @@ def logout_view(req):
 
     resp = HttpResponseRedirect(next_url)
     resp.delete_cookie('mag_uid')
+    return resp
+
+def loginuser_view(req):
+    if settings.DEBUG:
+        template = 'magnovite/home_new/loginuser.html'
+    else:
+        template = 'magnovite/home_new/loginuser.html'
+
+    timer_zero = 'false'
+    if settings.TIMER_ZERO:
+        timer_zero = 'true'
+
+    resp = render(req, template, {'timer_zero': timer_zero})
+
+    return resp
+
+@csrf_exempt
+def loginuserajax(req):
+    if settings.DEBUG:
+        template = 'content-desktop/loginuser.html'
+    else:
+        template = 'content-desktop/loginuser.html'
+
+    timer_zero = 'false'
+    if settings.TIMER_ZERO:
+        timer_zero = 'true'
+
+    resp = render(req, template, {'timer_zero': timer_zero})
+
     return resp
 
 @require_POST
