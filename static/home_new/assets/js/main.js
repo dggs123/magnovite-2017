@@ -11,8 +11,10 @@ if (isMobile) {
 
 function openNav() {
     document.getElementById("mySidenav").style.width = "100%";
+    document.getElementById("header-small-logo").style.display = "none";
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("header-small-logo").style.display = "block";
 }

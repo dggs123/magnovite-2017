@@ -33,7 +33,7 @@ body
     width: 100px;
     position: fixed;
     top: 5%;
-    left: 15%;
+    left: 18%;
     }
 
 .open-button {
@@ -57,7 +57,7 @@ body
 {
    bottom: 0%; 
    height: 100px;
-   width: 200px;
+   width: 180px;
 }
 .page-title
 {
@@ -68,7 +68,7 @@ body
 }
 .page-title-l2
 {
-    font-size: 25px;
+    font-size: 22px;
     margin-top: 0px;
 }
 
@@ -77,6 +77,9 @@ body
     
     bottom: -20px;
     right: -30px;
+}
+.new-menu {
+    top: 60%;
 }
 
 .play-store {
