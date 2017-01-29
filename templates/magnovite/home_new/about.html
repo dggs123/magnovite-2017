@@ -48,6 +48,13 @@
 		
 		/* 640px */
 		@media only screen and (max-width: 640px) {
+					.agency .main-content .text,
+					.agency .agency-subpage .text {
+					    position: absolute;
+					    left: 0;
+					    top: 110px;
+					    width: 500px
+					}
 					#page-wrapper
 					{
 						height: 570px;
@@ -74,25 +81,26 @@
 					{
 						top: 110px;
 						width: 260px;
-						height: 200px;
+						height: 250px;
 						overflow: scroll;
 					}
-					#agency-links
-					{
-						position: absolute;
-						left: 0;
-						bottom: 10px;
-						width: 250px;
-					}
+					#agency-links {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    width: 160px;
+}
 					#page-wrapper .line-1
 					{
 						left: -65px;
+						top: 70px;
 					}
 
-					#page-wrapper .line-2{
-						left: -70px;
-						bottom: 45px;
-						width: 2px;
+					#page-wrapper .line-2 {
+    left: 0px;
+    bottom: 10px;
+    width: 2px;
+    position: fixed;
 					}
 					.header-big-logo
 					{
@@ -101,6 +109,10 @@
 					.new-menu {
 						    top: 40%;
 						}
+					.sidenav
+					{
+						z-index: 5;
+					}
 		}
 	</style>
 	</head>
@@ -206,10 +218,10 @@ margin-top: -20px;" alt="Giant Steps" />
 <section id="page-content" class="agency" data-page="agency">
 	
 	<!-- Main content -->
-	<article class="main-content">
+	<article class="main-content" id="mainpart">
 		<div class="line-1 line-title" style="top:100px;"></div>
 		<div class="close-part">
-			<div class="close-part-arrow"></div>
+			<div class="close-part-arrow" onclick="about()"></div>
 		</div>
 		<h1 class="page-title">
 			<span class="page-title-l1">About</span>
@@ -233,13 +245,13 @@ margin-top: -20px;" alt="Giant Steps" />
 		<h3 class="page-subtitle">About</h3>
 		<ul>
 			<li class="link">
-				<h2 class="link-title">Contact Us</h2>
+				<h2 class="link-title" onclick="contactus()">Contact Us</h2>
 			</li>
 			<li class="link">
-				<h2 class="link-title">Why Sponsor Us</h2>
+				<h2 class="link-title" onclick="sponsor()">Why Sponsor Us</h2>
 			</li>
 			<li class="link">
-				<h2 class="link-title">Magnovite Team</h2>
+				<h2 class="link-title" onclick="team()">Magnovite Team</h2>
 			</li>
 			<!-- <li class="link">
 				<h2 class="link-title">Orchestration</h2>
@@ -249,7 +261,7 @@ margin-top: -20px;" alt="Giant Steps" />
 	
 	<!-- Parts -->
 	<div class="agency-subpage-container">
-		<article class="agency-subpage">
+		<article class="agency-subpage" id="contact">
 			<h3 class="page-title">
 				<span class="page-title-l1">About</span>
 				<span class="page-title-l2">Contact Us</span>
@@ -280,7 +292,7 @@ margin-top: -20px;" alt="Giant Steps" />
                 </p>
 			</div>
 		</article>
-		<article class="agency-subpage">
+		<article class="agency-subpage" id="sponsor">
 			<h3 class="page-title">
 				<span class="page-title-l1">About</span>
 				<span class="page-title-l2">Why Sponsor Us</span>
@@ -318,7 +330,7 @@ margin-top: -20px;" alt="Giant Steps" />
 				</p>
 			</div>
 		</article>
-		<article class="agency-subpage">
+		<article class="agency-subpage" id="team">
 			<h3 class="page-title">
 				<span class="page-title-l1">About</span>
 				<span class="page-title-l2">Magnovite Team</span>

@@ -4,10 +4,7 @@ $('#clock').countdown('2017/3/2', function(event) {
 });
 
 var isMobile = /Android/i.test(navigator.userAgent);
-if (isMobile) {
-  /* your code here */
-  window.open("https://play.google.com/store/apps/details?id=gulzar.magnovite&hl=en",'_blank');
-}
+
 
 function openNav() {
     document.getElementById("mySidenav").style.width = "100%";
@@ -17,4 +14,36 @@ function openNav() {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("header-small-logo").style.display = "block";
+}
+function about() {
+	if (isMobile) {
+    document.getElementById("mainpart").style.display = "block";
+    document.getElementById("contact").style.display = "none";
+    document.getElementById("sponsor").style.display = "none";
+    document.getElementById("team").style.display = "none";
+    }
+}
+function contactus() {
+    if (isMobile) {
+    document.getElementById("mainpart").style.display = "none";
+    document.getElementById("contact").style.display = "block";
+    document.getElementById("sponsor").style.display = "none";
+    document.getElementById("team").style.display = "none";
+    }
+}
+function sponsor() {
+  if (isMobile) {
+    document.getElementById("mainpart").style.display = "none";
+    document.getElementById("contact").style.display = "none";
+    document.getElementById("sponsor").style.display = "block";
+    document.getElementById("team").style.display = "none";
+    }
+}
+function team() {
+if (isMobile) {
+    document.getElementById("mainpart").style.display = "none";
+    document.getElementById("contact").style.display = "none";
+    document.getElementById("sponsor").style.display = "none";
+    document.getElementById("team").style.display = "block";
+    }
 }

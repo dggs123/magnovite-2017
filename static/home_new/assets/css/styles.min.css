@@ -833,9 +833,10 @@ a {
 .agency .main-content .text,
 .agency .agency-subpage .text {
     position: absolute;
-    left: 0;
-    top: 110px;
-    width: 500px
+left: 0;
+top: 110px;
+width: 700px;
+font-size: 15px;
 }
 .agency .main-content .page-title {
     z-index: 1
