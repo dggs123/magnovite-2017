@@ -7,5 +7,126 @@ body
 	min-width:0 ;
 	min-height:0;
 }
+#menu
+{
+	display: none;
+}
 
+#mySidenav
+{
+    display: block;    
+}
+.open-button
+{
+    display: block;
+}
+.logo-desktop
+{
+	display: none;
+}
+#header-small-logo
+{
+    top: 0px;
+}
+
+#header-small-logo a {
+    width: 100px;
+    position: fixed;
+    top: 5%;
+    left: 15%;
+    }
+
+.open-button {
+    opacity: 0;
+    -webkit-transform: translate(0, -30px);
+    -moz-transform: translate(0, -30px);
+    -ms-transform: translate(0, -30px);
+    -o-transform: translate(0, -30px);
+    transform: translate(0, -30px)
+    font-size: 50px;
+    cursor: pointer;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    display: inline-block;
+    width: 1px;
+    position: fixed;
+    top: -0.5%;
+    left: 2%;
+}
+
+.header-big-logo
+{
+   bottom: 0%; 
+   height: 100px;
+   width: 200px;
+}
+.page-title
+{
+    top: 27px;
+}
+.page-title-l1, .page-subtitle{
+    font-size: 10px;
+}
+.page-title-l2
+{
+    font-size: 25px;
+    margin-top: 0px;
+}
+
+.footer-link1 {
+    margin-left: 10px;
+    
+    bottom: -20px;
+    right: -30px;
+}
+
+.play-store {
+    position: fixed;
+    bottom: 2%;
+    right: -3%;
+}
+.play-store img {
+    width: 190px;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #00e6ad;
+    opacity: 0.65;
+    display: block;
+    transition: 0.3s
+
+}
+
+.sidenav a:hover{
+    opacity: 1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }

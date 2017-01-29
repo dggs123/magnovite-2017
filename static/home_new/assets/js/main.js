@@ -8,3 +8,11 @@ if (isMobile) {
   /* your code here */
   window.open("https://play.google.com/store/apps/details?id=gulzar.magnovite&hl=en",'_blank');
 }
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "100%";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
