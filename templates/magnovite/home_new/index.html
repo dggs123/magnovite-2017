@@ -28,10 +28,11 @@
 	<link media="screen" rel="stylesheet" type="text/css" href="/static/home_new/assets/css/styles.min.css" />
 	<link media="screen" rel="stylesheet" type="text/css" href="/static/home_new/assets/css/mobile.css" />
 	
-	
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 		<script src="/static/home_new/assets/js/lib/modern-detect-izr.min.js"></script>
 		<script type="text/javascript" src="http://cdn.rawgit.com/hilios/jQuery.countdown/2.2.0/dist/jquery.countdown.min.js"></script>
+
 		
 		<!-- Google Analytics -->
 	<script>
@@ -228,6 +229,10 @@ margin-top: -20px;" alt="Giant Steps" />
 	var PROD  = '1';
 	var WEB_ROOT = 'http://www.magnovite.net/';
 	var LG = 'fr';
+    {% for message in messages %}
+        $.notify('{{message}}');
+    {% endfor %}
+     $.notify("Hello Welocome To Magnovite");
 </script>
 
 
