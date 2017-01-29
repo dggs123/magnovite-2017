@@ -44,21 +44,52 @@
 		ga('create', 'UA-37290176-23', 'auto');
 		ga('send', 'pageview');
 	</script>
-
 	<style type="text/css">
-		.play-store
-		{
-			position: fixed;
-			bottom: 6%;
-			right: 1.3%;
-		}
-		.play-store img
-		{
-			width: 210px;
-		}
-		.play-store:hover:after
-		{
-			width: 0%;
+		
+		/* 640px */
+		@media only screen and (max-width: 640px) {
+					#page-container
+					{
+						top: -50px;
+						width: 100%;
+						height: 100%;
+					}
+					#page-content
+					{
+						left: -65px;
+						top: 15px;
+						width: 100%;
+						height: 100%;
+					}
+					.line-title
+					{
+						top: 100px;
+						left: -2px;
+					}
+					.agency .main-content .text, .agency .agency-subpage .text
+					{
+						top: 110px;
+						width: 260px;
+						height: 200px;
+						overflow: scroll;
+					}
+					#agency-links
+					{
+						position: absolute;
+						left: 0;
+						bottom: 10px;
+						width: 250px;
+					}
+					#page-wrapper .line-1
+					{
+						left: -65px;
+					}
+
+					#page-wrapper .line-2{
+						left: -70px;
+						bottom: 45px;
+						width: 2px;
+					}
 		}
 	</style>
 	</head>
@@ -71,6 +102,15 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <body> <!--<![endif]-->
 
 
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/about">About</a>
+  <a href="/events">Events</a>
+  <a href="/workshops">Workshops</a>
+  <a href="/campus">Campus Ambassador</a>
+  <a href="/rightclick">Right Click</a>
+</div>
 
 <!-- Main container -->
 <div id="main-container" class="preload">
@@ -88,12 +128,14 @@
 	
 	<!-- Header -->
 	<header id="header">
-		<div id="header-small-logo">
-			<!-- <div class="header-small-logo-line"></div> -->
-			<a href="/" onclick="window.location='http://www.magnovite.net'" class="home-link">
+		<div id="header-small-logo" >
+				<span   class="open-button" style="font-size: 35px; color: #00e6ad;" onclick="openNav()"><i class="fa fa-bars"></i>
+ </span>
+				<a href="/" onclick="window.location='http://www.magnovite.net'" class="home-link">
 				<img src="/static/home_new/img/logos/logo150.png" style="width:70px;margin-left: -16px;
 margin-top: -20px;" alt="Giant Steps" />
 			</a>
+			
 		</div>
 		
 		<!-- timer end			 -->
@@ -339,13 +381,13 @@ margin-top: -20px;" alt="Giant Steps" />
 		<a class="footer-link legals-link play-store" href="https://play.google.com/store/apps/details?id=gulzar.magnovite&hl=en"  onclick="window.location='https://play.google.com/store/apps/details?id=gulzar.magnovite&hl=en'">
 			<img src="/static/home_new/img/logos/playstore.png"></img>
 		</a>
-		<a class="footer-link legals-link">
+		<a class="footer-link footer-link1 legals-link">
 			<span>&copy; Magnovite 6.0</span>
 		</a>
-		<a href="https://github.com/dggs123/magnovite-2017/graphs/contributors" target="_blank" class="footer-link footer-akaru">
+		<a href="https://github.com/dggs123/magnovite-2017/graphs/contributors" target="_blank" class="footer-link footer-link1 footer-akaru">
 			<span>Developers</span>
 		</a>
-		<div class="footer-link footer-sound">
+		<div class="footer-link footer-link1 footer-sound">
 			<img src="/static/home_new/img/others/sound.png" alt="Sound"/>
 		</div>
 	</footer>
