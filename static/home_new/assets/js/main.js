@@ -4,7 +4,9 @@ $('#clock').countdown('2017/3/2', function(event) {
 });
 
 var isMobile = /Android/i.test(navigator.userAgent);
-
+if (isMobile) {
+    window.open(url,'_blank');
+    }
 
 function openNav() {
     document.getElementById("mySidenav").style.width = "100%";
