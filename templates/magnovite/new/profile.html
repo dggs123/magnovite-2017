@@ -232,3 +232,18 @@
                     </li>
                 </ul>
             </div>
+            {% if is_registered %}
+                                {% if event.is_multiple %}
+                                <p class="text js-text">View Team</p>
+                                {% else %}
+                                <p class="text js-text">Registered</p>
+                                {% endif %}
+                            {% else %}
+                                <p class="text js-text">Register</p>
+                            {% endif %}
+
+                            {% if team_owner %}
+                            <p class="extra">(Team Leader)</p>
+                            {% else %}
+                            <p class="extra">(or Registered)</p>
+                            {% endif %}

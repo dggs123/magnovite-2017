@@ -122,7 +122,7 @@ app.eventDetails.init();
 			<div class="payu">
 				<img src="/static/img/payu.jpg" alt="PayuMoney">
 			</div>
-
+			<div data-type="team" data-params="id={{event.id}}" class="button gray btn-invoice js-pay">Create Team</div>
 			<div data-type="team" data-params="id={{event.id}}" class="button gray btn-invoice js-pay">Create Team</div>
 		</div>
 	</div>
@@ -182,21 +182,7 @@ app.eventDetails.init();
 
 						<div class="text-container">
 							<div class="check"></div>
-							{% if is_registered %}
-								{% if event.is_multiple %}
-								<p class="text js-text">View Team</p>
-								{% else %}
-								<p class="text js-text">Registered</p>
-								{% endif %}
-							{% else %}
-								<p class="text js-text">Register</p>
-							{% endif %}
-
-							{% if team_owner %}
-							<p class="extra">(Team Leader)</p>
-							{% else %}
-							<p class="extra">(or Registered)</p>
-							{% endif %}
+							<p>Registration<br> (Not Started)</p>
 						</div>
 					</div>
 				</div>
