@@ -107,7 +107,16 @@
           <div class="row">
           <div class="col-sm-12"><p><span style="font-size: 20px;
 color: #009973;
-font-weight: bold;">Description: </span><br>{{ workshop.desc_1 }}</p></div>
+font-weight: bold;">Description: </span><br>
+{% if workshop.title == "Magnovite Mechatronics Skill Competition" %}
+Please visit the link to know the details :
+<a href="https://drive.google.com/file/d/0B0xZfmxKEmpdcXQ3R2VNaWdsS2c/view?usp=sharing">Click Here</a>
+{% else %}
+{{ workshop.desc_1 }}
+{% end if %}
+
+
+</p></div>
           </div>
           <br>
           <div class="row">
@@ -147,7 +156,7 @@ font-weight: bold;">Organised by: </span>{{ workshop.desc_2 }}</p></div>
 				{% for workshop in workshops %}
 				<figure class="mix work-item {{ workshop.w_type }}">
 					<img class="lazy" data-original="{{workshop.img_big}}" alt="{{ workshop.title }}">
-					<h5 style="position:absolute;bottom:16px;font-size:17px;color: black; text-align: center; width: 100%;">{{ workshop.title }}</h5>
+					<h5 style="position: absolute;bottom: 16px;font-size:17px;color: black; text-align: center; width: 100%;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">{{ workshop.title }}</h5>
 					<figcaption class="overlay">
 						<a data-toggle="modal" data-target="#{{workshop.id}}"><i class="fa fa-eye fa-lg"></i></a>
 						<h4>{{workshop.title}}</h4>
