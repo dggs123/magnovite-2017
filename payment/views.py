@@ -207,12 +207,10 @@ def process_invoice(req, invoice):
 
     elif invoice.invoice_type == 'workshop':
         invoice.profile.registered_workshops.add(invoice.workshop)
-        # if "btech.christuniversity.in" in email or "mtech.christuniversity.in" in req.user.email:
-        #     invoice.profile.total_payment += 250
-        # else:
-        #     invoice.profile.total_payment += invoice.workshop.price
-        invoice.profile.total_payment += 5
-
+        if "btech.christuniversity.in" in req.user.email or "mtech.christuniversity.in" in req.user.email:
+            invoice.profile.total_payment += 250
+        else:
+            invoice.profile.total_payment += invoice.workshop.price
         invoice.profile.save()
 
         messages.success(req, 'Successfully registered for ' + invoice.workshop.title)
