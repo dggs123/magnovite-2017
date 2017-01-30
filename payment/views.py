@@ -108,16 +108,16 @@ def success(req):
         return redirect('/profile/#help')
     else:
         # Success
-        template_email(
-            settings.DEFAULT_FROM_EMAIL,
-            (invoice.profile.active_email,),
-            'Transaction Receipt',
-            'payment_success',
-            {
-                'profile': invoice.profile,
-                'invoice': invoice
-            }
-        )
+        # template_email(
+        #     settings.DEFAULT_FROM_EMAIL,
+        #     (invoice.profile.active_email,),
+        #     'Transaction Receipt',
+        #     'payment_success',
+        #     {
+        #         'profile': invoice.profile,
+        #         'invoice': invoice
+        #     }
+        # )
 
         return return_val
 

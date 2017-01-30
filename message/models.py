@@ -35,7 +35,7 @@ class Message(models.Model):
                             'admin_help_reply',
                             {'user': self.thread.profile, 'message': self}))
 
-        super(essage, self).save(*args, **kwargs)
+        super(Message, self).save(*args, **kwargs)
 
     def who_class(self):
         if self.is_staff:
