@@ -6,7 +6,7 @@ from event.models import Event
 from workshop.models import Workshop
 
 
-def create_invoice(invoice_type, profile, event=None, workshop=None, days=None):
+def create_invoice(invoice_type,email , profile, event=None, workshop=None, days=None):
     invoice = Invoice(
         profile=profile,
         invoice_type=invoice_type,
@@ -28,7 +28,10 @@ def create_invoice(invoice_type, profile, event=None, workshop=None, days=None):
 
     elif invoice_type == 'workshop':
         invoice.description = 'Workshop registration for ' + workshop.title
-        invoice.amount = workshop.price
+        if "btech.christuniversity.in" in email:
+            invoice.amount = 250
+        else:
+            invoice.amount = workshop.price
         invoice.workshop = workshop
 
     elif invoice_type == 'hospitality':

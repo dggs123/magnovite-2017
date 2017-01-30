@@ -42,24 +42,24 @@ def generate(req, invoice_type):
     # if team verify event is correct
     if invoice_type == 'team':
         event = get_object_or_404(Event, id=req.GET.get('id', None))
-        invoice = create_invoice(invoice_type, req.user.profile, event=event)
+        invoice = create_invoice(invoice_type, req.user.email, req.user.profile, event=event)
         return get_payu_form(req, invoice)
 
     elif invoice_type == 'single':
         event = get_object_or_404(Event, id=req.GET.get('id', None))
-        invoice = create_invoice(invoice_type, req.user.profile, event=event)
+        invoice = create_invoice(invoice_type, req.user.email,req.user.profile, event=event)
         return get_payu_form(req, invoice)
     
     elif invoice_type == 'test':
         if not req.user.is_staff:
             return HttpResponse(status=403)
 
-        invoice = create_invoice(invoice_type, req.user.profile)
+        invoice = create_invoice(invoice_type, req.user.email, req.user.profile)
         return get_payu_form(req, invoice)
 
     elif invoice_type == 'workshop':
         workshop = get_object_or_404(Workshop, id=req.GET.get('id', None))
-        invoice = create_invoice(invoice_type, req.user.profile, workshop=workshop)
+        invoice = create_invoice(invoice_type,  req.user.email, req.user.profile, workshop=workshop)
         return get_payu_form(req, invoice)
 
     elif invoice_type == 'hospitality':
@@ -74,7 +74,7 @@ def generate(req, invoice_type):
                 'errorMessage': 'Invalid days'
             }, status=400)
 
-        invoice = create_invoice(invoice_type, req.user.profile, days=days)
+        invoice = create_invoice(invoice_type, req.user.email, req.user.profile, days=days)
         return get_payu_form(req, invoice)
 
     # unrecognized invoice_type

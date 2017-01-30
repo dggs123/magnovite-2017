@@ -208,6 +208,17 @@
 
         {% block "content" %}{% endblock %}
 
+        <div class="notifications">
+            <script type="text/template" id="notification-template">
+                <div data-id="[[id]]" class="notification [[type]] [[actionClass]]">
+                    <p class="close js-notif-close">x</p>
+
+                    <p class="text">[[text]]</p>
+                    <a href="#" class="action js-notif-action">[[action]]</a>
+                </div>
+            </script>
+        </div>
+
     
         {% block "footer" %}
 
@@ -314,6 +325,9 @@
         <script src="/static/new/js/jquery.easing.min.js"></script>
         <!-- jquery easing -->
         <script src="/static/new/js/wow.min.js"></script>
+        <script src="/static/js/lib/nprogress.js"></script>
+        <script src="/static/js/common/notification.js"></script>
+         <script src="/static/js/common/payment.js"></script>
     <!-- /Lib -->
 
     <!-- common -->

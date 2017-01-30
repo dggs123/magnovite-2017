@@ -18,18 +18,27 @@ class Workshop(models.Model):
     desc_2 = models.TextField()
 
     std_1_name = models.CharField(max_length=50)
+    std_1_email = models.EmailField(
+        verbose_name='Email Address',
+        default = "dggs222@gmail.com"
+    )
     std_1_mobile = models.CharField(max_length=10)
-    std_2_name = models.CharField(max_length=50)
-    std_2_mobile = models.CharField(max_length=10)
 
     faculty_name = models.CharField(max_length=50)
-    faculty_mobile = models.CharField(max_length=10)
+    faculty_email = models.EmailField(
+        verbose_name='Email Address',
+        default="dggs222@gmail.com"
+    )
 
     price = models.IntegerField(max_length=5)
 
     date_string = models.CharField(
         max_length=50, blank=True, null=True,
-        help_text='Eg: From 20th to 21st of February'
+        help_text='Eg: From 2, 3 or 4 March'
+    )
+    venue = models.CharField(
+        max_length=50, blank=True, null=True,
+        help_text='Eg: Block:C, 205 Room'
     )
 
     img_big = models.URLField(help_text='400x400')
