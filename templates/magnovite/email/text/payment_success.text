@@ -10,5 +10,7 @@ You can keep this email as a receipt if required, When you attend the event/work
 User ID: {{profile.user.get_id|unlocalize}}
 Transaction ID: {{invoice.get_id}}
 
+Note : For Workshops, participants are requested to contact their concerned faculty and student incharge, only after they are notified to do the same, via email/sms. :) 
+
 Thanks!
 Magnovite Team
