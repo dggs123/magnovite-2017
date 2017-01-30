@@ -168,6 +168,11 @@ font-weight: bold;">Organised by: </span>{{ workshop.desc_2 }}</p></div>
               }
             );
             wow.init();
+        app.notification.notify({
+            text: 'Christite ? Use Your Christ Mail Id For Registrations',
+            type: 'info',
+            persistant: true
+        });
         </script>
 
 {% endblock %}
