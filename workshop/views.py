@@ -11,11 +11,16 @@ def index(req):
     else:
         template = 'magnovite/new/workshops.html'
 
+    open_r=False
+
     registered = []
     if req.user.is_authenticated():
         registered = req.user.profile.registered_workshops.all()
+        if "btech.christuniversity.in" in req.user.email or "mtech.christuniversity.in" in req.user.email:
+            open_r = True
 
     return render(req, template, {
         'workshops': Workshop.objects.all(),
-        'registered': registered
+        'registered': registered,
+        'open_r':open_r
     })

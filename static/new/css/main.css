@@ -871,6 +871,14 @@ top: 0;
 .notifications .no-action .action {
   display: none;
 }
+button
+{
+  margin-left: 82.6%;
+color: white;
+background-color: #009973;
+padding: 15px;
+width: 150px;
+}
 @media only screen and (max-width: 640px) {
 .notifications {
   top: 0;
@@ -878,6 +886,10 @@ top: 0;
 }
 .notifications .notification {
   margin-bottom: 2px;
+}
+button
+{
+    margin-left: 25%;
 }
 }
 
