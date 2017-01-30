@@ -123,9 +123,9 @@ font-weight: bold;">Organised by: </span>{{ workshop.desc_2 }}</p></div>
                     </div>
                     {% elif workshop.registrations_open %}
                         {% if not open_r %}
-                         <p style="text-align:center; font-weight:bold;">Registrations allowed only through Christ University mail id</p>
+                         <p style="text-align:center; font-weight:bold;">Registrations will be open shortly. </p>
                         {% else %}
-                        <button data-type="workshop" data-params="id={{workshop.id}}" class="button gray js-pay" style="">Register Now</button>
+                         <p style="text-align:center; font-weight:bold;">Registrations will be open shortly. </p>
                         {% endif %}
                     {% else %}
                     <p style="text-align:center; font-weight:bold;">Registrations are closed!</p>
