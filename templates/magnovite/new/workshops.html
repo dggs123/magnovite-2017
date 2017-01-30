@@ -122,14 +122,10 @@ font-weight: bold;">Organised by: </span>{{ workshop.desc_2 }}</p></div>
                         <button class="button" style="">Registered</button>
                     </div>
                     {% elif workshop.registrations_open %}
-                        {% if workshop.w_type == "Non-Technical" %}
                         {% if not open_r %}
                          <p style="text-align:center; font-weight:bold;">Registrations allowed only through Christ University mail id</p>
                         {% else %}
-                           <p style="text-align:center; font-weight:bold;">Registrations allowed only through Christ University mail id</p>
-                        {% endif %}
-                        {% else %}
-                          <p style="text-align:center; font-weight:bold;">Registrations allowed only through Christ University mail id</p>
+                        <button data-type="workshop" data-params="id={{workshop.id}}" class="button gray js-pay" style="">Register Now</button>
                         {% endif %}
                     {% else %}
                     <p style="text-align:center; font-weight:bold;">Registrations are closed!</p>
@@ -147,7 +143,7 @@ font-weight: bold;">Organised by: </span>{{ workshop.desc_2 }}</p></div>
 				{% for workshop in workshops %}
 				<figure class="mix work-item {{ workshop.w_type }}">
 					<img class="lazy" data-original="{{workshop.img_big}}" alt="{{ workshop.title }}">
-					<h5 style="position: absolute;bottom: 16px;font-size:17px;color: black; text-align: center; width: 100%;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">{{ workshop.title }}</h5>
+					<h5 style="position:absolute;bottom: 16px;font-size:17px;color: black; text-align: center; width: 100%;">{{ workshop.title }}</h5>
 					<figcaption class="overlay">
 						<a data-toggle="modal" data-target="#{{workshop.id}}"><i class="fa fa-eye fa-lg"></i></a>
 						<h4>{{workshop.title}}</h4>
