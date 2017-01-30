@@ -28,10 +28,11 @@ def create_invoice(invoice_type,email , profile, event=None, workshop=None, days
 
     elif invoice_type == 'workshop':
         invoice.description = 'Workshop registration for ' + workshop.title
-        if "btech.christuniversity.in" in email or "mtech.christuniversity.in" in email:
-            invoice.amount = 250
-        else:
-            invoice.amount = workshop.price
+        invoice.amount = 5
+        # if "btech.christuniversity.in" in email or "mtech.christuniversity.in" in email:
+        #     invoice.amount = 250
+        # else:
+        #     invoice.amount = workshop.price
         invoice.workshop = workshop
 
     elif invoice_type == 'hospitality':
