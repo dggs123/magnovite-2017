@@ -761,7 +761,7 @@ input.gray:focus {
 .notifications {
   width: 400px;
   position: fixed;
-  right: 10px;
+  right: 20px;
   top: 100px;
   color: rgba(255, 255, 255, 0.85);
   overflow: hidden;
@@ -775,7 +775,7 @@ input.gray:focus {
   visibility: hidden;
   transform: translateX(454);
   transition: all 500ms ease-out;
-  border-radius: 10px;
+  border-radius: 4px;
   opacity: 0;
 
 
@@ -785,7 +785,7 @@ input.gray:focus {
   margin-left: 5px;
   transform: translateX(10);
   visibility: visible;
-  opacity: 0.80;
+  opacity: 1;
 }
 .notifications .notification.success {
   background: #0eb493;
@@ -805,7 +805,6 @@ input.gray:focus {
   top: 0;
   width: 40px;
   height: 40px;
-  background: rgba(0, 0, 0, 0.1);
   line-height: 40px;
   text-align: center;
   cursor: pointer;
@@ -814,6 +813,7 @@ input.gray:focus {
 
 .notifications .text {
   display: block;
+  color: #fff;
 }
 .notifications .action {
   margin-top: 10px;
