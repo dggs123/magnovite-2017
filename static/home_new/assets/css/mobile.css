@@ -31,7 +31,16 @@ body
 {
     top: 0px;
 }
+#page-container {
 
+margin-left: 0px;
+    }
+.logo150
+{
+    width:70px;
+    margin-left: -16px;
+    margin-top: -20px;
+}
 #header-small-logo a {
     width: 100px;
     position: fixed;

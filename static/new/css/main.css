@@ -875,11 +875,11 @@ top: 0;
 .notifications .no-action .action {
   display: none;
 }
-.modal-body
+.workshop-modal
 {
   padding: 0;
 }
-.modal-body .row
+.workshop-modal .row
 {
   padding: 15px;
 }

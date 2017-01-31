@@ -1,9 +1,0 @@
-{% load l10n %}
-
-<form action="{{url}}" method="POST">
-    {% for k, v in fields %}
-    <input type="hidden" name="{{k|unlocalize}}" value="{{v|unlocalize}}">
-    {% endfor %}
-
-    <input type="submit">
-</form>

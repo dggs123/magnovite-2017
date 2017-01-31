@@ -24,6 +24,13 @@ function about() {
     document.getElementById("sponsor").style.display = "none";
     document.getElementById("team").style.display = "none";
     }
+    else
+    {
+    document.getElementById("mainpart").style.zIndex = "1";
+    document.getElementById("contact").style.zIndex = "0";
+    document.getElementById("sponsor").style.zIndex = "0";
+    document.getElementById("team").style.zIndex = "0";
+    }
 }
 function contactus() {
     if (isMobile) {
@@ -31,6 +38,13 @@ function contactus() {
     document.getElementById("contact").style.display = "block";
     document.getElementById("sponsor").style.display = "none";
     document.getElementById("team").style.display = "none";
+    }
+    else
+    {
+    document.getElementById("mainpart").style.zIndex = "0";
+    document.getElementById("contact").style.zIndex = "1";
+    document.getElementById("sponsor").style.zIndex = "0";
+    document.getElementById("team").style.zIndex = "0";
     }
 }
 function sponsor() {
@@ -40,6 +54,13 @@ function sponsor() {
     document.getElementById("sponsor").style.display = "block";
     document.getElementById("team").style.display = "none";
     }
+    else
+    {
+    document.getElementById("mainpart").style.zIndex = "0";
+    document.getElementById("contact").style.zIndex = "0";
+    document.getElementById("sponsor").style.zIndex = "1";
+    document.getElementById("team").style.zIndex = "0";
+    }
 }
 function team() {
 if (isMobile) {
@@ -47,5 +68,12 @@ if (isMobile) {
     document.getElementById("contact").style.display = "none";
     document.getElementById("sponsor").style.display = "none";
     document.getElementById("team").style.display = "block";
+    }
+    else
+    {
+    document.getElementById("mainpart").style.zIndex = "0";
+    document.getElementById("contact").style.zIndex = "0";
+    document.getElementById("sponsor").style.zIndex = "0";
+    document.getElementById("team").style.zIndex = "1";
     }
 }
