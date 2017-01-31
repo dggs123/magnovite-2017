@@ -31,7 +31,7 @@ def index(req):
         if "btech.christuniversity.in" in req.user.email or "mtech.christuniversity.in" in req.user.email:
             open_r = True
         else:
-            messages.error(req, 'Registeration blocked, login with Christ mail id')
+            messages.error(req, 'Registration blocked, login with Christ mail id')
     return render(req, template, {
         'workshops': Workshop.objects.all(),
         'registered': isregistered,
@@ -66,6 +66,11 @@ def register(req, id):
         }, status=400)
     
     workshop = get_object_or_404(Workshop, id=id)
+    if workshop.min_range == workshop.max_range:
+         return JsonResponse({
+            'errorCode': 'already_register',
+            'errorMessage': 'Registrations are closed for' + workshop.title
+        }, status=400)
     
     workshop.min_range+=1
     
