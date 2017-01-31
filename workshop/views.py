@@ -32,7 +32,6 @@ def index(req):
             open_r = True
         else:
             messages.error(req, 'Registeration blocked, login with Christ mail id')
-
     return render(req, template, {
         'workshops': Workshop.objects.all(),
         'registered': isregistered,
