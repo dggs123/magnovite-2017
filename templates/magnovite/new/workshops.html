@@ -125,7 +125,7 @@ font-weight: bold;">Organised by: </span>{{ workshop.desc_2 }}</p></div>
                         {% if not open_r %}
                          <p style="text-align:center; font-weight:bold;">Registrations will be open shortly. </p>
                         {% else %}
-                         <p style="text-align:center; font-weight:bold;">Registrations will be open shortly. </p>
+                         <p style="text-align:center; font-weight:bold;"><button data-type="Register" data-params="{{workshop.id}}" class="button gray js-register" style="">Register Now</button></p>
                         {% endif %}
                     {% else %}
                     <p style="text-align:center; font-weight:bold;">Registrations are closed!</p>
@@ -169,7 +169,7 @@ font-weight: bold;">Organised by: </span>{{ workshop.desc_2 }}</p></div>
             );
             wow.init();
         app.notification.notify({
-            text: 'Christite ? Use Your Christ Mail Id For Registrations',
+            text: 'Registrations will be open shortly.',
             type: 'info',
             persistant: true
         });
