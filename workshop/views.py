@@ -16,17 +16,27 @@ def index(req):
     else:
         template = 'magnovite/new/workshops.html'
 
+    w_id = -1
+    w_name = ""
     open_r=False
-
+    isregistered=False
     registered = []
     if req.user.is_authenticated():
         registered = req.user.profile.registered_workshops.all()
+        if registered.count()>=1:
+            isregistered=True
+            w_id = registered[0].id 
+            w_name = registered[0].title
         if "btech.christuniversity.in" in req.user.email or "mtech.christuniversity.in" in req.user.email:
             open_r = True
+        else:
+            messages.error(req, 'Registeration blocked, login with Christ mail id')
 
     return render(req, template, {
         'workshops': Workshop.objects.all(),
-        'registered': registered,
+        'registered': isregistered,
+        'w_id':w_id,
+        'w_name':w_name,
         'open_r':open_r
     })
 
@@ -48,8 +58,19 @@ def register(req, id):
             'redirectLocation': '/profile/',
             'errorMessage': 'You need to complete your profile first'
         }, status=400)
-    workshop = get_object_or_404(Workshop, id=id)
 
+    if req.user.profile.registered_workshops.count() == 1:
+        return JsonResponse({
+            'errorCode': 'already_register',
+            'errorMessage': 'Rule#2: Register Already? Please Don\'t Register Again'
+        }, status=400)
+    
+    workshop = get_object_or_404(Workshop, id=id)
+    
+    workshop.min_range+=1
+    
+    workshop.save()
+    
     req.user.profile.registered_workshops.add(workshop)
     
     try:

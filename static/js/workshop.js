@@ -9,29 +9,50 @@ app.workshop = {};
         if (inProgress) {
             return;
         }
-
-        inProgress = true;
-        NProgress.start();
-        isRegistered=false;
-
+        var isRegistered=false;
         var $target = $(e.target).closest('.js-register');
-
-        $target.addClass('deactive');
+        var $body = $('body');
+        var wname = $target.data('wname');
         var type = $target.data('type');
         var params = $target.data('params');
-        if(type === "Unregister")
+        $target.addClass('deactive');
+        if(type != "Register")
         {
-            isRegistered = true
+            isRegistered = true;
         }
 
         if (isRegistered) {
             app.notification.notify({
-                        text: "Sorry Christite Unregister Option is not allowed",
+                        text: "Rule#2: Register Already? Please Don't Register Again",
                         type: 'error',
                 });
+        }
+        else{
+        app.notification.notify({
+            text: 'Are You Sure You Want To Register In ' + wname,
+            type: 'info',
+            action: 'Yes',
+            actionCallback: function() {
+                register_workshop();
+            }
+        });
+        }
+
+    function register_workshop(){
+        inProgress = true;
+        NProgress.start();
+
+        if (isRegistered) {
+            app.notification.notify({
+                        text: "Rule#2: Register Already? Please Don't Register Again",
+                        type: 'error',
+                });
+            NProgress.done();
+            inProgress = false;
         } else {
             registerSingle();
         }
+    }
 
 
     /**
@@ -41,11 +62,11 @@ app.workshop = {};
         NProgress.start();
         inProgress = true;
 
-        $.post('/workshop/api/register/' + params + '/')
+        $.post('/workshops/api/register/' + params + '/')
             .done(function() {
-                $target.data('type','Unregister')
+                $body.find('.js-register').text('Multiple Registerations Are Not Allowed');
+                $body.find('.js-register').data('type','Unregister');
                 $target.text('Registered');
-
                 showSuccessNotification();
 
                 isRegistered = true;

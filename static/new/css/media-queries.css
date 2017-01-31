@@ -214,6 +214,14 @@ background-position: center top !important;
 .footer-single {
   margin-bottom: 30px;
 }
+.notifications .notification.active {
+  margin-left: 5px;
+  transform: translateX(10);
+  visibility: visible;
+
+   opacity: 0.8;
+  border-radius: 5px;
+}
 
 }
 
@@ -252,5 +260,12 @@ background-position: center top !important;
   left: inherit !important;
   width: 50%;
 }
+.notifications .notification.active {
+  margin-left: 5px;
+  transform: translateX(10);
+  visibility: visible;
 
+   opacity: 0.8;
+  border-radius: 5px;
+}
 }

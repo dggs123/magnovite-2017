@@ -804,9 +804,10 @@ top: 0;
   position: fixed;
   right: 25px;
   top: 100px;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 1);
   overflow: hidden;
   z-index: 99999999;
+  font-weight: bold;
 }
 .notifications .notification {
   margin-bottom: 20px;
@@ -816,8 +817,8 @@ top: 0;
   visibility: hidden;
   transform: translateX(454);
   transition: all 500ms ease-out;
-  border-radius: 10px;
   opacity: 0;
+
 
 
 
@@ -826,19 +827,23 @@ top: 0;
   margin-left: 5px;
   transform: translateX(10);
   visibility: visible;
-  opacity: 0.80;
+
+   opacity: 1;
+  border-radius: 5px;
 }
 .notifications .notification.success {
-  background: #0eb493;
+  background: #1ea78d;
 }
 .notifications .notification.error {
-  background: #0eb493;
+  background: #1ea78d;
 }
 .notifications .notification.info {
-  background: #0eb493;
+  background: #1ea78d;
+  opacity: 1;
+  border-radius: 5px;
 }
 .notifications .notification.warn {
-  background: #0eb493;
+  background: #1ea78d;
 }
 .notifications .close {
   position: absolute;
@@ -846,7 +851,6 @@ top: 0;
   top: 0;
   width: 40px;
   height: 40px;
-  background: rgba(0, 0, 0, 0.1);
   line-height: 40px;
   text-align: center;
   cursor: pointer;
@@ -871,13 +875,24 @@ top: 0;
 .notifications .no-action .action {
   display: none;
 }
-button
+.modal-body
 {
-  margin-left: 82.6%;
+  padding: 0;
+}
+.modal-body .row
+{
+  padding: 15px;
+}
+.button
+{
 color: white;
 background-color: #009973;
 padding: 15px;
-width: 150px;
+width: 100%;
+}
+.button:hover
+{
+  opacity: 0.6
 }
 @media only screen and (max-width: 640px) {
 .notifications {
@@ -887,10 +902,6 @@ width: 150px;
 .notifications .notification {
   margin-bottom: 2px;
 }
-button
-{
-    margin-left: 25%;
-}
 }
 
 /* Make clicks pass-through */
@@ -898,13 +909,13 @@ button
   pointer-events: none;
 }
 #nprogress .bar {
-  background: #009973;
+  background: #fff;
   position: fixed;
   z-index: 1031;
   top: 0;
   left: 0;
   width: 100%;
-  height: 3px;
+  height: 4px;
 }
 /* Fancy blur effect */
 #nprogress .peg {
@@ -913,7 +924,7 @@ button
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px #009973, 0 0 5px #009973;
+  box-shadow: 0 0 10px #fff, 0 0 5px #fff;
   opacity: 1.0;
   -webkit-transform: rotate(3deg) translate(0px, -4px);
   -ms-transform: rotate(3deg) translate(0px, -4px);
@@ -932,8 +943,8 @@ button
   height: 18px;
   box-sizing: border-box;
   border: solid 2px transparent;
-  border-top-color: #009973;
-  border-left-color: #009973;
+  border-top-color: #fff;
+  border-left-color: #fff;
   border-radius: 50%;
   -webkit-animation: nprogress-spinner 400ms linear infinite;
   animation: nprogress-spinner 400ms linear infinite;

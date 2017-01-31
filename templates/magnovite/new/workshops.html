@@ -1,7 +1,7 @@
 {% extends "magnovite/new/base.html" %}
 {% load socialaccount %}
 
-
+{% csrf_token %}
 {% block "extra_meta" %}
 <meta name="description" content="Christ University presents its annual techno-cultural fest Magnovite V6, on 2nd and 3rd and 4th of March 2017."" />
 <meta name="keywords" content="Magnovite,Tech Fest" />
@@ -118,17 +118,22 @@ font-weight: bold;">Organised by: </span>{{ workshop.desc_2 }}</p></div>
           <!-- <p style="position: fixed;top: 160px;left: 30px;color: white;font-size: 25px;">Fee ₹ {{workshop.price}}</p> -->
           <br>
 
-          {% if workshop in registered %}
-                        <button class="button" style="">Registered</button>
-                    </div>
-                    {% elif workshop.registrations_open %}
+          {% if registered %}
+                  {% if w_id == workshop.id %}
+                        <button data-type="Unregister" data-params="{{workshop.id}}" data-wname="{{ workshop.title }}" class="button gray js-register" style="">Registered</button>
+                  {% else %}
+                        <p style="text-align:center; font-weight:bold; padding-bottom:15px">You are already register for {{ w_name }} workshop. </p>
+                  {% endif %}
+          {% elif workshop.min_range == workshop.max_range %}
+                        <p style="text-align:center; font-weight:bold;  padding-bottom:15px">Registrations are closed for this workshops </p>
+          {% elif workshop.registrations_open %}
                         {% if not open_r %}
-                         <p style="text-align:center; font-weight:bold;">Registrations will be open shortly. </p>
+                         <p style="text-align:center; font-weight:bold;  padding-bottom:15px">Registrations will be open shortly. </p>
                         {% else %}
-                         <p style="text-align:center; font-weight:bold;"><button data-type="Register" data-params="{{workshop.id}}" class="button gray js-register" style="">Register Now</button></p>
+                         <button data-type="Register" data-params="{{workshop.id}}" data-wname="{{ workshop.title }}" class="button gray js-register" style="">Register Now</button>
                         {% endif %}
-                    {% else %}
-                    <p style="text-align:center; font-weight:bold;">Registrations are closed!</p>
+          {% else %}
+                    <p style="text-align:center; font-weight:bold;  padding-bottom:15px">Registrations are closed!</p>
           {% endif %}
            
         </div>
@@ -168,11 +173,6 @@ font-weight: bold;">Organised by: </span>{{ workshop.desc_2 }}</p></div>
               }
             );
             wow.init();
-        app.notification.notify({
-            text: 'Registrations will be open shortly.',
-            type: 'info',
-            persistant: true
-        });
         </script>
 
 {% endblock %}
