@@ -758,15 +758,14 @@ input.gray:focus {
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0;
 }
-..notifications {
-  width: 350px;
+.notifications {
+  width: 400px;
   position: fixed;
-  right: 25px;
+  right: 10px;
   top: 100px;
-  color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 0.85);
   overflow: hidden;
   z-index: 99999999;
-  font-weight: bold;
 }
 .notifications .notification {
   margin-bottom: 20px;
@@ -776,8 +775,8 @@ input.gray:focus {
   visibility: hidden;
   transform: translateX(454);
   transition: all 500ms ease-out;
+  border-radius: 10px;
   opacity: 0;
-
 
 
 
@@ -786,23 +785,19 @@ input.gray:focus {
   margin-left: 5px;
   transform: translateX(10);
   visibility: visible;
-
-   opacity: 1;
-  border-radius: 5px;
+  opacity: 0.80;
 }
 .notifications .notification.success {
-  background: #1ea78d;
+  background: #0eb493;
 }
 .notifications .notification.error {
-  background: #1ea78d;
+  background: #0eb493;
 }
 .notifications .notification.info {
-  background: #1ea78d;
-  opacity: 1;
-  border-radius: 5px;
+  background: #0eb493;
 }
 .notifications .notification.warn {
-  background: #1ea78d;
+  background: #0eb493;
 }
 .notifications .close {
   position: absolute;
@@ -810,13 +805,12 @@ input.gray:focus {
   top: 0;
   width: 40px;
   height: 40px;
+  background: rgba(0, 0, 0, 0.1);
   line-height: 40px;
   text-align: center;
   cursor: pointer;
   border-radius: 10px;
-  font-size: 25px;
 }
-
 
 .notifications .text {
   display: block;
