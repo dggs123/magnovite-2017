@@ -62,13 +62,13 @@ def register(req, id):
     if req.user.profile.registered_workshops.count() == 1:
         return JsonResponse({
             'errorCode': 'already_register',
-            'errorMessage': 'Rule#2: Register Already? Please Don\'t Register Again'
+            'errorMessage': 'Rule#2: Register Already? Please Don\'t Register Again.'
         }, status=400)
     
     workshop = get_object_or_404(Workshop, id=id)
     if workshop.min_range == workshop.max_range:
          return JsonResponse({
-            'errorCode': 'already_register',
+            'errorCode': 'closed_register',
             'errorMessage': 'Registrations are closed for' + workshop.title
         }, status=400)
     
@@ -80,6 +80,7 @@ def register(req, id):
     
     try:
         req.user.profile.save()
+        messages.success(req, 'Participants will be notified about the dates and venues via email/sms.')
     except Exception:
         return JsonResponse({
             'errorCode': 'unknown',
