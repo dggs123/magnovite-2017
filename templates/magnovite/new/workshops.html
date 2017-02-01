@@ -120,7 +120,7 @@ font-weight: bold;">Organised by: </span><br>{{ workshop.desc_2 }}</p></div>
           <div class="row" style="padding-top:0px;">
           <div class="col-sm-6"><p><span style="font-size: 15px;
 color: #009973;
-font-weight: bold;">Student Incharge: </span><br>{{ workshop.std_1_name }}<br>+91-{{ workshop.std_1_mobile }}</p></div>
+font-weight: bold;">Student Incharge: </span><br>{{ workshop.std_1_name }}<br>{% if workshop.std_1_mobile %}+91-{{ workshop.std_1_mobile }}{% endif %}</p></div>
           <div class="col-sm-6"><p><span style="font-size: 15px;
 color: #009973;
 font-weight: bold;">Cap Limit: </span><br>{{ workshop.max_range }}</p></div>
