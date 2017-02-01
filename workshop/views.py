@@ -73,6 +73,7 @@ def register(req, id):
         }, status=400)
     
     workshop.min_range+=1
+    
     try:
         workshop.save()
     except Exception:
@@ -80,7 +81,7 @@ def register(req, id):
             'errorCode': 'unknown',
             'errorMessage': 'Something went wrong! Try refreshing the page, or try again later'
         }, status=400)
-         
+
     req.user.profile.registered_workshops.add(workshop)
     
     try:
