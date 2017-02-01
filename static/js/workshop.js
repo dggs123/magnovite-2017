@@ -115,6 +115,10 @@ app.workshop = {};
                 window.location.replace('/profile/#schedule');
             }
         });
+        app.notification.notify({
+            text: 'Participants will be notified about the dates and venues via email/sms.',
+            type: 'info'
+        });
     }
 
 })();
