@@ -19,10 +19,11 @@ def index(req):
 
     w_id = -1
     w_name = ""
-    open_r=False
+    open_r=True
     isregistered=False
     registered = []
     if req.user.is_authenticated():
+        open_r=False
         registered = req.user.profile.registered_workshops.all()
         if registered.count()>=1:
             isregistered=True
