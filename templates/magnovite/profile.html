@@ -145,12 +145,13 @@ app.profile.init();
 
             <div class="s-scene schedule-scene glass">
                 <div class="s-title">
-                    <h1>My Schedule</h1>
+                    <h1 style="margin-bottom:5px;">My Schedule:</h1>
+                    <h4>March 2nd ,3rd and 4th</h4>
                 </div>
+                <h5>Events: </h5>
 
                 {% for day in days %}
                 <div class="day-{{forloop.counter}} {% if day|length == 0 %}empty-day{% endif %}">
-                    <h3>March 2nd ,3rd and 4th</h3>
 
                     <div class="strip empty-strip">
                         <p>You have no activities on these day.</p>
@@ -196,7 +197,52 @@ app.profile.init();
                     {% endfor %}
                     </div>
                     </div>
+                    <br><br>
+                <h5>Workshops: </h5>
                 {% endfor %}
+                 {% for day in workshop %}
+                 <div class="day-{{forloop.counter}} {% if day|length == 0 %}empty-day{% endif %}">
+                    
+
+                    <div class="strip empty-strip">
+                        <p>You have no activities on these day.</p>
+                    </div>
+                    <div class="row">
+                    {% for w in day %}
+                    <div class="col-sm-6">
+                        <div class="strip {{w.w_type}}" style="background-color: #0eb493;">
+                            <div class="sq-time">
+
+                                <div class="time t-start">
+                                    Cap limit:
+                                </div>
+                                <div class="time t-end" style="margin-top:0px">
+                                    {{w.max_range}}
+                                </div>
+                            </div>
+                            <div class="sq-event">
+                                <p class="title">{{w.title}}</p>
+                            </div>
+                            <div class="sq-contact">
+                                 <p style="margin-left: 5px;font-size: 15px;">Event Head:</p>
+                                <ul>
+                                   
+                                    <li class="name">{{w.std_1_name}}</li>
+                                    <li class="mobile">{{w.std_1_mobile}}</li>
+                                    <li class="email"><a href="{{head.std_1_email}}">{{w.std_1_email}}</a></li>
+                                    
+                                </ul>
+                            </div>
+                            <div class="sq-more">
+                                <a href="/workshop">❯</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    </div>
+                    </div>
+                    {% endfor %}
+                    <br><br>
             </div>
         </div>
     </div>

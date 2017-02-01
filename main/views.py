@@ -207,9 +207,12 @@ def profile(req):
 
     registrations = Registration.objects.filter(profile=req.user.profile)
     day_one = map(lambda x: x.event, registrations)
+    workshop=[]
 
+    workshop = req.user.profile.registered_workshops.all()
     # evaluate maps
     day_one = [x for x in day_one]
+
     
 
     messages = []
@@ -232,6 +235,7 @@ def profile(req):
     return render(req, template, {
         'profile_form': profile_form,
         'days': [day_one],
+        'workshop': [workshop],
         'help_messages': messages,
         'owned_teams': owned_teams,
         'test_payment': test_payment
