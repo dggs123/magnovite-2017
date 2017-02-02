@@ -25,17 +25,17 @@ app.rightclick = {};
      * @param  {EventObject} e Event object
      */
     function handleRegister(e) {
-        window.open("https://www.1crowd.co/index.php/incubator/registrationForm",'_blank');
-        if (inProgress) {
-            return;
-        }
+        window.open("https://www.1crowd.co/index.php/incubator/registrationForm");
+        // if (inProgress) {
+        //     return;
+        // }
 
     
-        if (isRegistered) {
-            unregisterSingle();
-        } else {
-            registerSingle();
-        }
+        // if (isRegistered) {
+        //     unregisterSingle();
+        // } else {
+        //     registerSingle();
+        // }
     }
 
     /**
