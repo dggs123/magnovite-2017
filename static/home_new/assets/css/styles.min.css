@@ -846,7 +846,7 @@ width: 700px;
 font-size: 15px;
 }
 .agency .main-content .page-title {
-    z-index: 1
+    z-index: inherit;
 }
 .agency .main-content .page-title,
 .agency .agency-subpage .page-title
@@ -855,7 +855,7 @@ font-size: 15px;
 }
 
 .agency .main-content .text {
-    z-index: 1;
+    z-index: inherit;
     opacity: 0;
     -webkit-transform: translateY(30px);
     -moz-transform: translateY(30px);
@@ -922,11 +922,11 @@ font-size: 15px;
 }
 .agency-subpage-container .page-title {
     opacity: 0;
-    z-index: 0
+    z-index: inherit;
 }
 .agency-subpage-container .text {
     opacity: 0;
-    z-index: 0
+    z-index: inherit;
 }
 .agency-subpage-container .active .text {
     z-index: 2
