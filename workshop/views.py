@@ -156,7 +156,7 @@ def generate_exel_invoice(req):
     writer.writerow(['Money:'])
     writer.writerow([''])
     writer.writerow([''])
-    invoice = Invoice.objects.filter(invoice_type="workshop")
+    invoice = Invoice.objects.filter(invoice_type="workshop",success=True)
     i=0
     writer.writerow(['Slno', 'Name', 'Phone No', 'Email', 'College','Workshop Title'])
     for w in invoice:
