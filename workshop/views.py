@@ -10,6 +10,7 @@ from django.views.decorators.http import require_POST
 
 from .models import Workshop
 from main.models import MUser,Profile
+from payment.models import Invoice
 
 
 
@@ -146,5 +147,23 @@ def generate_exel(req):
         writer.writerow([""])
         writer.writerow(["--------------,------------------,----------------,-----------"])
     return response
+def generate_exel_invoice(req):
+    if not req.user.is_superuser:
+        raise PermissionDenied
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="Money.csv"'
+    writer = csv.writer(response)
+    writer.writerow(['Money:'])
+    writer.writerow([''])
+    writer.writerow([''])
+    invoice = Invoice.objects.filter(invoice_type="workshop")
+    i=0
+    for w in invoice:
+        writer.writerow(['Slno', 'Name', 'Phone No', 'Email', 'College','Workshop Title'])
+        writer.writerow([i+1, w.profile.name, w.profile.mobile, w.profile.user.email, w.profile.college,w.workshop.title])
+        i+=1
+        writer.writerow([""])
+        writer.writerow(["--------------,------------------,----------------,-----------"])
+
 
 
