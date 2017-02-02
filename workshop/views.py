@@ -158,12 +158,10 @@ def generate_exel_invoice(req):
     writer.writerow([''])
     invoice = Invoice.objects.filter(invoice_type="workshop")
     i=0
+    writer.writerow(['Slno', 'Name', 'Phone No', 'Email', 'College','Workshop Title'])
     for w in invoice:
-        writer.writerow(['Slno', 'Name', 'Phone No', 'Email', 'College','Workshop Title'])
         writer.writerow([i+1, w.profile.name, w.profile.mobile, w.profile.user.email, w.profile.college,w.workshop.title])
         i+=1
-        writer.writerow([""])
-        writer.writerow(["--------------,------------------,----------------,-----------"])
 
     return response
 
