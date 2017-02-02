@@ -110,18 +110,24 @@
     <div class="login-modal modal" id="login-modal">
         <div class="modal-inner">
             <div class="close">&times;</div>
-
             <h2 class="title">Login or Register</h2>
-
             <div class="body">
                 <div class="buttons">
                     <div class="social-button">
                         <img src="/static/img/google.png" alt="Google">
+                        {% if request.user.profile.is_complete %}
                         <a href='{% provider_login_url "google" %}?next={{request.path}}' class="social-a-go"></a>
+                        {% else %}
+                        <a href='{% provider_login_url "google" %}?next=/profile/' class="social-a-go" ></a>
+                        {% endif %}
                     </div>
                     <div class="social-button">
                         <img src="/static/img/github.png" alt="Github">
+                        {% if request.user.profile.is_complete %}
                         <a href='{% provider_login_url "github" %}?next={{request.path}}' class="social-a-gi"></a>
+                        {% else %}
+                        <a  href='{% provider_login_url "github" %}?next=/profile/' class="social-a-gi"></a>
+                        {% endif %}
                     </div>
                 </div>
                 <p class="help-text">
