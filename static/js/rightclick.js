@@ -25,7 +25,7 @@ app.rightclick = {};
      * @param  {EventObject} e Event object
      */
     function handleRegister(e) {
-        window.open("https://www.1crowd.co/index.php/incubator/registrationForm");
+        location.replace("https://www.1crowd.co/index.php/incubator/registrationForm");
         // if (inProgress) {
         //     return;
         // }
