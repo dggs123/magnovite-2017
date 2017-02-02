@@ -165,5 +165,7 @@ def generate_exel_invoice(req):
         writer.writerow([""])
         writer.writerow(["--------------,------------------,----------------,-----------"])
 
+    return response
+
 
 
