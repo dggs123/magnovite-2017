@@ -143,6 +143,8 @@ def generate_exel(req):
         for x in u1:
             writer.writerow([i+1, x.name, x.mobile, x.user.email, x.college])
             i+=1
+        writer.writerow([""])
+        writer.writerow(["--------------,------------------,----------------,-----------"])
     return response
 
 
