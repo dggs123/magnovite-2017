@@ -1,12 +1,16 @@
+import csv
 from django.shortcuts import render
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from django.contrib import messages
 from django.http import HttpResponse, JsonResponse
+from django.core.exceptions import PermissionDenied
 from django.views.decorators.http import require_POST
 
 from .models import Workshop
+from main.models import MUser,Profile
+
 
 
 
@@ -116,3 +120,29 @@ def unregister(req, id):
     # we return 200, even if the user was previously
     # not registered to the event
     return HttpResponse(status=200)
+
+
+def generate_exel(req):
+    if not req.user.is_superuser:
+        raise PermissionDenied
+
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="workshop.csv"'
+    writer = csv.writer(response)
+    writer.writerow(['Registered Workshops:'])
+    writer.writerow([''])
+    writer.writerow([''])
+    workshop = Workshop.objects.all()
+
+    for w in workshop:
+        writer.writerow([w.title+":"])
+        writer.writerow([""])
+        writer.writerow(['Slno', 'Name', 'Phone No', 'Email', 'College'])
+        u1 = Profile.objects.filter(registered_workshops=w);
+        i=0
+        for x in u1:
+            writer.writerow([i+1, x.name, x.mobile, x.user.email, x.college])
+            i+=1
+    return response
+
+
