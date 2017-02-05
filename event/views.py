@@ -77,6 +77,7 @@ def details(req, slug):
 
 @require_POST
 def register(req, id, team_id=None):
+    
     if not req.user.is_authenticated():
         return JsonResponse({
             'errorCode': 'login',
@@ -135,6 +136,7 @@ def register(req, id, team_id=None):
             team_id = generate_team_id(req.user.email, event)
         else:
             regs = Registration.objects.filter(team_id=team_id, event=event)
+            print("hello")
 
             # make sure team_id is valid, if user has given a team_id
             # then if it is valid, it must be in our registration table

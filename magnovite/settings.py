@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 import dj_database_url
+import sendgrid
+from sendgrid.helpers.mail import *
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -156,7 +158,7 @@ SOCIALACCOUNT_PROVIDERS = {
         'SCOPE': ['user']
     }
 }
-
+ACCOUNT_ADAPTER = 'main.allauth.MyAccountAdapter'
 # if not DEBUG:
 #     ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 # SOCIALACCOUNT_ADAPTER = 'main.allauth.MSocialAccountAdapter'
@@ -188,6 +190,9 @@ WSGI_APPLICATION = 'magnovite.wsgi.application'
 
 
 # email settings
+sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
+from_email = Email("gaurav@magnovite.net")
+to_email = Email("gaurav@magnovite.net")
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.live.com'
 EMAIL_HOST_USER = 'magnovite@outlook.com'

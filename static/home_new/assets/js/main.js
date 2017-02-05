@@ -18,7 +18,7 @@ function closeNav() {
     document.getElementById("header-small-logo").style.display = "block";
 }
 function about() {
-	if (isMobile) {
+	if (screen.width <=700) {
     document.getElementById("mainpart").style.display = "block";
     document.getElementById("contact").style.display = "none";
     document.getElementById("sponsor").style.display = "none";
@@ -33,7 +33,7 @@ function about() {
     }
 }
 function contactus() {
-    if (isMobile) {
+    if (screen.width <=700) {
     document.getElementById("mainpart").style.display = "none";
     document.getElementById("contact").style.display = "block";
     document.getElementById("sponsor").style.display = "none";
@@ -48,7 +48,7 @@ function contactus() {
     }
 }
 function sponsor() {
-  if (isMobile) {
+  if (screen.width <=700) {
     document.getElementById("mainpart").style.display = "none";
     document.getElementById("contact").style.display = "none";
     document.getElementById("sponsor").style.display = "block";
@@ -63,7 +63,7 @@ function sponsor() {
     }
 }
 function team() {
-if (isMobile) {
+if (screen.width <=700) {
     document.getElementById("mainpart").style.display = "none";
     document.getElementById("contact").style.display = "none";
     document.getElementById("sponsor").style.display = "none";
@@ -77,3 +77,9 @@ if (isMobile) {
     document.getElementById("team").style.zIndex = "1";
     }
 }
+$( document ).ready(function() {
+    document.getElementById("mainpart").style.zIndex = "1";
+    document.getElementById("contact").style.zIndex = "0";
+    document.getElementById("sponsor").style.zIndex = "0";
+    document.getElementById("team").style.zIndex = "0";
+});

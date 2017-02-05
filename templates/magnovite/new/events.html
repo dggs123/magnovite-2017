@@ -104,16 +104,7 @@
 						<a class="fancybox" rel="works" title="REGISTER" href="{{e.get_absolute_url}}"><i class="fa fa-eye fa-lg"></i></a>
 						<p>{{ e.quote }}</p>
             <span>
-              {% if e.is_multiple %}
-                  {% if e.team_min == e.team_max %}
-                      <p>Team Event, {{e.team_min}} members</p>
-                  {% else %}
-                      <p>Team Event, {{e.team_min}}-{{e.team_max}} members
-                      </p>
-                  {% endif %}
-              {% else %}
-                  <p>Individual Event</p>
-              {% endif %}
+              <p>Prizes Worth ₹ {{e.cash_prize}}</p>
             </span>
 					</figcaption>
 				</figure>

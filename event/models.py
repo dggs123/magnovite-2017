@@ -79,7 +79,7 @@ class Event(models.Model):
     technical = models.BooleanField(default=True, help_text='If cultural set to false')
 
     # This is a comma seperated field
-    tags = MultiSelectField(choices=TECHNICAL_TAGS, blank=True, null=True)
+    tags = models.CharField(max_length=20, choices=TECHNICAL_TAGS, default='cse', blank=True, null=True)
 
     # pictures
     cover = models.URLField(blank=True, default='', help_text='imgur link for cover (1300x500)')

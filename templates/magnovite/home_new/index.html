@@ -25,16 +25,38 @@
 	<meta property="og:type" content="website" />
 	
 	<link rel="shortcut icon" href="/static/home_new/img/logos/favicons/favicon.ico">
+	
 	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link media="screen" rel="stylesheet" type="text/css" href="/static/home_new/assets/css/styles.min.css" />
 	<link media="screen" rel="stylesheet" type="text/css" href="/static/home_new/assets/css/mobile.css" />
 	
 	
-	<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+	<script type="text/javascript" src="/static/home_new/assets/js/baron.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 		<script src="/static/home_new/assets/js/lib/modern-detect-izr.min.js"></script>
-		<script type="text/javascript" src="http://cdn.rawgit.com/hilios/jQuery.countdown/2.2.0/dist/jquery.countdown.min.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+    // Horizontal
 
+    baron({
+        root: '.baron',
+        scroller: '.baron__scroller',
+        bar: '.baron__bar',
+        scrollingCls: '_scrolling',
+        draggingCls: '_dragging'
+    }).controls({
+        // Element to be used as interactive track. Note: it could be different from 'track' param of baron.
+        track: '.baron__track',
+        forward: '.baron__down',
+        backward: '.baron__up'
+    })
+}
+
+
+		</script>
+		
+		<link media="screen" rel="stylesheet" type="text/css" href="/static/home_new/assets/css/baron.css" />
+	<link media="screen" rel="stylesheet" type="text/css" href="/static/home_new/assets/css/styles.css" />	
 		
 		<!-- Google Analytics -->
 	<script>
@@ -45,6 +67,87 @@
 		ga('create', 'UA-37290176-23', 'auto');
 		ga('send', 'pageview');
 	</script>
+	<style type="text/css">
+
+	/* 640px */
+		@media only screen and (max-width: 640px) {
+					.agency .main-content .text,
+					.agency .agency-subpage .text {
+					    position: absolute;
+					    left: 0;
+					    top: 110px;
+					    width: 500px
+					}
+					#page-wrapper
+					{
+						height: 570px;
+					}
+					#page-container
+					{
+						top: -10px;
+						width: 100%;
+						height: 100%;
+					}
+					#page-content
+					{
+						left: -65px;
+						top: 15px;
+						width: 100%;
+						height: 100%;
+					}
+					.line-title
+					{
+						top: 100px;
+						left: -2px;
+					}
+					.agency .main-content .text, .agency .agency-subpage .text
+					{
+						top: 95px;
+						width: 280px;
+						height: 250px;
+						overflow: scroll;
+					}
+					#agency-links {
+					    position: fixed;
+					    left: 10px;
+					    bottom: 10px;
+					    width: 160px;
+					}
+					#page-wrapper .line-1
+					{
+						left: -65px;
+						top: 80px;
+					}
+
+					#page-wrapper .line-2 {
+					    left: 0px;
+					    bottom: 10px;
+					    width: 2px;
+					    position: fixed;
+					}
+					.header-big-logo
+					{
+						display: none;
+					}
+					.new-menu 
+					{
+					    top: 40%;
+					}
+					.sidenav
+					{
+						z-index: 5;
+					}
+					.my-scroller
+					{
+						overflow: hidden;
+					}
+		}
+		.org-div-email
+		{
+			margin-top: 3px;
+		}
+
+	</style>
 	</head>
 
 
@@ -176,7 +279,9 @@
 		
 
 		<!-- Timer -->
-		<span id="clock"></span>
+	<div>
+		<img class="christ-logo" src="/static/home_new/img/logos/christ_LOGO-black.png"></img>
+	</div>
 		<a class="footer-link legals-link play-store" href="https://play.google.com/store/apps/details?id=gulzar.magnovite&hl=en"  onclick="window.location='https://play.google.com/store/apps/details?id=gulzar.magnovite&hl=en'">
 			<img src="/static/home_new/img/logos/playstore.png"></img>
 		</a>
@@ -212,11 +317,9 @@
 	var LG = 'fr';
 
 var isMobile = /Android/i.test(navigator.userAgent);
-	if (isMobile) {
+	if (isFHMobile) {
     window.open('https://play.google.com/store/apps/details?id=gulzar.magnovite&hl=en','_blank');
     }
-
-    
 </script>
 
 

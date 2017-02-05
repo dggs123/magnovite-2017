@@ -203,7 +203,12 @@ app.eventDetails.init();
 				<div class="team-details">
 					<span class="label">Team Event</span>
 					{% if event.is_multiple %}
-						<p>Team {{event.team_min}}-{{event.team_max}}</p>
+						{% if event.team_min == e.team_max %}
+	                      <p>Team {{event.team_min}} members</p>
+	                  {% else %}
+	                      <p>Team {{event.team_min}}-{{event.team_max}}
+	                      </p>
+	                  {% endif %}
 					{% else %}
 						<p>Individual</p>
 					{% endif %}

@@ -551,7 +551,7 @@ a {
 }
 #page-wrapper .line-1 {
     position: absolute;
-    left: 13px;
+    left: 20px;
     top: 50px;
     width: 100px;
     height: 2px;
@@ -565,7 +565,7 @@ a {
 #page-wrapper .line-2 {
     position: absolute;
     right: 245px;
-bottom: 14px;
+    bottom: 14px;
     width: 2px;
     height: 100px;
     background-color: #00e6ad;
@@ -581,7 +581,7 @@ bottom: 14px;
     top: -50px;
     width: 100%;
     height: 100%;
-    margin-left: 12px;
+    margin-left: 20px;
 }
 .logo150
 {
@@ -873,7 +873,8 @@ font-size: 15px;
     position: absolute;
     right: 0;
     bottom: -35px;
-    width: 250px
+    width: 250px;
+    opacity: 0.8;
 }
 #agency-links .link {
     float: left;
@@ -2406,4 +2407,55 @@ font-size: 15px;
 .new-menu:hover:after
 {
     width: 0%;
+}
+.christ-logo
+{
+    position: fixed;top: 2%;right: 20px;
+}
+.my-scroller
+{
+    height: 450px;
+}
+.org-main
+{
+    cursor:default;display:block;height: 160px;
+}
+.org-p
+{
+    margin-top: 2px;margin-bottom: 16px;
+}
+.org-p-div
+{
+    width: 100px;overflow: hidden;height: 100px;border-radius: 100px;float: left;margin-right: 15px;margin-left: 25px;
+
+}
+.org-img
+{
+    height: 100px;
+}
+.org-div
+{
+    float:left;
+    margin-top: 8px;
+}
+.agency .text .org-div p
+{
+    margin-top: 10px;
+}
+.org-div-name
+{
+    font-size: 30px;
+}
+.org-div-no
+{
+    margin-top: 0px;font-size: 15px;
+}
+.org-h3
+{
+    font-size: 30px;
+    text-align: center;
+}
+.org-dev
+{
+    margin-left: 0px;
 }

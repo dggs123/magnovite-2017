@@ -65,6 +65,16 @@ margin-left: 0px;
     left: 2%;
 }
 
+.christ-logo
+{
+    position: fixed;
+    top: 0%;
+    right: 5px;
+}
+.my-scroller
+{
+    height: 250px;
+}
 
 .header-big-logo
 {
@@ -72,10 +82,12 @@ margin-left: 0px;
    height: 100px;
    width: 180px;
 }
+
 .page-title
 {
     top: 27px;
 }
+
 .page-title-l1, .page-subtitle{
     font-size: 10px;
 }
@@ -139,8 +151,40 @@ margin-left: 0px;
     font-size: 36px;
     margin-left: 50px;
 }
-
-
+.org-h3
+{
+    font-size: 25px;
+}
+.org-main
+{
+    height: 110px;
+}
+.agency .text .org-div p
+{
+    margin-top: 0;
+}
+.org-p-div
+{
+    width: 60px;
+    height: 60px;
+    border-radius:60px;
+}
+.org-div-name
+{
+    font-size: 20px;
+}
+.org-div-no
+{
+    margin-top: 0px;font-size: 15px;
+}
+.org-img
+{
+    height: 60px;
+}
+.org-div
+{
+    margin-top: 0;
+}
 
 }
 @media screen and (max-height: 450px) {

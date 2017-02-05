@@ -1,14 +1,15 @@
 <!-- Agency -->
  {% csrf_token %}
 <html><head>
-<meta http-equiv="content-type" content="text/html; charset=windows-1252"></head><body><section id="page-content" class="agency" data-page="agency">
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"></head><body>	
+<!-- Agency -->
+<section id="page-content" class="agency" data-page="agency">
 	
 	<!-- Main content -->
-	<!-- Main content -->
-	<article class="main-content">
-		<div class="line-1 line-title"></div>
+	<article class="main-content" id="mainpart">
+		<div class="line-1 line-title" style="top:100px;"></div>
 		<div class="close-part">
-			<div class="close-part-arrow"></div>
+			<div class="close-part-arrow" onclick="about()"></div>
 		</div>
 		<h1 class="page-title">
 			<span class="page-title-l1">About</span>
@@ -32,23 +33,20 @@
 		<h3 class="page-subtitle">About</h3>
 		<ul>
 			<li class="link">
-				<h2 class="link-title">Contact Us</h2>
+				<h2 class="link-title" onclick="contactus()">Contact Us</h2>
 			</li>
 			<li class="link">
-				<h2 class="link-title">Why Sponsor Us</h2>
+				<h2 class="link-title" onclick="sponsor()">Why Sponsor Us</h2>
 			</li>
 			<li class="link">
-				<h2 class="link-title">Magnovite Team</h2>
+				<h2 class="link-title" onclick="team()">Magnovite Team</h2>
 			</li>
-			<!-- <li class="link">
-				<h2 class="link-title">Orchestration</h2>
-			</li> -->
 		</ul>
 	</nav>
 	
 	<!-- Parts -->
 	<div class="agency-subpage-container">
-		<article class="agency-subpage">
+		<article class="agency-subpage" id="contact">
 			<h3 class="page-title">
 				<span class="page-title-l1">About</span>
 				<span class="page-title-l2">Contact Us</span>
@@ -79,7 +77,7 @@
                 </p>
 			</div>
 		</article>
-		<article class="agency-subpage">
+		<article class="agency-subpage" id="sponsor">
 			<h3 class="page-title">
 				<span class="page-title-l1">About</span>
 				<span class="page-title-l2">Why Sponsor Us</span>
@@ -118,19 +116,219 @@
 				</p>
 			</div>
 		</article>
-		<article class="agency-subpage">
+		<article class="agency-subpage" id="team">
 			<h3 class="page-title">
 				<span class="page-title-l1">About</span>
 				<span class="page-title-l2">Magnovite Team</span>
 			</h3>
-			<div class="text">
-				<p>
-					coming Soon...
-				</p>
+
+			<div class="text my-scroller">
+			<div class="baron baron__root baron__clipper _macosx _scrollbar" style="height:inherit">
+			<div class="baron__scroller" style="height:inherit;">
+			<br>
+
+            <h3 class="org-h3">Developers</h3>
+            <br>
+			<!-- Your content here -->
+			<div class="org-dev">
+			<div style="" class="org-main">
+                    <p class="org-p">Web Master:</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://firebasestorage.googleapis.com/v0/b/magnovite-app.appspot.com/o/AAEAAQAAAAAAAAjfAAAAJGExYWIwZjUwLWMyNDYtNDJhYS05YjIzLTk4ZmMyZDNiNGQ1NA.jpg?alt=media&token=fd26bd7b-e6e6-49d0-a494-9de1eaa6aa65">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">Gaurav Sehgal</p>
+                    <p class="org-div-no">7042601587</p>
+                    <a href="mailto:dggs222@gmail.com"><p class="org-div-email" style="margin-top: 3px;">dggs222@gmail.com</p></a>
+                    </div>
+                </div>
+            <!-- Your content here -->
+			<div style="" class="org-main">
+                    <p class="org-p">App Developer:</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://firebasestorage.googleapis.com/v0/b/magnovite-app.appspot.com/o/IMG_20170124_144655.jpg?alt=media&token=10420fb9-4534-48e1-93e3-d73b396e18c8">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">Gulzar Ahmed</p>
+                    <p class="org-div-no">9742634857</p>
+                    
+                    </div>
+                </div>
+           </div>
+
+<br>
+            <h3 class="org-h3">Organizers</h3>
+            <br>
+            <!-- Your content here -->
+            <div class="org-dev">
+			<div style="" class="org-main">
+                    <p class="org-p">Student Representative:</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAfPAAAAJGY4NjkyOTEzLTg3MTctNGYyYS1iMzNmLWY5NGNhZjA3MDhjNQ.jpg">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">Adishesha Sairam KB</p>
+                    <p class="org-div-no">9972878455</p>
+                    
+                    </div>
+                </div>
+
+               <div style="" class="org-main">
+                    <p class="org-p">Marketing and Publicity Head:</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAASZAAAAJDI0ZjgwNTFiLWE0NGMtNDA5Ny1iNDJhLWRmYmI4YzcxNmMwMQ.jpg">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">Divyendu Mishra</p>
+                    <p class="org-div-no">5456465464</p>
+                    
+                    </div>
+                </div>
+            <!-- Your content here -->
+			<div style="" class="org-main">
+                    <p class="org-p">Technical Event Head</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAj6AAAAJGNhZDMxMDA5LTIzMTktNDk2Mi05YjQ5LWJlOGQ3YThmYjI0NA.jpg">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">Farhana Jolly</p>
+                    <p class="org-div-no">9620142854</p>
+                    
+                    </div>
+                </div>
+            <!-- Your content here -->
+			<div style="" class="org-main">
+                    <p class="org-p">Cultural Event Head:</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://firebasestorage.googleapis.com/v0/b/magnovite-app.appspot.com/o/Organizers%2FIMG-20170127-WA0002.jpg?alt=media&token=81cb0089-3e97-4f3e-8d48-cb273925c401">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">S Rohit</p>
+                    <p class="org-div-no">9971745226</p>
+                    
+                    </div>
+                </div>
+               <div style="" class="org-main">
+                    <p class="org-p">Computer Console:</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://firebasestorage.googleapis.com/v0/b/magnovite-app.appspot.com/o/Organizers%2Falan.jpg?alt=media&token=87af1701-2bf3-45cd-97eb-b7ab5fb4fed0">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">Alankrit Gupta</p>
+                    <p class="org-div-no">9697016007</p>
+                    
+                    </div>
+                </div>
+               <div style="" class="org-main">
+                    <p class="org-p">Marketing and Publicity:</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOUAAAAJDMwNWM4MzNhLTZjNjYtNDAwNS1iYWU2LTZkYmE3ZTlhMzg1Yg.jpg">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">Dhananjay Patel</p>
+                    <p class="org-div-no">7022165611</p>
+                    
+                    </div>
+                </div>
+               <div style="" class="org-main">
+                    <p class="org-p">Workshop Head:</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAcYAAAAJDJiZTRhNzk3LTFjNmUtNGVkOC1iNGM4LTk1NmJhMzUyMWFkNA.jpg">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">Aakash Jha</p>
+                    <p class="org-div-no">9742810473</p>
+                    
+                    </div>
+                </div>
+               <div style="" class="org-main">
+                    <p class="org-p">Treasurer:</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAjdAAAAJGMyOWI3OTE0LWYyODItNDhjZi1hYzIyLTg0YjQ3ZmE2YTQ1ZA.jpg">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">Dharmaarjun K</p>
+                    <p class="org-div-no">9663406057</p>
+                    
+                    </div>
+                </div>
+
+                <div style="" class="org-main">
+                    <p class="org-p">Disciplinary Head:</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAK2AAAAJDZjNDg4ZWU1LTBlOWUtNGJiZi1hMDExLTE1MTNlZTQ4MTUwZQ.jpg">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">Divyank Dubey</p>
+                    <p class="org-div-no">8971751224</p>
+                    
+                    </div>
+                </div>
+
+                <div style="" class="org-main">
+                    <p class="org-p">Registration and Certification:</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://firebasestorage.googleapis.com/v0/b/magnovite-app.appspot.com/o/Organizers%2FFB_IMG_14855065478272619.jpg?alt=media&token=8f5cdfa5-de25-4cfc-8273-1a716274aed1">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">Aman Asif</p>
+                    <p class="org-div-no">7561804622</p>
+                    
+                    </div>
+                </div>
+                <div style="" class="org-main">
+                    <p class="org-p">Event Management:</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAhtAAAAJDJjMjI5MjRjLTY3ZWYtNDlhMC1hYTMwLWE2NTNkOTc3ZmQ4Mw.jpg">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">Anoop Sabu John:</p>
+                    <p class="org-div-no">9902165207</p>
+                    
+                    </div>
+                </div>
+                 <div style="" class="org-main">
+                    <p class="org-p">Hospitality Manager:</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAmKAAAAJGEwYmZjMjAwLTUwMWUtNDVlMS04MTY0LTU1Y2RiZjRkNGZkOQ.jpg">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">Saransh Sharma</p>
+                    <p class="org-div-no">9986764196</p>
+                    
+                    </div>
+                </div>
+                 <div style="" class="org-main">
+                    <p class="org-p">Stage committee head:</p>
+                    <div class="org-p-div">
+                    <img class="org-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAgdAAAAJDZmNTJlNTk3LWIxZGMtNDgzNS04NWVhLWExMDBiYTJmMjY1Yw.jpg">
+                    </div>
+                    <div class="org-div">
+                    <p class="org-div-name">Chetna Sharma</p>
+                    <p class="org-div-no">7829288625</p>
+                    
+                    </div>
+                </div>
+                </div>
+
+
 			</div>
+
+			<div class="baron__track">
+			        <div class="baron__control baron__up">▲</div>
+			        <div class="baron__free">
+			            <div class="baron__bar"></div>
+			        </div>
+			        <div class="baron__control baron__down">▼</div>
+			    </div>
+			</div>
+				</div>
+
+				
 		</article>
 
 	</div>
 	
 </section>
+	
 </body></html>
