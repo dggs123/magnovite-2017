@@ -10,8 +10,10 @@ markdown2==2.3.0
 oauthlib==2.0.1
 Pillow==3.3.0
 psycopg2==2.6.2
+python-http-client==2.2.1
 python-openid==2.2.5
 requests==2.12.3
 requests-oauthlib==0.7.0
+sendgrid==3.6.3
 static3==0.7.0
 whitenoise==3.2.2
