@@ -158,7 +158,7 @@ SOCIALACCOUNT_PROVIDERS = {
         'SCOPE': ['user']
     }
 }
-ACCOUNT_ADAPTER = 'main.allauth.MyAccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'magnovite.adaptor.MSocialAccountAdapter'
 # if not DEBUG:
 #     ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 # SOCIALACCOUNT_ADAPTER = 'main.allauth.MSocialAccountAdapter'
