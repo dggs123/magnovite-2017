@@ -245,22 +245,29 @@ app.eventDetails.init();
 			<div class="info">
                 <div class="cash">
                     <p style="font-size:20px;"><spam style="color:white;font-size:15px;font-weight:bold;">1st Prize:</spam> ₹ {{event.prize_1|intcomma}}</p>
-                    {% if event.prize_2 %}
+                    {% if event.prize_2 != 0 %}
                     <p style="font-size:20px;"><spam style="color:white;font-size:15px;font-weight:bold;">2nd Prize:</spam> ₹ {{event.prize_2|intcomma}}</p>
                     {% endif %}
-                    {% if event.prize_3 %}
+                    {% if event.prize_3 != 0 %}
                     <p style="font-size:20px;"><spam style="color:white;font-size:15px;font-weight:bold;">3rd Prize:</spam> ₹ {{event.prize_3|intcomma}}</p>
                     {% endif %}
                 </div>
                 <ul class="points">
                     <li>
                         <span class="label">Date:</span>
-                        <span>{{ event.date }}</span>
+                        {% if event.date == 2 %}
+                        <span>2nd March 2017</span>
+                        {% endif %}
+                        {% if event.date == 2 %}
+                        <span>3rd March 2017</span>
+                        {% endif %}
                     </li>
+                    {% if event.venue %}
                     <li>
                         <span class="label">Venue:</span>
                         <span>{{ event.venue }}</span>
                     </li>
+                    {% end if %}
                 </ul>
             </div>
 			{% if head_one %}
