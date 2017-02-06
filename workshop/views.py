@@ -36,10 +36,12 @@ def index(req):
             w_name = registered[0].title
         if "btech.christuniversity.in" in req.user.email or "mtech.christuniversity.in" in req.user.email:
             open_r = True
+            w=Workshop.objects.all()
         else:
             open_r = False
+            w=Workshop.objects.filter(w_type="Technical")
     return render(req, template, {
-        'workshops': Workshop.objects.all(),
+        'workshops': w,
         'registered': isregistered,
         'w_id':w_id,
         'w_name':w_name,
