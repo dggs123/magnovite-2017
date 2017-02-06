@@ -137,7 +137,7 @@ def generate_exel(req):
         u1 = Profile.objects.filter(registered_workshops=w);
         i=0
         for x in u1:
-            writer.writerow([i+1, x.name, x.mobile, x.user.email, x.college])
+            writer.writerow([i+1, x.name, x.mobile, x.user.email, x.college, w.title])
             i+=1
     return response
 def generate_exel_invoice(req):
