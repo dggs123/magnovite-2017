@@ -27,6 +27,7 @@ def index(req):
     open_r=True
     isregistered=False
     registered = []
+    w=Workshop.objects.all()
     if req.user.is_authenticated():
         open_r=False
         registered = req.user.profile.registered_workshops.all()
@@ -36,7 +37,6 @@ def index(req):
             w_name = registered[0].title
         if "btech.christuniversity.in" in req.user.email or "mtech.christuniversity.in" in req.user.email:
             open_r = True
-            w=Workshop.objects.all()
         else:
             open_r = False
             w=Workshop.objects.filter(w_type="Technical")
