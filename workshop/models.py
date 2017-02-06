@@ -33,7 +33,8 @@ class Workshop(models.Model):
     price = models.IntegerField(max_length=5)
     min_range = models.IntegerField(max_length=2, default=0)
     max_range = models.IntegerField(max_length=2, default=40)
-
+    out_max_range = models.IntegerField(max_length=2, default=0)
+    out_min_range = models.IntegerField(max_length=2, default=0)
 
     date_string = models.CharField(
         max_length=50, blank=True, null=True,

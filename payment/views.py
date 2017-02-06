@@ -206,11 +206,10 @@ def process_invoice(req, invoice):
         return redirect(r.event.get_absolute_url())
 
     elif invoice.invoice_type == 'workshop':
+        invoice.workshop.out_min_range += 1
+        invoice.workshop.save()
         invoice.profile.registered_workshops.add(invoice.workshop)
-        if "btech.christuniversity.in" in req.user.email or "mtech.christuniversity.in" in req.user.email:
-            invoice.profile.total_payment += 250
-        else:
-            invoice.profile.total_payment += invoice.workshop.price
+        invoice.profile.total_payment += invoice.workshop.price
         invoice.profile.save()
 
         messages.success(req, 'Successfully registered for ' + invoice.workshop.title)
