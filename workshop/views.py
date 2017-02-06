@@ -130,22 +130,15 @@ def generate_exel(req):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="workshop.csv"'
     writer = csv.writer(response)
-    writer.writerow(['Registered Workshops:'])
-    writer.writerow([''])
-    writer.writerow([''])
     workshop = Workshop.objects.all()
 
     for w in workshop:
-        writer.writerow([w.title+":"])
-        writer.writerow([""])
-        writer.writerow(['Slno', 'Name', 'Phone No', 'Email', 'College'])
+        
         u1 = Profile.objects.filter(registered_workshops=w);
         i=0
         for x in u1:
             writer.writerow([i+1, x.name, x.mobile, x.user.email, x.college])
             i+=1
-        writer.writerow([""])
-        writer.writerow(["--------------,------------------,----------------,-----------"])
     return response
 def generate_exel_invoice(req):
     if not req.user.is_superuser:
