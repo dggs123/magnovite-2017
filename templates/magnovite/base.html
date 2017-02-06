@@ -85,6 +85,7 @@
          .pre-img
         {
             display: none;
+            
         }
         
         .page-loading .pre-img
@@ -96,7 +97,12 @@
             margin-left: 50%;
             margin-right:50%; 
             }
+            .mobile .pre-img
+            {
+                margin-left: 40%;
+            }
                 .markdown h3
+            }
         {
             color: black;
         }
@@ -137,11 +143,11 @@
                 <div class="buttons">
                     <div class="social-button">
                         <img src="/static/img/google.png" alt="Google">
-                        <a href='{% provider_login_url "google" %}?urls={{request.path}}' class="social-a-go"></a>
+                        <a href='{% provider_login_url "google" %}?next={{request.path}}' class="social-a-go"></a>
                     </div>
                     <div class="social-button">
                         <img src="/static/img/github.png" alt="Github">
-                        <a href='{% provider_login_url "github" %}?urls={{request.path}}' class="social-a-gi"></a>
+                        <a href='{% provider_login_url "github" %}?next={{request.path}}' class="social-a-gi"></a>
                     </div>
                 </div>
                 <p class="help-text">

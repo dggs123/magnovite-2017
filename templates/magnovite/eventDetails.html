@@ -46,6 +46,32 @@ app.eventDetails.init();
 		{
 			letter-spacing: -3px;
 		}
+		.head1
+		{
+			float: left;
+			width: 50%;
+		}
+		.mobile .head1
+		{
+			float: left;
+			width: 100%;
+		}
+		.mobile .head2
+		{
+			display: none;
+		}
+		.page .right .info .cash
+		{
+			padding: 10px;
+
+		}
+		.page .right .info .cash span{
+			margin-top: 0;
+		}
+		.page .right .info .cash p
+		{
+			margin-top:5px;
+		}
 </style>
 {% endblock %}
 
@@ -218,25 +244,30 @@ app.eventDetails.init();
 			<!-- info -->
 			<div class="info">
                 <div class="cash">
-                    <span>Total Cash Prize</span>
-                    <p>₹ {{event.cash_prize|intcomma}}</p>
+                    <p style="font-size:20px;"><spam style="color:white;font-size:15px;font-weight:bold;">1st Prize:</spam> ₹ {{event.prize_1|intcomma}}</p>
+                    {% if event.prize_2 %}
+                    <p style="font-size:20px;"><spam style="color:white;font-size:15px;font-weight:bold;">2nd Prize:</spam> ₹ {{event.prize_2|intcomma}}</p>
+                    {% endif %}
+                    {% if event.prize_3 %}
+                    <p style="font-size:20px;"><spam style="color:white;font-size:15px;font-weight:bold;">3rd Prize:</spam> ₹ {{event.prize_3|intcomma}}</p>
+                    {% endif %}
                 </div>
                 <ul class="points">
                     <li>
                         <span class="label">Date</span>
-                        <span>2 or 3 March</span>
+                        <span>{{ event.date }}</span>
                     </li>
                     <li>
                         <span class="label">Venue</span>
-                        <span>Christ University</span>
+                        <span>{{ event.venue }}</span>
                     </li>
                 </ul>
             </div>
 			{% if head_one %}
 			<div class="heads">
-				<p class="name" style="margin-left:15px;">Event Head</p>
+				<p class="name" style="margin-left:15px;">Event Head:</p>
 				{% if head_one %}
-				<div class="head" style="{% if head_two %}float: left;width: 50%{% endif %}">
+				<div class="head {% if head_two %}head1{% endif %}">
 					<div class="left-head">
 						<img src="{{event.event_head_p1}}" alt="">
 					</div>
@@ -249,7 +280,7 @@ app.eventDetails.init();
 				{% endif %}
 
 				{% if head_two %}
-				<div class="head" style="{% if head_two %}float: left;width: 50%{% endif %}">
+				<div class="head {% if head_two %}head2{% endif %}" style="{% if head_two %}float: left;width: 50%{% endif %}">
 					<div class="left-head">
 						<img src="{{event.event_head_p2}}" alt="">
 					</div>

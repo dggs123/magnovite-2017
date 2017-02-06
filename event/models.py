@@ -33,6 +33,10 @@ class Event(models.Model):
     )
 
     cash_prize = models.IntegerField(help_text='Numeric, Eg: 5000')
+    
+    prize_1 = models.IntegerField(help_text='Numeric, Eg: 5000', default=50)
+    prize_2 = models.IntegerField(help_text='Numeric, Eg: 5000', default=50)
+    prize_3 = models.IntegerField(help_text='Numeric, Eg: 5000', default=50)
 
     # Time and venue are simple text
     date = models.IntegerField(
@@ -40,16 +44,19 @@ class Event(models.Model):
         help_text='2 or 3 or 4',
         blank=True, null=True
     )
+    
     time = models.CharField(
         max_length=30,
         help_text='(Start time), Eg: 9:00 am',
         blank=True
     )
+    
     end_time = models.CharField(
         max_length=30,
         help_text='(End Time), Eg: 4:00 pm',
         blank=True, null=True,
     )
+    
     venue = models.CharField(
         max_length=50,
         help_text='Eg: Room 243, Block 2',
@@ -60,6 +67,7 @@ class Event(models.Model):
         help_text='Minimum number of people in a team (If individual: 1)',
         default=1
     )
+    
     team_max = models.IntegerField(
         help_text='Maximum number of people in a team (If individual: 1)',
         default=1
