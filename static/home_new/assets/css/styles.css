@@ -52,7 +52,7 @@
         width: 6px;
         border-radius: 3px;
         background: #333;
-        opacity: 0;
+        opacity: 1;
         transition: .1s opacity .4s linear;
         pointer-events: auto;
         }
