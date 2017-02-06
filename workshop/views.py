@@ -37,7 +37,7 @@ def index(req):
         if "btech.christuniversity.in" in req.user.email or "mtech.christuniversity.in" in req.user.email:
             open_r = True
         else:
-            messages.error(req, 'Registration blocked, login with Christ mail id')
+            open_r = False
     return render(req, template, {
         'workshops': Workshop.objects.all(),
         'registered': isregistered,
