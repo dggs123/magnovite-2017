@@ -244,7 +244,7 @@ app.eventDetails.init();
 			<!-- info -->
 			<div class="info">
                 <div class="cash">
-                    <p style="font-size:20px;"><spam style="color:white;font-size:15px;font-weight:bold;">1st Prize:</spam> ₹ {{event.prize_1|intcomma}}</p>
+                    <p style="font-size:20px; {% if event.prize_2 != 0 %}margin-top: 20px;{% endif %}"><spam style="color:white;font-size:15px;font-weight:bold;">1st Prize:</spam> ₹ {{event.prize_1|intcomma}}</p>
                     {% if event.prize_2 != 0 %}
                     <p style="font-size:20px;"><spam style="color:white;font-size:15px;font-weight:bold;">2nd Prize:</spam> ₹ {{event.prize_2|intcomma}}</p>
                     {% endif %}
