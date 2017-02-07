@@ -137,13 +137,15 @@ def generate_exel(req):
     writer.writerow([""])
     writer.writerow([""])
     for w in workshop:
+        writer.writerow([w.title] + ":")
+        writer.writerow(['Slno', 'Name', 'Phone No', 'Email', 'College'])
         u1 = Profile.objects.filter(registered_workshops=w)
         i=0
         for x in u1:
             try:
-                writer.writerow([i+1, x.name, x.mobile, x.user.email, x.college, w.title])
+                writer.writerow([i+1, x.name, x.mobile, x.user.email, x.college])
             except Exception, e:
-                writer.writerow([i+1, x.name, x.mobile, x.user.email, "", w.title])
+                writer.writerow([i+1, x.name, x.mobile, x.user.email, ""])
             i+=1
     return response
 
