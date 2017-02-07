@@ -209,4 +209,28 @@ def unregister(req, id):
     return HttpResponse(status=200)
 
 
+def generate_exel(req):
+    if not req.user.is_superuser:
+        raise PermissionDenied
+
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="events.csv"'
+    writer = csv.writer(response)
+    workshop = Events.objects.all()
+    writer.writerow(["Events:"])
+    writer.writerow([""])
+    writer.writerow([""])
+    for w in workshop:
+        writer.writerow([w.title])
+        writer.writerow(['Slno', 'Name', "Mobile", "Email", "College"])
+        u1 = w.registration_set.all()
+        i=0
+        for x in u1:
+            writer.writerow([i+1, x.profile.name, x.profile.mobile, x.profile.user.email, x.profile.college])
+            i+=1
+        writer.writerow([""])
+        writer.writerow(['----------------', '------------', "------------", "---------------", "---------------"])
+    return response
+
+
 
