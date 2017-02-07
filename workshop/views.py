@@ -140,7 +140,10 @@ def generate_exel(req):
         u1 = Profile.objects.filter(registered_workshops=w)
         i=0
         for x in u1:
-            writer.writerow([i+1, x.name, x.mobile, x.user.email, x.college, w.title])
+            try:
+                writer.writerow([i+1, x.name, x.mobile, x.user.email, x.college, w.title])
+            except Exception, e:
+                writer.writerow([i+1, x.name, x.mobile, x.user.email, "", w.title])
             i+=1
     return response
 
