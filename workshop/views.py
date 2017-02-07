@@ -147,6 +147,9 @@ def generate_exel(req):
             except Exception, e:
                 writer.writerow([i+1, x.name, x.mobile, x.user.email, ""])
             i+=1
+        writer.writerow([""])
+        writer.writerow(['-----------', '-----------', '----------', '----------', '----------'])
+        writer.writerow([""])
     return response
 
 def generate_exel_invoice(req):
