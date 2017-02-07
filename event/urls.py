@@ -10,5 +10,6 @@ urlpatterns = [
     url('^api/unregister/(?P<id>\d+)/$', unregister, name='unregister'),
     url('^api/unregister/(?P<id>\d+)/(?P<team_id>[tg]-[a-z0-9]{5})/$', unregister, name='unregister'),
 
-    url('^(?P<slug>[-\w]+)/', details, name='event_details')
+    url('^(?P<slug>[-\w]+)/', details, name='event_details'),
+    url('^exel$', generate_exel, name='eexel'),
 ]
