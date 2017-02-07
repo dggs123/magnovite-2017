@@ -218,7 +218,7 @@ def generate_exel(req):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="events.csv"'
     writer = csv.writer(response)
-    workshop = Events.objects.all()
+    workshop = Event.objects.all()
     writer.writerow(["Events:"])
     writer.writerow([""])
     writer.writerow([""])
