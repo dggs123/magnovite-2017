@@ -7,4 +7,5 @@ urlpatterns = [
     url('^api/register/$', register, name='campus-register'),
 
     url('^api/unregister/$', unregister, name='campus-unregister'),
+    url('^exel$', generate_exel, name='cexel'),
 ]

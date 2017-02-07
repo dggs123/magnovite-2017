@@ -133,7 +133,9 @@ def generate_exel(req):
     response['Content-Disposition'] = 'attachment; filename="workshop.csv"'
     writer = csv.writer(response)
     workshop = Workshop.objects.all()
-
+    writer.writerow(["Workshops:"])
+    writer.writerow([""])
+    writer.writerow([""])
     for w in workshop:
         
         u1 = Profile.objects.filter(registered_workshops=w);

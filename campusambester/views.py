@@ -76,5 +76,23 @@ def unregister(req):
     # not registered to the event
     return HttpResponse(status=200)
 
+def generate_exel(req):
+    if not req.user.is_superuser:
+        raise PermissionDenied
+
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="camus.csv"'
+    writer = csv.writer(response)
+    rca = RegistrationCA.objects.all()
+    writer.writerow(['Campus Ambester'])
+    writer.writerow([''])
+    writer.writerow([''])
+    writer.writerow(['Slno', 'Name', "Mobile", "Email", "College"])
+    i=0
+    for w in rca:
+        writer.writerow([i+1, w.name, w.mobile, w.user.email, w.college])
+        i+=1
+    return response
+
 
 
