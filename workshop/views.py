@@ -137,7 +137,7 @@ def generate_exel(req):
     writer.writerow([""])
     writer.writerow([""])
     for w in workshop:
-        writer.writerow([w.title] + ":")
+        writer.writerow([w.title + ":"])
         writer.writerow(['Slno', 'Name', 'Phone No', 'Email', 'College'])
         u1 = Profile.objects.filter(registered_workshops=w)
         i=0
