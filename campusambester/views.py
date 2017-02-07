@@ -92,7 +92,7 @@ def generate_exel(req):
     writer.writerow(['Slno', 'Name', "Mobile", "Email", "College"])
     i=0
     for w in rca:
-        writer.writerow([i+1, w.name, w.mobile, w.user.email, w.college])
+        writer.writerow([i+1, w.profile.name, w.profile.mobile, w.profile.user.email, w.profile.college])
         i+=1
     return response
 
