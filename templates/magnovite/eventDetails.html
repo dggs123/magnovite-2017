@@ -188,7 +188,6 @@ app.eventDetails.init();
 
 	<div class="content">
 		<div class="inner-content">
-			<h1>{{event.title}}</h1>
 		</div>
 	</div>
 </div>
@@ -229,7 +228,7 @@ app.eventDetails.init();
 				<div class="team-details">
 					<span class="label">Team Event</span>
 					{% if event.is_multiple %}
-						{% if event.team_min == e.team_max %}
+						{% if event.team_min == event.team_max %}
 	                      <p>Team {{event.team_min}} members</p>
 	                  {% else %}
 	                      <p>Team {{event.team_min}}-{{event.team_max}}
@@ -266,6 +265,12 @@ app.eventDetails.init();
                     <li>
                         <span class="label">Venue:</span>
                         <span>{{ event.venue }}</span>
+                    </li>
+                    {% endif %}
+                    {% if event.time %}
+                    <li>
+                        <span class="label">Time:</span>
+                        <span>{{ event.time }} - {{ event.end_time }}</span>
                     </li>
                     {% endif %}
                 </ul>
