@@ -781,7 +781,7 @@ top: 0;
 }
 .project-wrapper figure img
 {
-  height: 200px;
+  height: 100%;
 }
 .drop li a
 {
