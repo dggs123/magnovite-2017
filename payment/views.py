@@ -17,11 +17,18 @@ from .models import create_invoice, Invoice
 
 
 def generate(req, invoice_type):
+    
     if not req.user.is_authenticated():
         return JsonResponse({
             'status': 'error',
             'errorMessage': 'Please Login/Register first'
         }, status=403)
+
+    if "btech.christuniversity.in" in req.user.email or "mtech.christuniversity.in" in req.user.email:
+        return JsonResponse({
+            'status': 'error',
+            'errorMessage': 'Events Registrations Are Not For Christite'
+        }, status=400)
 
     if invoice_type not in ('test', 'team', 'single', 'workshop', 'hospitality'):
         return JsonResponse({
