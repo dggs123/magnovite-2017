@@ -172,10 +172,14 @@ font-weight: bold;">Cap Limit: </span><br>{% if not open_r %}{{ workshop.out_max
 					<figcaption class="overlay">
 						<a data-toggle="modal" data-target="#{{workshop.id}}"><i class="fa fa-eye fa-lg"></i></a>
 						<h4>{{workshop.title}}</h4>
+            {% if not open_r %}
+            
+            {% else %}
             {% if workshop.min_range > 5 %}
-            <p>{% if not open_r %}{{ workshop.out_min_range }}{% else %}{{ workshop.min_range }}{% endif %} People Registered</p>
+            <p>{{ workshop.min_range }} People Registered</p>
             {% else %}
             <p>5+ People Registered</p>
+            {% endif %} 
             {% endif %}
 						
 					</figcaption>
