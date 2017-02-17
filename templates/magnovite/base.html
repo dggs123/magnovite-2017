@@ -380,11 +380,22 @@
     {# Show all the messages #}
     <script>
     {% for message in messages %}
+    {% if {{message}} == 'accomodation' %}
+        app.notification.notify({
+            text: '',
+            type: 'info',
+            action: 'Yes',
+            actionCallback: function() {
+                want_accomodation();
+            }
+        });
+    {% else %}
         app.notification.notify({
             text: '{{message}}',
             type: '{{message.tags}}',
             persistant: true
         });
+    {% endif %}
     {% endfor %}
      $(".login-register").click(function () {
     app.modal.show('#login-modal');

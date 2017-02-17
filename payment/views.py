@@ -125,7 +125,7 @@ def success(req):
         #         'invoice': invoice
         #     }
         # )
-
+        messages.success(req, 'accomodation')
         return return_val
 
 @csrf_exempt
