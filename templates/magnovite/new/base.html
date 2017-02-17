@@ -102,6 +102,57 @@
             height:50px;
         }
         }
+        .page-loading
+        {
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+
+        }
+         .pre-img
+        {
+            display: none;
+            
+        }
+        
+        .page-loading .pre-img
+        {
+            display: block;
+            position: fixed;
+            top: 50%;
+            width: 100%;
+            margin-left: 50%;
+            margin-right:50%;
+            z-index: 100; 
+            }
+            .mobile .pre-img
+            {
+                margin-left: 40%;
+            }
+                .markdown h3
+            }
+        {
+            color: black;
+        }
+    .loader {
+      border: 6px solid transparent;
+      border-radius: 50%;
+      border-top: 5px solid #0ea385;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: spin 1s linear infinite;
+      animation: spin 1s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
     </style>
 
@@ -110,6 +161,10 @@
 </head>
 <body id="body" class="page-loading {% block "body_css_class" %}{% endblock %}">
     {% csrf_token %}
+
+    <div class="pre-img">
+    <div class="loader"></div>
+    </div>
          <div id="myModal" class="modal" role="dialog">
   <div class="modal-dialog">
 
@@ -238,7 +293,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <p class="copyright text-center" style="font-size:25px;">
-                            Cooked With Love By, <a style="color:white;font-weight:bold;" href="https://github.com/dggs123/magnovitev6/graphs/contributors">Crazy Labs</a>
+                            Design And Developed By <a style="color:white;font-weight:bold;" href="https://github.com/dggs123/magnovitev6/graphs/contributors">These Guys</a>
                             </p>
                         </div>
                     </div>
@@ -379,7 +434,14 @@
             persistant: true
         });
     {% endfor %}
-     $("img.lazy").lazyload();
+    $("img.lazy").lazyload({
+    effect : "fadeIn"
+});
+     $( window ).on( "load", function() { 
+            $( "body" ).removeClass( "page-loading" );
+
+
+      });
 
 
     </script>

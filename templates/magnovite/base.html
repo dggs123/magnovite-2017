@@ -114,6 +114,7 @@
       height: 60px;
       -webkit-animation: spin 1s linear infinite;
       animation: spin 1s linear infinite;
+      z-index: 1000;
     }
 
     @-webkit-keyframes spin {
@@ -265,7 +266,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <p class="copyright text-center" style="font-size:25px;">
-                            Cooked With Love By, <a style="color:white;font-weight:bold;" href="https://github.com/dggs123/magnovitev6/graphs/contributors">Crazy Labs</a>
+                            Design And Developed By <a style="color:white;font-weight:bold;" href="https://github.com/dggs123/magnovitev6/graphs/contributors">These Guys</a>
                             </p>
                         </div>
                     </div>
@@ -410,7 +411,8 @@
             console.log('done scrolling');
         }
     });
-    
+    if(screen.width > 700)
+    {
     $(window).scroll(function () {
         if ($(window).scrollTop() > 400) {
             $("#navigation").css("background-color","#0EB493");
@@ -418,6 +420,7 @@
             $("#navigation").css("background-color","rgba(16, 22, 54, 0.2)");
         }
     });
+}
  //     var mywindow;
  //      $(".social-a-go").click(function () {
  //    mywindow=window.open('{% provider_login_url "google" %}?next={{request.path}}','', "width=600,height=600")
@@ -436,7 +439,9 @@
              if(!$(this).hasClass("dropdown-toggle") && !$(this).hasClass("login-register"))
                  window.location.href = $(this).attr('href');
  });
-           $("img.lazy").lazyload();
+           $("img.lazy").lazyload({
+    effect : "fadeIn"
+});
 
 
 

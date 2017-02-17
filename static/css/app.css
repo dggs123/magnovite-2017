@@ -2726,13 +2726,14 @@ height: 100px;
   height: 100px;
   float: left;
   text-align: left;
-  line-height: 100px;
+  line-height: 20px;
   font-size: 28px;
   padding-left: 20px;
 }
 .schedule-scene .strip .sq-event .title {
   height: 80px;
-  line-height: 80px;
+  line-height: 40px;
+  margin-top:15px; 
 }
 .schedule-scene .strip .sq-event .small {
   height: 20px;
@@ -3631,7 +3632,7 @@ height: 100px;
   z-index: 10000;
 }
 .mobile .page-container {
-  padding-top: 60px;
+  padding-top: 18px;
 }
 .mobile .banner {
   position: fixed;
@@ -3832,6 +3833,10 @@ height: 100px;
   width: 70%;
   font-size: 24px;
 }
+.mobile.page-profile .schedule-scene .sq-event .title {
+   line-height: 25px;
+}
+ 
 .mobile.page-profile .schedule-scene .sq-contact {
   width: 80%;
 }
@@ -4110,5 +4115,6 @@ height: 100px;
 
 .payu
 {
-  margin-left: 23%;
+ width: 100%;
+text-align: center;
 }

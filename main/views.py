@@ -202,6 +202,12 @@ def profile(req):
     else:
         template = 'magnovite/profile.html'
 
+    open_r = False
+
+    if "btech.christuniversity.in" in req.user.email or "mtech.christuniversity.in" in req.user.email:
+        open_r = True
+    else:
+        open_r = False
 
     profile_form = ProfileForm(instance=req.user.profile)
 
@@ -238,7 +244,8 @@ def profile(req):
         'workshop': [workshop],
         'help_messages': messages,
         'owned_teams': owned_teams,
-        'test_payment': test_payment
+        'test_payment': test_payment,
+        'open_r':open_r
     })
 
 

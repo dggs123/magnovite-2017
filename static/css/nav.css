@@ -251,3 +251,62 @@ body > section,
   padding: 0px;
   border-radius: 0px;
 }
+.cash p
+{
+  font-size:20px;
+}
+.cash p spam
+{
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 640px) {
+ .navbar-fixed-top, .navbar-fixed-bottom
+ {
+  position: relative;
+ }
+ .navbar-brand
+ {
+  padding: 11px;
+ }
+ .mobile .event-cover .image
+ {
+      width: 100%;
+    height: auto;
+ }
+ .event-cover
+ {
+  height: 100%;
+ }
+ .mobile .container .right
+ {
+  margin: 0px;
+ }
+.page .right .info .cash p
+{
+  font-size:15px;
+}
+.page .right .info .cash p spam
+{
+  font-size: 10px;
+}
+.page .right .info .points
+{
+  font-size: 15px;
+  }
+  .page .right .info .points span.label
+  {
+    font-size: 10px;
+  }
+  .page .left .markdown
+  {
+    font-size: 15px;
+  }
+  .event-cover .image
+  {
+    min-height: 0px;
+  }
+  #navigation {
+      background-color:#0eb493 ;
+    }
+}

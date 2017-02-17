@@ -125,8 +125,14 @@ app.eventDetails.init();
 				<li>A one time payment of {{ event.price }}/- is charged to registered in this event</li>
 				<li>Payments are final and refunds will not be entertained</li>
 			</ul>
+
+				<p style="padding: 0px 50px;font-size:15px;color:rgba(0, 0, 0, 0.8);">Accomodation :</p>
+				<ul class="list">
+				<li>Payments for accommodation will be done on-spot during Magnovite.</li>
+				<li>Every person having approval for accommodations need to pay at the spot for accommodations. These payments are completely independent of payments for Events/Workshops.</li>
+			</ul>
 			<div class="payu">
-				<img src="/static/img/payu.jpg" alt="PayuMoney">
+				<img src="/static/img/payu.jpg" style="width:150px;" alt="PayuMoney">
 			</div>
 
 			<div data-type="single" data-params="id={{event.id}}" class="button gray btn-invoice js-pay">Pay</div>
@@ -145,6 +151,12 @@ app.eventDetails.init();
 				<li>Once a team has been created, your team members can join with the team-id; They do not need to pay</li>
 				<li>All members of the team must register on Magnovite.net to join the team</li>
 				<li>Payments are final and refunds will not be entertained</li>
+				</ul>
+
+				<p style="padding: 0px 50px;font-size:15px;color:rgba(0, 0, 0, 0.8);">Accomodation :</p>
+				<ul class="list">
+				<li>Payments for accommodation will be done on-spot during Magnovite.</li>
+				<li>Every person having approval for accommodations need to pay at the spot for accommodations. These payments are completely independent of payments for Events/Workshops.</li>
 			</ul>
 			<div class="payu">
 				<img src="/static/img/payu.jpg" alt="PayuMoney">
@@ -244,12 +256,12 @@ app.eventDetails.init();
 			<!-- info -->
 			<div class="info">
                 <div class="cash">
-                    <p style="font-size:20px; {% if event.prize_2 == 0 %}margin-top: 20px;{% endif %}"><spam style="color:white;font-size:15px;font-weight:bold;">1st Prize:</spam> ₹ {{event.prize_1|intcomma}}</p>
+                    <p style="{% if event.prize_2 == 0 %}margin-top: 20px;{% endif %}"><spam style="color:white;font-weight:bold;">1st Prize:</spam> ₹ {{event.prize_1|intcomma}}</p>
                     {% if event.prize_2 != 0 %}
-                    <p style="font-size:20px;"><spam style="color:white;font-size:15px;font-weight:bold;">2nd Prize:</spam> ₹ {{event.prize_2|intcomma}}</p>
+                    <p><spam style="color:white;font-weight:bold;">2nd Prize:</spam> ₹ {{event.prize_2|intcomma}}</p>
                     {% endif %}
                     {% if event.prize_3 != 0 %}
-                    <p style="font-size:20px;"><spam style="color:white;font-size:15px;font-weight:bold;">3rd Prize:</spam> ₹ {{event.prize_3|intcomma}}</p>
+                    <p><spam style="color:white;font-weight:bold;">3rd Prize:</spam> ₹ {{event.prize_3|intcomma}}</p>
                     {% endif %}
                 </div>
                 <ul class="points">

@@ -217,7 +217,7 @@ app.profile.init();
                                     Cap limit:
                                 </div>
                                 <div class="time t-end" style="margin-top:0px">
-                                    {{w.max_range}}
+                                    {% if not open_r %}{{ workshop.out_max_range }}{% else %}{{ workshop.max_range }}{% endif %}
                                 </div>
                             </div>
                             <div class="sq-event">
@@ -234,7 +234,7 @@ app.profile.init();
                                 </ul>
                             </div>
                             <div class="sq-more">
-                                <a href="/workshop">❯</a>
+                                <a href="/workshops">❯</a>
                             </div>
                         </div>
                     </div>
