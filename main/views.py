@@ -151,6 +151,16 @@ def loginuserajax(req):
 
     return resp
 
+def sponsors(req):
+    if settings.DEBUG:
+        template = 'magnovite/new/sponsor.html'
+    else:
+        template = 'magnovite/new/sponsor.html'
+
+    resp = render(req, template, {})
+
+    return resp
+
 @require_POST
 @login_required
 def add_message(req):

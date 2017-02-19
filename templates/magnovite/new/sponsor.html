@@ -1,0 +1,59 @@
+{% extends "magnovite/new/base.html" %}
+{% load socialaccount %}
+
+
+{% block "extra_meta" %}
+<meta name="description" content="Christ University presents its annual techno-cultural fest Magnovite V6, on 2nd and 3rd and 4th of March 2017."" />
+<meta name="keywords" content="Magnovite,Tech Fest" />
+<meta name="author" content="CUFE" />
+
+<meta property="og:title" content="Events | Magnovite V6" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://magnovite.net/static/img/logo_square_share.png" />
+<meta property="og:url" content="https://magnovite.net/events/" />
+<meta property="og:description" content="Christ University presents its annual techno-cultural fest Magnovite V6, on 2nd and 3rd and 4th of March 2017."" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Events | Magnovite V6" />
+<meta name="twitter:description" content="Christ University presents its annual techno-cultural fest Magnovite V6, on 2nd and 3rd and 4th of March 2017."" />
+<meta name="twitter:image" content="https://magnovite.net/static/img/logo_square_share.png" />
+{% endblock "extra_meta" %}
+
+{% block "content" %}
+	
+
+<div class="container">
+  <div class="row">
+    <div class="col-*-*">
+    	Our Partners
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-*-*"></div>
+    <div class="col-*-*"></div>
+    <div class="col-*-*"></div>
+  </div>
+  <div class="row">
+    ...
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+
+ {% block "post_js" %}
+  <script>
+            var wow = new WOW ({
+                boxClass:     'wow',      // animated element css class (default is wow)
+                animateClass: 'animated', // animation css class (default is animated)
+                offset:       120,          // distance to the element when triggering the animation (default is 0)
+                mobile:       false,       // trigger animations on mobile devices (default is true)
+                live:         true        // act on asynchronously loaded content (default is true)
+              }
+            );
+            wow.init();
+        </script>
+
+        {% endblock %}

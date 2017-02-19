@@ -26,9 +26,16 @@ event-details {{event.type}}-event
 
 {% block "post_js" %}
 <script>
+{% if event.title != "Hackathon" %}
 app.CURRENT_EVENT_ID = {{event.id}};
 app.EVENT_TYPE = "{{event.team_type}}";
 app.eventDetails.init();
+{% else %}
+function opena()
+{
+ app.modal.show('#hack-register');
+}
+{% endif %}
 </script>
 {% endblock "post_js" %}
 {% block "css_extra" %}
@@ -73,11 +80,35 @@ app.eventDetails.init();
 		{
 			margin-top:5px;
 		}
+		.mobile .hack
+		{
+			line-height: 2;
+		}
 </style>
 {% endblock %}
 
 {% block "content" %}
 <div class="page-container">
+<div class="modal detail-modals team-register-modal hackathon" id="hack-register">
+	<div class="modal-inner">
+		<div class="close">x</div>
+
+		<h2 class="title">Register Through</h2>
+		<div class="body">
+			
+				<div class="button gray new-team " onclick="window.location.href='https://magnovite.hackerearth.com/'">
+					Hackerearth
+				</div>
+				<p class="text">
+					OR
+				</p>
+				<div class="button gray join-team ">
+					Venturesity
+				</div>
+			
+		</div>
+	</div>
+</div>
 <div class="modal detail-modals team-register-modal {{event.type}}" id="team-register">
 	<div class="modal-inner">
 		<div class="close">x</div>
@@ -227,7 +258,11 @@ app.eventDetails.init();
 								<p class="text js-text">Registered</p>
 								{% endif %}
 							{% else %}
+							{% if event.title == "Hackathon" %}
+							<p class="text hack" onclick="opena();">Register</p>
+							{% else %}
 								<p class="text js-text">Register</p>
+							{% endif %}
 							{% endif %}
 
 							{% if team_owner %}

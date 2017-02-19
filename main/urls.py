@@ -15,6 +15,7 @@ urlpatterns = [
 			url('^content-desktop/about/$',aboutajax,name="aboutajax"),
 			# url('^content-desktop/loginuser/$',loginuserajax,name="aboutajax"),
 			url('^accomodation/api/$',accomodation,name='accomodation'),
+			# url('^sponsors$',sponsors,name='sponsors'),
 
 
 ]

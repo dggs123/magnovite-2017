@@ -17,6 +17,13 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("header-small-logo").style.display = "block";
 }
+function openNav1() {
+    document.getElementById("mySidenav1").style.width = "100%";
+}
+
+function closeNav1() {
+    document.getElementById("mySidenav1").style.width = "0";
+}
 function about() {
 	if (screen.width <=700) {
     document.getElementById("mainpart").style.display = "block";
