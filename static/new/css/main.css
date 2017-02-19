@@ -896,8 +896,10 @@ width: 100%;
 }
 @media only screen and (max-width: 640px) {
 .notifications {
-  top: 0;
+  bottom: 0px;
   width: 100%;
+  right: 3px;
+  top: unset;
 }
 .notifications .notification {
   margin-bottom: 2px;

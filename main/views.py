@@ -249,6 +249,24 @@ def profile(req):
     })
 
 
+@require_POST
+@login_required
+def accomodation(req):
+    req.user.profile.hospitality_days = 1
+    try:
+        
+        req.user.profile.save()
+
+    except Exception:
+        return JsonResponse({
+            'errorCode': 'unknown',
+            'errorMessage': 'Something went wrong! Try refreshing the page, or try again later'
+        }, status=400)
+
+    return HttpResponse(status=200)
+
+
+
 class ProfileUpdate(AjaxableResponseMixin, UpdateView):
     model = Profile
     form_class = ProfileForm

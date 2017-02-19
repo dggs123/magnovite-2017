@@ -9,6 +9,7 @@ from django.db.models import Q
 from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import PermissionDenied
 from django.views.decorators.http import require_POST
+from django.contrib import messages
 
 from .models import Event, Registration
 from .utils import generate_team_id

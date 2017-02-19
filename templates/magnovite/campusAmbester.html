@@ -69,6 +69,28 @@ camus-ambester {% if is_registered %}registered{% endif %}
     {
     	padding-left: 0;
     }
+    .mobile .page-container
+    {
+    	padding-top: 0px;
+    }
+     .mobile .container .right .register-button .text
+    {
+    	font-size: 30px;
+    }
+     @media only screen and (max-width: 640px) {
+     	.inner-content
+     	{
+     		display: none;
+     	}
+     	.register-button
+     	{
+     		line-height: 2.2;
+     	}
+     	.register-button .check
+     	{
+     		left: 60px;
+     	}
+     }
  </style>
 
  {% endblock "css_extra" %}
@@ -83,7 +105,7 @@ app.campusAmbester.init();
 <div class="page-container">
 
 <div class="event-cover">
-	<img class="image lazy" data-original="https://firebasestorage.googleapis.com/v0/b/eventer-9ad23.appspot.com/o/cap.jpg?alt=media&token=9e6da93b-6210-4711-ad73-27f8961b9fb1" style="height:600px;" />
+	<img class="image lazy" data-original="https://firebasestorage.googleapis.com/v0/b/eventer-9ad23.appspot.com/o/cap.jpg?alt=media&token=9e6da93b-6210-4711-ad73-27f8961b9fb1" />
 
 	<div class="content">
 		<div class="inner-content">

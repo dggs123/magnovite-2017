@@ -759,7 +759,7 @@ input.gray:focus {
   box-shadow: 0;
 }
 .notifications {
-  width: 400px;
+  width: 350px;
   position: fixed;
   right: 20px;
   top: 100px;
@@ -823,14 +823,17 @@ input.gray:focus {
   text-decoration: none;
 }
 .notifications .action:hover {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
 }
 .notifications .no-action .action {
   display: none;
 }
 body.mobile .notifications {
-  top: 0;
+  bottom: 0px;
   width: 100%;
+  right: 3px;
+  top: unset;
 }
 body.mobile .notifications .notification {
   margin-bottom: 2px;

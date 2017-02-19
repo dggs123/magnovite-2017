@@ -134,7 +134,8 @@
         @media only screen and (max-width: 640px) {
             .copyright
         {
-            height:50px;
+            height:70px;
+            line-height: 35px;
         }
         }
 
@@ -373,6 +374,10 @@
         <script src="/static/js/quest/quest.js"></script>
     <!-- /QuestPage -->
 
+    <!-- accomodation -->
+        <script type="text/javascript" src="/static/js/accomodation.js"></script>
+    <!-- /accomodation -->
+
     <!-- endbuild -->
 
     {% block "post_js" %}{% endblock %}
@@ -380,22 +385,25 @@
     {# Show all the messages #}
     <script>
     {% for message in messages %}
-    {% if {{message}} == 'accomodation' %}
+    var messag = '{{ message }}';
+    if(messag == 'accomodation'){
         app.notification.notify({
-            text: '',
+            text: 'Do You Require Accomodation',
             type: 'info',
+            persistant: true,
             action: 'Yes',
             actionCallback: function() {
-                want_accomodation();
+                app.accomodation.init();
             }
         });
-    {% else %}
+    }
+    else{
         app.notification.notify({
             text: '{{message}}',
             type: '{{message.tags}}',
             persistant: true
         });
-    {% endif %}
+    }
     {% endfor %}
      $(".login-register").click(function () {
     app.modal.show('#login-modal');

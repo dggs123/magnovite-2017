@@ -97,9 +97,10 @@
             height:26px;
         }
         @media only screen and (max-width: 640px) {
-            .copyright
+          .copyright
         {
-            height:50px;
+            height:70px;
+            line-height: 35px;
         }
         }
         .page-loading
@@ -416,7 +417,9 @@
     <!-- Quest Page -->
         <!-- <script src="/static/js/quest/quest.js"></script> -->
     <!-- /QuestPage -->
-       
+       <!-- accomodation -->
+        <script type="text/javascript" src="/static/js/accomodation.js"></script>
+    <!-- /accomodation -->
       
         <!-- Custom Functions -->
         <script src="/static/new/js/custom.js"></script>
@@ -427,12 +430,26 @@
 
     {# Show all the messages #}
     <script>
-    {% for message in messages %}
+     {% for message in messages %}
+    var messag = '{{ message }}';
+    if(messag == 'accomodation'){
+        app.notification.notify({
+            text: 'Do You Require Accomodation',
+            type: 'info',
+            persistant: true,
+            action: 'Yes',
+            actionCallback: function() {
+                app.accomodation.init();
+            }
+        });
+    }
+    else{
         app.notification.notify({
             text: '{{message}}',
             type: '{{message.tags}}',
             persistant: true
         });
+    }
     {% endfor %}
     $("img.lazy").lazyload({
     effect : "fadeIn"

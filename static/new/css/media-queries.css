@@ -109,6 +109,7 @@ background-position: center top !important;
   margin-bottom: 30px;
 }
 
+
 }
 
 
@@ -219,8 +220,12 @@ background-position: center top !important;
   transform: translateX(10);
   visibility: visible;
 
-   opacity: 0.8;
+   opacity: 1;
   border-radius: 5px;
+}
+.navbar-brand
+{
+  padding: 7px;
 }
 
 }
@@ -265,7 +270,11 @@ background-position: center top !important;
   transform: translateX(10);
   visibility: visible;
 
-   opacity: 0.8;
+   opacity: 1;
   border-radius: 5px;
+}
+.navbar-brand
+{
+  padding: 7px;
 }
 }

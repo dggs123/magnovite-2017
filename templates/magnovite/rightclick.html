@@ -69,6 +69,29 @@ right-click {% if is_registered %}registered{% endif %}
     {
     	padding-left: 0;
     }
+    .mobile .page-container
+    {
+    	padding-top: 0px;
+    }
+    .mobile .container .right .register-button .inner
+    {
+    	padding-left: unset;
+    }
+    .mobile .container .right .register-button .text
+    {
+    	font-size: 40px;
+    	margin-top: 0px;
+    }
+     @media only screen and (max-width: 640px) {
+     	.inner-content
+     	{
+     		display: none;
+     	}
+     	.register-button
+     	{
+     		line-height: 2.5;
+     	}
+     }
  </style>
 
  {% endblock "css_extra" %}
@@ -83,7 +106,7 @@ app.rightclick.init();
 <div class="page-container">
 
 <div class="event-cover">
-	<img class="image lazy" data-original="https://firebasestorage.googleapis.com/v0/b/eventer-9ad23.appspot.com/o/workshops%2Frightclick.jpg?alt=media&token=4f367a44-f796-4117-b681-2d9c63819cd3" style="height:600px;" />
+	<img class="image lazy" data-original="https://firebasestorage.googleapis.com/v0/b/eventer-9ad23.appspot.com/o/workshops%2Frightclick.jpg?alt=media&token=4f367a44-f796-4117-b681-2d9c63819cd3" />
 
 	<div class="content">
 		<div class="inner-content">

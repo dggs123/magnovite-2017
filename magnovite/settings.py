@@ -27,11 +27,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '89k_y!7ezyhbj!g%$)so3o!zbs^axh)7nk+$@228xb=rr&fl8i'
 
 HELP_INCHARGE = (
-    'dggs222@gmail.com',   
+    'divyendu.mishra@btech.christuniversity.in',   
 )
 
 ACCOMODATION_INCHARGE = (
-    'dggs222@gmail.com',
+    'divyendu.mishra@btech.christuniversity.in',
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -198,7 +198,7 @@ EMAIL_HOST = 'smtp.live.com'
 EMAIL_HOST_USER = 'magnovite@outlook.com'
 EMAIL_HOST_PASSWORD = os.environ.get('Email_Password', '')
 DEFAULT_FROM_EMAIL = 'magnovite@outlook.com'
-DEFAULT_TO_EMAIL = 'dggs222@gmail.com'
+DEFAULT_TO_EMAIL = 'divyendu.mishra@btech.christuniversity.in'
 EMAIL_PORT = 587
 
 # Database
