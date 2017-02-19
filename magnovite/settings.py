@@ -27,11 +27,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '89k_y!7ezyhbj!g%$)so3o!zbs^axh)7nk+$@228xb=rr&fl8i'
 
 HELP_INCHARGE = (
-    'divyendu.mishra@btech.christuniversity.in',   
+    'divyendu.mishra@btech.christuniversity.in',
+    'dggs222@gmail.com',
 )
 
 ACCOMODATION_INCHARGE = (
     'divyendu.mishra@btech.christuniversity.in',
+    'dggs222@gmail.com',
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
