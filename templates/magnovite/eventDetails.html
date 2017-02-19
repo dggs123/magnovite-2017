@@ -318,7 +318,11 @@ function opena()
                     {% if event.time %}
                     <li>
                         <span class="label">Time:</span>
+                        {% if event.end_time %}
                         <span>{{ event.time }} - {{ event.end_time }}</span>
+                        {% else %}
+                        <span>{{ event.time }}</span>
+                        {% endif %}
                     </li>
                     {% endif %}
                 </ul>
