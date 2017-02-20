@@ -125,7 +125,8 @@ def success(req):
         #         'invoice': invoice
         #     }
         # )
-        messages.success(req, 'accomodation')
+        if req.user.profile.hospitality_days == 0:
+            messages.success(req, 'accomodation')
         return return_val
 
 @csrf_exempt

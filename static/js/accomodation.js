@@ -38,7 +38,7 @@ app.accomodation = {};
 	}  
 	function showSuccessNotification() {
         app.notification.notify({
-            text: 'Thank you for submission\nFor More Details Cantact here: \n',
+            text: 'Thank you for submission\nFor More Details Cantact here:\nsaransh',
             type: 'info',
             persistant: true
         });
