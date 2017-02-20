@@ -30,13 +30,7 @@ $(document).ready(function(){
 		}
 	});
 	
-    $(window).scroll(function () {
-        if ($(window).scrollTop() > 400) {
-            $("#navigation").css("background-color","#0EB493");
-        } else {
-            $("#navigation").css("background-color","rgba(16, 22, 54, 0.2)");
-        }
-    });
+   
 
 	 $('.navbar a').click(function () {
                 if(!$(this).hasClass("dropdown-toggle") && !$(this).hasClass("login-register"))
@@ -65,18 +59,6 @@ $(document).ready(function(){
 
     $(".project-wrapper").mixItUp();
 	
-	
-	$(".fancybox").fancybox({
-		padding: 0,
-
-		openEffect : 'elastic',
-		openSpeed  : 650,
-
-		closeEffect : 'elastic',
-		closeSpeed  : 550,
-
-		closeClick : true,
-	});
 	
 	/* ========================================================================= */
 	/*	Parallax

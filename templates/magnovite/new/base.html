@@ -77,7 +77,7 @@
         <!-- Modernizer Script for old Browsers -->
         <script src="/static/new/js/modernizr-2.6.2.min.js"></script>
 
-    {% block "css_extra" %}
+   
     <style type="text/css">
         a:hover
         {
@@ -157,7 +157,7 @@
 
     </style>
 
-
+     {% block "css_extra" %}
     {% endblock "css_extra" %}
 </head>
 <body id="body" class="page-loading {% block "body_css_class" %}{% endblock %}">
@@ -223,6 +223,7 @@
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
                     <ul id="nav" class="nav navbar-nav">
                         <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'partners' %}">Our Partners</a></li>
                         <li><a href="{% url 'events' %}">Events</a></li>
                         <li><a href="{% url 'workshop' %}">Workshops</a></li>
                         <li><a href="{% url 'campus' %}">Campus Ambassador</a></li>
@@ -285,7 +286,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <p class="copyright text-center" style="font-size:25px;">
-                            Design And Developed By <a style="color:white;font-weight:bold;" href="https://github.com/dggs123/magnovitev6/graphs/contributors">These Guys</a>
+                            Design And Developed By <a style="color:white;font-weight:bold;" href="https://github.com/dggs123/magnovitev6/graphs/contributors">Gaurav Sehgal</a>
                             </p>
                         </div>
                     </div>
@@ -330,7 +331,6 @@
         <!-- Twitter Bootstrap -->
         <script src="/static/new/js/bootstrap.min.js"></script>
         <!-- jquery.fancybox.pack -->
-        <script src="/static/new/js/jquery.fancybox.pack.js"></script>
         <!-- jquery.mixitup.min -->
         <script src="/static/new/js/jquery.mixitup.min.js"></script>
         <!-- jquery.parallax -->
@@ -416,7 +416,7 @@
         <script src="/static/new/js/custom.js"></script>
 
     <!-- endbuild -->
-
+    {% block "nav_js" %}{% endblock %}
     {% block "post_js" %}{% endblock %}
 
     {# Show all the messages #}

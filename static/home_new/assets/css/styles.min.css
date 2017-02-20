@@ -2400,6 +2400,18 @@ font-size: 15px;
 {
     width: 0%;
 }
+.partners:hover:after
+{
+    width: 0%;
+}
+.partners span:hover
+{
+    transition: all 0.5s ease-in-out;
+}
+.partners span:hover
+{
+    opacity: 1;
+}
 .social-link:hover:after
 {
     width: 100%;

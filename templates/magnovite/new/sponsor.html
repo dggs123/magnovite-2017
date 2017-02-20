@@ -18,23 +18,164 @@
 <meta name="twitter:description" content="Christ University presents its annual techno-cultural fest Magnovite V6, on 2nd and 3rd and 4th of March 2017."" />
 <meta name="twitter:image" content="https://magnovite.net/static/img/logo_square_share.png" />
 {% endblock "extra_meta" %}
+{% block "css_extra" %}
+<style type="text/css">
+  .p-title
+  {
+    margin-top: 100px;
+  }
+  .img-p
+  {
+    text-align: center;
+  }
+  .img-p img
+  {
+    height: 80px;
+  }
+   @media only screen and (max-width: 640px) {
+     .img-p img
+  {
+    height: 60px;
+  }
+        
+        }
+  .title-p
+  {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .title-p h2
+  {
+    font-size: 20px;
+  }
+  .our-p
+  {
+    margin-bottom: 50px;
+  }
+  .sec-title
+  {
+    margin-bottom: 30px;
+  }
+  .our-p .col-lg-6
+  {
+    margin-bottom: 60px;
+  }
+  .our-p .col-lg-4
+  {
+    margin-bottom: 60px;
+  }
+  .devider::before,
+  .devider::after
+  {
+    color: #0eb493;
+  }
+  .devider i
+  {
+    color: #0eb493;
+  }
+  #navigation
+  {
+    background-color: #0eb493;
+  }
+</style>
+{% endblock "css_extra" %}
 
 {% block "content" %}
 	
 
 <div class="container">
-  <div class="row">
-    <div class="col-*-*">
-    	Our Partners
+        <div class="row p-title">
+
+          <div class="sec-title text-center">
+            <h2>Our Partners</h2>
+            <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+          </div>
+          </div>
+
+  <div class="row our-p">
+    <div class="col-lg-6">
+      <div class="title-p"><h2>
+          Online Media Partner
+      </h2>
+      </div>
+      <div class="img-p">
+      <a href="https://www.yepdesk.com/">
+        <img src="/static/img/partners/yepdesk.png" /></a>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-*-*"></div>
-    <div class="col-*-*"></div>
-    <div class="col-*-*"></div>
-  </div>
-  <div class="row">
-    ...
+    </div>
+        <div class="col-lg-6">
+      <div class="title-p"><h2>
+          Online Media Partner
+      </h2>
+      </div>
+      <div class="img-p">
+      <a href="http://festpav.com/">
+        <img src="/static/img/partners/festPav.png" /></a>
+    </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="title-p"><h2>
+          Online Media Partner
+      </h2>
+      </div>
+      <div class="img-p">
+      <a href="http://www.knowafest.com/">
+        <img src="/static/img/partners/Logo_300_100.png" /></a>
+    </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="title-p"><h2>
+          Online Media Partner
+      </h2>
+      </div>
+      <div class="img-p">
+      <a href="http://collegedesk.in/">
+        <img src="/static/img/partners/CollegeDesk.jpg" /></a>
+    </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="title-p"><h2>
+          Online Promotions Partner
+      </h2>
+      </div>
+      <div class="img-p">
+      <a href="http://electronicsforu.com/">
+        <img src="/static/img/partners/EFY.png" /></a>
+    </div>
+    </div>
+    
+        <div class="col-lg-4">
+      <div class="title-p"><h2>
+          Online Promotions Partner
+      </h2>
+      </div>
+      <div class="img-p">
+      <a href="https://allevents.in/">
+        <img src="/static/img/partners/ae-logo.png" /></a>
+    </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="title-p"><h2>
+          Official Blog Partner
+      </h2>
+      </div>
+      <div class="img-p">
+      <a href="http://economydecoded.com/">
+        <img src="/static/img/partners/ED1-min.jpg" /></a>
+    </div>
+    </div>
+        
+    <div class="col-lg-4">
+      <div class="title-p"><h2>
+          Online Advertising Partner
+      </h2>
+      </div>
+      <div class="img-p">
+      <a href="http://www.releasemyad.com/">
+        <img src="/static/img/partners/ReleaseMyAd.png" /></a>
+    </div>
+    </div>
   </div>
 </div>
 
@@ -54,6 +195,7 @@
               }
             );
             wow.init();
+            
         </script>
 
         {% endblock %}

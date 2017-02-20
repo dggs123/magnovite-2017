@@ -191,6 +191,22 @@ font-weight: bold;">Cap Limit: </span><br>{% if not open_r %}{{ workshop.out_max
 		</section>
 		        {% endblock %}
 
+
+             {% block "nav_js" %}
+        <script type="text/javascript">
+
+$(document).ready(function(){
+             $(window).scroll(function () {
+        if ($(window).scrollTop() > 400) {
+            $("#navigation").css("background-color","#0EB493");
+        } else {
+            $("#navigation").css("background-color","rgba(16, 22, 54, 0.2)");
+        }
+    });
+         });
+        </script>
+    {% endblock %}
+
  {% block "post_js" %}
   <script>
             var wow = new WOW ({
