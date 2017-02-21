@@ -115,7 +115,7 @@ font-weight: bold;">Description: </span><br>{{ workshop.desc_1 }}</p></div>
           <div class="row" style="padding-top:0px;">
           <div class="col-sm-6"><p><span style="font-size: 15px;
 color: #009973;
-font-weight: bold;">Faculty Incharge: </span><br>{{ workshop.faculty_name }</p></div>
+font-weight: bold;">Faculty Incharge: </span><br>{{ workshop.faculty_name }}</p></div>
           <div class="col-sm-6"><p><span style="font-size: 15px;
 color: #009973;
 font-weight: bold;">Organised by: </span><br>{{ workshop.desc_2 }}</p></div>
@@ -123,7 +123,7 @@ font-weight: bold;">Organised by: </span><br>{{ workshop.desc_2 }}</p></div>
           <div class="row" style="padding-top:0px;">
           <div class="col-sm-6"><p><span style="font-size: 15px;
 color: #009973;
-font-weight: bold;">Student Incharge: </span><br>{{ workshop.std_1_name }}<br>{% if workshop.std_1_mobile %}+91-{{ workshop.std_1_mobile }}{% endif %}<br>{% if workshop.std_1_email %}{{ workshop.std_1_email }}{% endif %}</p></div>
+font-weight: bold;">Student Incharge: </span><br>{{ workshop.std_1_name }}<br>{% if workshop.std_1_email %}{{ workshop.std_1_email }}{% endif %}</p></div>
           <div class="col-sm-6"><p><span style="font-size: 15px;
 color: #009973;
 font-weight: bold;">Cap Limit: </span><br>{% if not open_r %}{{ workshop.out_max_range }}{% else %}{{ workshop.max_range }}{% endif %}</p></div>
