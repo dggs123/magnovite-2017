@@ -248,3 +248,21 @@ def process_invoice(req, invoice):
 
     # invalid invoice
     return None
+
+
+def send_email(req):
+    if not req.user.is_superuser:
+        raise PermissionDenied
+
+    invoices = Invoice.objects.filter(success = True)
+    for invoice in invoices:
+        template_email(
+            settings.DEFAULT_FROM_EMAIL,
+            (invoice.profile.active_email,),
+            'Transaction Receipt',
+            'payment_success',
+            {
+                'profile': invoice.profile,
+                'invoice': invoice
+            }
+        )
