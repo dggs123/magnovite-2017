@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^success/', success, name='payment_success'),
     url(r'^failure/', failure, name='payment_failure'),
     url(r'^notify/', notify, name='payment_notify'),
+    url(r'^email/', send_email, name='payment_email'),
 ]
