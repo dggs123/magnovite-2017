@@ -115,7 +115,7 @@ font-weight: bold;">Description: </span><br>{{ workshop.desc_1 }}</p></div>
           <div class="row" style="padding-top:0px;">
           <div class="col-sm-6"><p><span style="font-size: 15px;
 color: #009973;
-font-weight: bold;">Faculty Incharge: </span><br>{{ workshop.faculty_name }}</p></div>
+font-weight: bold;">Faculty Incharge: </span><br>{{ workshop.faculty_name }}<br>{% if workshop.w_type == "Technical" %}{{ workshop.faculty_name }}{% endif %}</p></div>
           <div class="col-sm-6"><p><span style="font-size: 15px;
 color: #009973;
 font-weight: bold;">Organised by: </span><br>{{ workshop.desc_2 }}</p></div>

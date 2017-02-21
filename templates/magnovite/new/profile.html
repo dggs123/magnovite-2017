@@ -341,3 +341,15 @@
 
 <button data-type="Register" data-params="{{workshop.id}}" data-wname="{{ workshop.title }}" class="button gray js-register" style="">Register Now</button>
 <button data-type="Register" data-params="{{workshop.id}}" data-wname="{{ workshop.title }}" class="button gray js-register" style="">Register Now</button>
+
+
+
+
+<div class="row" style="padding-top:0px;">
+          <div class="col-sm-6"><p><span style="font-size: 15px;
+color: #009973;
+font-weight: bold;">Co-Faculty Incharge: </span><br>{{ workshop.std_1_name }}<br>{% if workshop.std_1_email %}{{ workshop.std_1_email }}{% endif %}</p></div>
+          <div class="col-sm-6"><p><span style="font-size: 15px;
+color: #009973;
+font-weight: bold;">Venue and Time: </span><br>{% if not open_r %}{{ workshop.out_max_range }}{% else %}{{ workshop.max_range }}{% endif %}</p></div>
+          </div>
