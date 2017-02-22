@@ -38,7 +38,7 @@ app.accomodation = {};
 	}  
 	function showSuccessNotification() {
         app.notification.notify({
-            text: 'Thank you for submission\nFor More Details Cantact here:\nsaransh',
+            text: 'Thank you for submission\nFor More Details Cantact here:\nsam96.sharma@gmail.com',
             type: 'info',
             persistant: true
         });
