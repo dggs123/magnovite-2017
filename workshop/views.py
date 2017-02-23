@@ -165,8 +165,9 @@ def generate_exel_invoice(req):
     i=0
     writer.writerow(['Slno', 'Name', 'Phone No', 'Email', 'College','Workshop Title','Amount paid'])
     for w in invoice:
-        writer.writerow([i+1, w.profile.name, w.profile.mobile, w.profile.user.email, w.profile.college,w.workshop.title,w.amount])
-        i+=1
+        if "gmail" in w.profile.user.email:
+            writer.writerow([i+1, w.profile.name, w.profile.mobile, w.profile.user.email, w.profile.college,w.workshop.title,w.amount])
+            i+=1
 
     return response
 
