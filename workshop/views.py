@@ -142,11 +142,12 @@ def generate_exel(req):
         u1 = Profile.objects.filter(registered_workshops=w)
         i=0
         for x in u1:
-            try:
-                writer.writerow([i+1, x.name, x.mobile, x.user.email, x.college])
-            except Exception, e:
-                writer.writerow([i+1, x.name, x.mobile, x.user.email, ""])
-            i+=1
+            if "gmail" in w.profile.user.email:
+                try:
+                    writer.writerow([i+1, x.name, x.mobile, x.user.email, x.college])
+                except Exception, e:
+                    writer.writerow([i+1, x.name, x.mobile, x.user.email, ""])
+                i+=1
         writer.writerow([""])
         writer.writerow(['-----------', '-----------', '----------', '----------', '----------'])
         writer.writerow([""])
