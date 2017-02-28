@@ -231,8 +231,9 @@ def generate_exel(req):
         i=0
         for x in u1:
             if x.is_owner == True or x.event.team_type == "individual":
-                writer.writerow([i+1, x.profile.name, x.profile.mobile, x.profile.user.email, x.profile.college])
-                i+=1
+                if "Alliance" in x.profile.college:
+                    writer.writerow([i+1, x.profile.name, x.profile.mobile, x.profile.user.email, x.profile.college])
+                    i+=1
         writer.writerow([""])
         writer.writerow(['----------------', '------------', "------------", "---------------", "---------------"])
     return response
