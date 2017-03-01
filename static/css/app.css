@@ -2062,13 +2062,19 @@ body.mobile .notifications .notification {
 .event-cover {
   position: relative;
   overflow: hidden;
-  height: 500px;
+  /*height: 500px;*/
+  max-height: 550px;
 }
 .event-cover .image {
   width: 100%;
   min-height: 300px;
+  max-height: 550px;
   /*height: 500px;*/
 }
+/*.lazy
+{
+  height: 500px;
+}*/
 .event-cover .content {
   height: 150px;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.3));
