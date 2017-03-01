@@ -124,7 +124,6 @@
             width: 100%;
            
             z-index: 100; 
-            text-align: center;
             }
             .mobile .pre-img
             {
@@ -135,6 +134,10 @@
         {
             color: black;
         }
+    .pre-img p
+    {
+        text-align: center;
+    }
     .loader {
       border: 6px solid transparent;
       border-radius: 50%;
@@ -164,7 +167,8 @@
     {% csrf_token %}
 
     <div class="pre-img">
-    <div class="loader"></div>
+    <p>
+    <div class="loader"></div></p>
     </div>
          <div id="myModal" class="modal" role="dialog">
   <div class="modal-dialog">
