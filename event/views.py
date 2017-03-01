@@ -224,16 +224,18 @@ def generate_exel(req):
     writer.writerow(["Events:"])
     writer.writerow([""])
     writer.writerow([""])
-    writer.writerow(['Slno', 'Name', "Mobile", "Email", "College", "Event Name"])
+    
     for w in workshop:
-        
+        writer.writerow([w.title])
+        writer.writerow(['Slno', 'Name', "Mobile", "Email", "College", "Event Name"])
         u1 = w.registration_set.all()
         i=0
         for x in u1:
             if x.is_owner == True or x.event.team_type == "individual":
-                if "Alliance" in x.profile.college:
-                    writer.writerow([i+1, x.profile.name, x.profile.mobile, x.profile.user.email, x.profile.college,w.title])
-                    i+=1
+                writer.writerow([i+1, x.profile.name, x.profile.mobile, x.profile.user.email, x.profile.college,w.title])
+                i+=1
+        writer.writerow([""])
+        writer.writerow(["--------","---------","-----------"])
     return response
 
 
