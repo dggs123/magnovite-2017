@@ -113,35 +113,13 @@ function opena()
 	<div class="modal-inner">
 		<div class="close">x</div>
 
-		<h2 class="title">Team Registrations</h2>
+		<h2 class="title">Magnovite is live</h2>
 		<div class="body">
-			<div class="panel">
-				<div class="button gray new-team js-new-team">
-					Start a Team
-				</div>
-
+			
 				<p class="text">
-					{% if event.is_group %}
-					Pay {{ event.price }}/- to create your own team! Upto {{event.team_max}} of
-					your friends can join for free with your Team ID
-					{% else %}
-					Start your own team! You will be given a unique
-					Team ID which your friends can use to join your
-					team
-					{% endif %}
+					Sorry, Registration are closed!!!!<br>
+					If you realy want to take part please go for onspot registration
 				</p>
-			</div>
-			<div class="panel">
-				<input class="gray" type="text" maxlength="10" placeholder="Team ID" autocomplete="off" name="teamId">
-				<p class="error">Invalid Team ID, Make sure the Team ID matches with the event</p>
-				<div class="button gray join-team js-join-team">
-					Join Team
-				</div>
-
-				<p class="text">
-					Enter a Team ID to join a team
-				</p>
-			</div>
 		</div>
 	</div>
 </div>
@@ -149,24 +127,14 @@ function opena()
 <div class="modal detail-modals single-create-modal {{event.type}}" id="single-create-modal">
 	<div class="modal-inner">
 		<div class="close">x</div>
-		<h2 class="title">Make Payment</h2>
 
+		<h2 class="title">Magnovite is live</h2>
 		<div class="body">
-			<ul class="list">
-				<li>A one time payment of {{ event.price }}/- is charged to registered in this event</li>
-				<li>Payments are final and refunds will not be entertained</li>
-			</ul>
-
-				<p style="padding: 0px 50px;font-size:15px;color:rgba(0, 0, 0, 0.8);">Accomodation :</p>
-				<ul class="list">
-				<li>Payments for accommodation will be done on-spot during Magnovite.</li>
-				<li>Every person having approval for accommodations need to pay at the spot for accommodations. These payments are completely independent of payments for Events/Workshops.</li>
-			</ul>
-			<div class="payu">
-				<img src="/static/img/payu.jpg" style="width:150px;" alt="PayuMoney">
-			</div>
-
-			<div data-type="single" data-params="id={{event.id}}" class="button gray btn-invoice js-pay">Pay</div>
+			
+				<p class="text">
+					Sorry, Registration are closed!!!!<br>
+					If you realy want to take part please go for onspot registration
+				</p>
 		</div>
 	</div>
 </div>
