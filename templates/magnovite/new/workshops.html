@@ -141,9 +141,9 @@ font-weight: bold;">Cap Limit: </span><br>{% if not open_r %}{{ workshop.out_max
           {% elif workshop.registrations_open %}
                         {% if not open_r %}
                               {% if workshop.out_max_range == workshop.out_min_range %}
-                              <p style="text-align:center; font-weight:bold;  padding-bottom:15px">Slots Are Full for this workshops </p>
+                              <p style="text-align:center; font-weight:bold;  padding-bottom:15px">Slots Are Full for this workshops.</p>
                               {% else %}
-                                 <p style="text-align:center; font-weight:bold;  padding-bottom:15px">Registrations are closed </p>
+                                 <button data-type="workshop" data-params="id={{workshop.id}}" class="button gray js-pay" style="">Register Now</button>
                                {% endif %}
                         {% else %}
                               {% if workshop.min_range == workshop.max_range %}

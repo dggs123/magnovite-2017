@@ -28,14 +28,26 @@
   {
     text-align: center;
   }
+  .img-s
+  {
+    text-align: center;
+  }
   .img-p img
   {
     height: 80px;
+  }
+   .img-s img
+  {
+    height: 180px;
   }
    @media only screen and (max-width: 640px) {
      .img-p img
   {
     height: 60px;
+  }
+  .img-s img
+  {
+    height: 110px;
   }
         
         }
@@ -52,6 +64,10 @@
   {
     margin-bottom: 50px;
   }
+  .our-s
+  {
+    margin-bottom: 70px;
+  }
   .sec-title
   {
     margin-bottom: 30px;
@@ -59,6 +75,14 @@
   .our-p .col-lg-6
   {
     margin-bottom: 60px;
+  }
+  .our-p .col-lg-12
+  {
+    margin-bottom: 60px;
+  }
+  .our-s .col-lg-12
+  {
+    margin-bottom: 0px;
   }
   .our-p .col-lg-4
   {
@@ -77,6 +101,10 @@
   {
     background-color: #0eb493;
   }
+  .media-p
+  {
+    margin-top: 0px;
+  }
 </style>
 {% endblock "css_extra" %}
 
@@ -84,15 +112,42 @@
 	
 
 <div class="container">
-        <div class="row p-title">
+
+ <div class="row p-title">
 
           <div class="sec-title text-center">
-            <h2>Our Partners</h2>
+            <h2>Title Sponsor</h2>
+            <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+          </div>
+          </div>
+          <div class="row our-s">
+   <div class="col-lg-12 t-sponsor">
+      <div class="img-s">
+      <a href="https://www.southindianbank.com/">
+        <img src="/static/img/partners/title-sponsor.png" /></a>
+    </div>
+    </div>
+    </div>
+
+        <div class="row p-title media-p">
+
+          <div class="sec-title text-center">
+            <h2>Media Partners</h2>
             <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
           </div>
           </div>
 
   <div class="row our-p">
+   <div class="col-lg-12">
+      <div class="title-p"><h2>
+          Official Radio Partner
+      </h2>
+      </div>
+      <div class="img-p">
+      <a href="http://www.theindigoxp.com/">
+        <img src="/static/img/partners/Indigo.jpg" /></a>
+    </div>
+    </div>
     <div class="col-lg-6">
       <div class="title-p"><h2>
           Online Media Partner
