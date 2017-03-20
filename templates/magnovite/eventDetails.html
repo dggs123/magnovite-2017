@@ -150,14 +150,19 @@ function opena()
 <div class="modal detail-modals single-create-modal {{event.type}}" id="single-create-modal">
 	<div class="modal-inner">
 		<div class="close">x</div>
+		<h2 class="title">Register</h2>
 
-		<h2 class="title">Magnovite is live</h2>
+		<h2 class="title"></h2>
 		<div class="body">
-			
-				<p class="text">
-					Sorry, Registration are closed!!!!<br>
-					If you realy want to take part please go for onspot registration
-				</p>
+			<ul class="list">
+				<li>A one time payment of {{ event.price }}/- is charged for registration.</li>
+				<li>Payments are final and refunds will not be entertained</li>
+				</ul>
+			<div class="payu">
+				<img src="/static/img/payu.jpg" alt="PayuMoney">
+			</div>
+
+			<div data-type="single" data-params="id={{event.id}}" class="button gray btn-invoice js-pay">Pay Now</div>
 		</div>
 	</div>
 </div>
