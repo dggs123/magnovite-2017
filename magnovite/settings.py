@@ -180,9 +180,9 @@ if DEBUG:
     PAYU_MERCHANT_SALT = 'auaSx01zGF'
 
     PAYU_URL = 'https://test.payu.in/_payment'
-    PAYU_SUCCESS_URL = 'http://127.0.0.1:8000/payment/success/'
-    PAYU_FAILURE_URL = 'http://127.0.0.1:8000/payment/failure/'
-    PAYU_NOTIFY_URL = 'http://127.0.0.1:8000/payment/notify/'
+    PAYU_SUCCESS_URL = 'https://magnovitev6.herokuapp.com/payment/success/'
+    PAYU_FAILURE_URL = 'http://magnovitev6.herokuapp.com/payment/failure/'
+    PAYU_NOTIFY_URL = 'http://magnovitev6.herokuapp.com/payment/notify/'
 
 LOGIN_REDIRECT_URL = '/profile/'
 LOGIN_URL = '/#login'
