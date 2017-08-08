@@ -1,5 +1,5 @@
 # Magnovite 2017
-Magnovite is a annual tech fest organized by Christ University.
+Magnovite is a annual tech fest organized by Christ University.<br>
 <a href="https://magnovitev6.herokuapp.com" > Demo </a>
 # Setup and running
 Clone the repo and cd to the folder
