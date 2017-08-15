@@ -1,1 +1,0 @@
-from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
